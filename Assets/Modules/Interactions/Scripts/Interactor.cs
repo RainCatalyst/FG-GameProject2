@@ -3,55 +3,72 @@ using UnityEngine;
 
 namespace SpaceGame
 {
+    // This class will interact with interactables
     public class Interactor : MonoBehaviour
     {
-        public Interactable ClosestInteractable => _closestInteractable;
-        public bool CanInteract() => _closestInteractable && _closestInteractable.CanInteract(this);
+        public event Action InteractionStarted; 
+        public event Action InteractionFinished; 
 
-        public void Interact()
+        public void TryInteract()
         {
-            if (!CanInteract()) return;
-            
-            _closestInteractable.Interact(this);
+            // Try to interact with the closest interactable if available
+            if (_closestInteractable != null)
+            {
+                _closestInteractable.Interact(this);
+                _currentInteractable = _closestInteractable;
+                InteractionStarted?.Invoke();
+            }
+        }
+
+        public void CancelInteract()
+        {
+            // Cancel current interaction
+            if (_currentInteractable != null)
+            {
+                _currentInteractable.Cancel(this);
+                InteractionFinished?.Invoke();
+                _currentInteractable = null;
+            }
+        }
+
+        public void FinishInteraction()
+        {
+            InteractionFinished?.Invoke();
+            _currentInteractable = null;
         }
 
         private void Update()
         {
-            var newInteractable = FindInteractable();
-            if (newInteractable != _closestInteractable)
+            var newInteractable = FindClosestInteractable();
+
+            if (newInteractable != null)
             {
-                _closestInteractable?.SetActive(false);
-                if (newInteractable && newInteractable.CanInteract(this))
-                    newInteractable.SetActive(true);
-                _closestInteractable = newInteractable;
+                if (newInteractable != _closestInteractable)
+                {
+                    if (_closestInteractable != null)
+                        _closestInteractable.RemoveInteractor();
+                    newInteractable.AddInteractor();
+                }
             }
             else
             {
-                bool canInteractNow = CanInteract();
-
-                if (_canInteractBefore != canInteractNow)
-                {
-                    _closestInteractable?.SetActive(canInteractNow);
-                    _canInteractBefore = canInteractNow;
-                }
+                if (_closestInteractable != null)
+                    _closestInteractable.RemoveInteractor();
             }
+
+            _closestInteractable = newInteractable;
         }
 
-        // private void OnDrawGizmosSelected()
-        // {
-        //     Handles.matrix = transform.localToWorldMatrix;
-        //     Vector3 from = Quaternion.AngleAxis(-_allowedAngle * 0.5f, Vector3.forward) * Vector3.up;
-        //     Handles.DrawWireArc(Vector3.zero, Vector3.forward, from, _allowedAngle, 1f);
-        // }
-
-        private Interactable FindInteractable()
+        private Interactable FindClosestInteractable()
         {
+            // Go through every interactable in the game and find the closest available one
             float minDistance = float.MaxValue;
             Interactable closest = null;
+            
             foreach (var interactable in Interactable.Interactables)
             {
-                float distance = Vector3.Distance(interactable.transform.position , transform.position);
-                if (distance <= interactable.Range && distance <= minDistance)
+                float distance = Vector3.Distance(transform.position, interactable.transform.position);
+                if (distance <= interactable.Range && interactable.CanInteract(this) && distance < minDistance)
                 {
                     minDistance = distance;
                     closest = interactable;
@@ -61,14 +78,7 @@ namespace SpaceGame
             return closest;
         }
 
+        private Interactable _currentInteractable;
         private Interactable _closestInteractable;
-        private bool _canInteractBefore;
-
-        [SerializeField]
-        private float _allowedAngle;
-        [SerializeField]
-        private bool _ignoreAngle;
-        [SerializeField]
-        private bool _showBubbles;
     }
 }
