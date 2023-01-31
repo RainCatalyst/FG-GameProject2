@@ -18,7 +18,7 @@ namespace SpaceGame
             Vector2 axis;
             axis.x = Input.GetAxisRaw(horizontalAxis) + Input.GetAxisRaw(horizontalAxisJoy);
             axis.y = Input.GetAxisRaw(verticalAxis) + Input.GetAxisRaw(verticalAxisJoy);
-            return axis;
+            return axis.normalized;
         }
         
         private void Awake()

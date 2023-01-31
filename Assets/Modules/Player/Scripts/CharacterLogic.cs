@@ -15,6 +15,7 @@ namespace SpaceGame
         private void Update()
         {
             Vector2 moveDirection = _input.GetAxis();
+            print(moveDirection);
             _movement.Move(moveDirection);
         }
 
