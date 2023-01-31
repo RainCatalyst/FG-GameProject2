@@ -11,6 +11,7 @@ namespace SpaceGame
         public virtual bool CanInteract(Interactor interactor) => true;
         public virtual void SetActive(bool active) => _bubble.SetActive(active);
         public void Interact(Interactor interactor) => OnInteract(interactor);
+        public void Cancel(Interactor interactor) => OnCancel(interactor);
 
         protected virtual void OnInteract(Interactor interactor)
         {
@@ -20,9 +21,17 @@ namespace SpaceGame
             // if (_interactClip)
             //     _interactClip.Play(transform.position);
         }
+        
+        protected virtual void OnCancel(Interactor interactor)
+        {
+            // Do bubble animations and stuff
+            // if (interactor.ShowBubbles)
+            //     _bubble.Blink();
+            // if (_interactClip)
+            //     _interactClip.Play(transform.position);
+        }
 
         private void OnEnable() => Interactables.Add(this);
-
         private void OnDisable() => Interactables.Remove(this);
 
         private void OnDrawGizmos()
