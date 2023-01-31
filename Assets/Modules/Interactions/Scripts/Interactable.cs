@@ -9,10 +9,23 @@ namespace SpaceGame
         public static List<Interactable> Interactables = new();
         public float Range => _range;
         
-        public bool CanInteract(Interactor interactor) => true;
+        public virtual bool CanInteract(Interactor interactor)
+        {
+            return true;
+        }
 
-        public void ToggleBubble(bool show) => _bubble.SetActive(show);
+        public void AddInteractor()
+        {
+            _availableInteractorsCount++;
+            UpdateBubble();
+        }
         
+        public void RemoveInteractor()
+        {
+            _availableInteractorsCount--;
+            UpdateBubble();
+        }
+
         public void Interact(Interactor interactor)
         {
             _currentInteractor = interactor;
@@ -25,31 +38,29 @@ namespace SpaceGame
             _currentInteractor = null;
         }
 
-        protected void OnInteractionStarted()
+        protected virtual void OnInteractionStarted()
         {
             // This happens when we start the interaction
             _interactionTimer = 0;
         }
         
-        protected void OnInteractionFinished()
+        protected virtual void OnInteractionFinished()
         {
             // This happens when we complete the interaction
             _currentInteractor.FinishInteraction();
             _currentInteractor = null;
         }
 
-        protected void OnInteractionCanceled()
+        protected virtual void OnInteractionCanceled()
         {
-            // This happens when we cancel the interaction
-            print("Hey I cancled interaction!");
+            // This happens when we cancel the interactionw
         }
 
-        protected void OnInteractionUpdate()
+        protected virtual void OnInteractionUpdate()
         {
             // This happens every frame while interacting
             _interactionTimer += Time.deltaTime;
             
-            print($"Interaction time: {_interactionTimer}");
             if (_interactionTimer >= _duration)
             {
                 OnInteractionFinished();
@@ -57,6 +68,18 @@ namespace SpaceGame
 
             float progress = Mathf.Clamp01(_interactionTimer / _duration);
             _bubble.SetProgress(progress);
+        }
+
+        private void UpdateBubble()
+        {
+            if (_availableInteractorsCount > 0)
+            {
+                _bubble.SetActive(true);
+            }
+            else
+            {
+                _bubble.SetActive(false);
+            }
         }
 
         private void OnEnable() => Interactables.Add(this);
@@ -79,7 +102,8 @@ namespace SpaceGame
         [SerializeField] private float _range = 1f;
         [SerializeField] private float _duration = 1f;
         [SerializeField] private InteractableBubble _bubble;
-        
+
+        private int _availableInteractorsCount;
         private Interactor _currentInteractor;
         private float _interactionTimer;
     }

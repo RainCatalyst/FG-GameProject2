@@ -46,14 +46,14 @@ namespace SpaceGame
                 if (newInteractable != _closestInteractable)
                 {
                     if (_closestInteractable != null)
-                        _closestInteractable.ToggleBubble(false);
-                    newInteractable.ToggleBubble(true);
+                        _closestInteractable.RemoveInteractor();
+                    newInteractable.AddInteractor();
                 }
             }
             else
             {
                 if (_closestInteractable != null)
-                    _closestInteractable.ToggleBubble(false);
+                    _closestInteractable.RemoveInteractor();
             }
 
             _closestInteractable = newInteractable;
