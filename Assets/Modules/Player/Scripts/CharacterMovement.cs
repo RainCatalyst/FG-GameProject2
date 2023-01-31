@@ -4,8 +4,17 @@ namespace SpaceGame
 {
     public class CharacterMovement : MonoBehaviour
     {
+        public void SetMovementLock(bool locked)
+        {
+            _isMovementLocked = locked;
+            if (locked)
+                _targetDirection = Vector2.zero;
+        }
+        
         public void Move(Vector2 direction)
         {
+            if (_isMovementLocked)
+                return;
             _targetDirection = direction;
         }
 
@@ -25,6 +34,7 @@ namespace SpaceGame
         
         private Vector2 _targetDirection;
         private Vector2 _currentDirection;
+        private bool _isMovementLocked;
         private Rigidbody _rb;
     }
 }

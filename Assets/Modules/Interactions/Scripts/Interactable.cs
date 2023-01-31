@@ -1,38 +1,69 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace SpaceGame
 {
-    public abstract class Interactable : MonoBehaviour
+    public class Interactable : MonoBehaviour
     {
         public static List<Interactable> Interactables = new();
         public float Range => _range;
         
-        public virtual bool CanInteract(Interactor interactor) => true;
-        public virtual void SetActive(bool active) => _bubble.SetActive(active);
-        public void Interact(Interactor interactor) => OnInteract(interactor);
-        public void Cancel(Interactor interactor) => OnCancel(interactor);
-
-        protected virtual void OnInteract(Interactor interactor)
+        public bool CanInteract(Interactor interactor) => true;
+        
+        public void Interact(Interactor interactor)
         {
-            // Do bubble animations and stuff
-            // if (interactor.ShowBubbles)
-            //     _bubble.Blink();
-            // if (_interactClip)
-            //     _interactClip.Play(transform.position);
+            _currentInteractor = interactor;
+            OnInteractionStarted();
+        }
+
+        public void Cancel(Interactor interactor)
+        {
+            OnInteractionCanceled();
+            _currentInteractor = null;
+        }
+
+        protected void OnInteractionStarted()
+        {
+            // This happens when we start the interaction
+            _interactionTimer = 0;
         }
         
-        protected virtual void OnCancel(Interactor interactor)
+        protected void OnInteractionFinished()
         {
-            // Do bubble animations and stuff
-            // if (interactor.ShowBubbles)
-            //     _bubble.Blink();
-            // if (_interactClip)
-            //     _interactClip.Play(transform.position);
+            // This happens when we complete the interaction
+            _currentInteractor.FinishInteraction();
+            _currentInteractor = null;
+        }
+
+        protected void OnInteractionCanceled()
+        {
+            // This happens when we cancel the interaction
+            print("Hey I cancled interaction!");
+        }
+
+        protected void OnInteractionUpdate()
+        {
+            // This happens every frame while interacting
+            _interactionTimer += Time.deltaTime;
+            
+            print($"Interaction time: {_interactionTimer}");
+            if (_interactionTimer >= _duration)
+            {
+                OnInteractionFinished();
+            }
         }
 
         private void OnEnable() => Interactables.Add(this);
         private void OnDisable() => Interactables.Remove(this);
+
+        private void Update()
+        {
+            if (_currentInteractor != null)
+            {
+                OnInteractionUpdate();
+            }
+        }
 
         private void OnDrawGizmos()
         {
@@ -40,9 +71,10 @@ namespace SpaceGame
             Gizmos.DrawWireSphere(transform.position, _range);
         }
 
-        [SerializeField]
-        private float _range;
-        [SerializeField]
-        protected InteractableBubble _bubble;
+        [SerializeField] private float _range = 1f;
+        [SerializeField] private float _duration = 1f;
+        
+        private Interactor _currentInteractor;
+        private float _interactionTimer;
     }
 }
