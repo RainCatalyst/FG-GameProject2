@@ -39,7 +39,24 @@ namespace SpaceGame
 
         private void Update()
         {
-            _closestInteractable = FindClosestInteractable();
+            var newInteractable = FindClosestInteractable();
+
+            if (newInteractable != null)
+            {
+                if (newInteractable != _closestInteractable)
+                {
+                    if (_closestInteractable != null)
+                        _closestInteractable.ToggleBubble(false);
+                    newInteractable.ToggleBubble(true);
+                }
+            }
+            else
+            {
+                if (_closestInteractable != null)
+                    _closestInteractable.ToggleBubble(false);
+            }
+
+            _closestInteractable = newInteractable;
         }
 
         private Interactable FindClosestInteractable()

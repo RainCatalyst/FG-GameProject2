@@ -10,6 +10,8 @@ namespace SpaceGame
         public float Range => _range;
         
         public bool CanInteract(Interactor interactor) => true;
+
+        public void ToggleBubble(bool show) => _bubble.SetActive(show);
         
         public void Interact(Interactor interactor)
         {
@@ -52,6 +54,9 @@ namespace SpaceGame
             {
                 OnInteractionFinished();
             }
+
+            float progress = Mathf.Clamp01(_interactionTimer / _duration);
+            _bubble.SetProgress(progress);
         }
 
         private void OnEnable() => Interactables.Add(this);
@@ -73,6 +78,7 @@ namespace SpaceGame
 
         [SerializeField] private float _range = 1f;
         [SerializeField] private float _duration = 1f;
+        [SerializeField] private InteractableBubble _bubble;
         
         private Interactor _currentInteractor;
         private float _interactionTimer;
