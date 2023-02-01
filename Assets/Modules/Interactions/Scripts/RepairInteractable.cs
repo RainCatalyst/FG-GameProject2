@@ -4,10 +4,7 @@ namespace SpaceGame
 {
     public class RepairInteractable : Interactable
     {
-        public override bool CanInteract(Interactor interactor)
-        {
-            return !_isRepaired;
-        }
+        public override bool CanInteract(Interactor interactor) => base.CanInteract(interactor) && !_isRepaired;
 
         protected override void OnInteractionStarted()
         {
