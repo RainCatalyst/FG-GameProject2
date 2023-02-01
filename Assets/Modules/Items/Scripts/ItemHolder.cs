@@ -1,33 +1,29 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 //Pickup logic, this component displays an item that the player is holding
 
-    public class ItemHolder : MonoBehaviour
+public class ItemHolder : MonoBehaviour
+{
+    public string ItemId => _id;
+    public ItemData Item => ItemDatabase.Get(_id);
+
+    public void SetItem(string id)
     {
-        public ItemData Item => ItemDatabase.Get(_id);
-        public string ItemId => _id;
+        _id = id;
 
-        public void SetItem(string id, bool animate = true)
+        if (_activeItem != null)
         {
-            _id = id;
-      //      _spriteRenderer.sprite = Item ? Item.Sprite : null;
-
-            if (animate)
-            {
-             //   LeanTween.cancel(_spriteRenderer.gameObject);
-                _spriteRenderer.transform.localScale = Vector3.one * 1.2f;
-             //   LeanTween.scale(_spriteRenderer.gameObject, Vector3.one, 0.15f).setEaseOutCubic();
-                // _spriteRenderer.color = Color.clear;
-                // LeanTween.color(_spriteRenderer.gameObject, Color.white, 0.1f);
-                // transform.localScale = Vector3.zero;
-                // LeanTween.scale(gameObject, Vector3.one, 0.175f).setEaseInCubic();
-            }
+            Destroy(_activeItem);
         }
 
-        [SerializeField]
-        private SpriteRenderer _spriteRenderer;
-        private string _id;
+        if (_id != null)
+        {
+            _activeItem = Instantiate(Item.GameObject, _itemParent);
+        }
     }
+
+    [SerializeField]
+    private Transform _itemParent;
+    private GameObject _activeItem;
+    private string _id;
+}

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace SpaceGame
@@ -9,11 +10,17 @@ namespace SpaceGame
             _movement = GetComponent<CharacterMovement>();
             _input = GetComponent<CharacterInput>();
             _interactor = GetComponent<Interactor>();
+            _itemHolder = GetComponent<ItemHolder>();
 
             _interactor.InteractionStarted += OnInteractionStarted;
             _interactor.InteractionFinished += OnInteractionFinished;
             
             _input.SetPlayerIndex((int) _characterType);
+        }
+
+        private void Start()
+        {
+            _itemHolder.SetItem("repairkit");
         }
 
         private void Update()
@@ -22,7 +29,7 @@ namespace SpaceGame
             Vector2 moveDirection = _input.GetAxis();
             _movement.Move(moveDirection);
 
-            // Intractions
+            // Interactions
             if (_input.IsInteractionPressed())
             {
                 _interactor.TryInteract();
@@ -54,5 +61,6 @@ namespace SpaceGame
         private CharacterMovement _movement;
         private CharacterInput _input;
         private Interactor _interactor;
+        private ItemHolder _itemHolder;
     }
 }

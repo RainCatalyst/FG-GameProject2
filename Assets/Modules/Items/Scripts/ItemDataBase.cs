@@ -6,7 +6,6 @@ using UnityEngine;
     {
         public static ItemData Get(string id) => id == null ? null : Instance._items[id]; //returns a ItemData object. If value of id is null, return null, else return value of the id key from the items dictionary in Instance object.
 
-
         protected override void Awake()
         {
             base.Awake();
