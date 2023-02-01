@@ -18,9 +18,11 @@ namespace SpaceGame
 
         private void Update()
         {
+            // Movement
             Vector2 moveDirection = _input.GetAxis();
             _movement.Move(moveDirection);
 
+            // Intractions
             if (_input.IsInteractionPressed())
             {
                 _interactor.TryInteract();
@@ -30,21 +32,24 @@ namespace SpaceGame
             {
                 _interactor.CancelInteract();
             }
+            
+            // Animation
+            _animator.SetFloat("Speed", _movement.CurrentSpeed);
+            _animator.SetBool("Holding", false);
         }
 
         private void OnInteractionStarted()
         {
             _movement.SetMovementLock(true);
-            print("Started intraction!");
         }
         
         private void OnInteractionFinished()
         {
             _movement.SetMovementLock(false);
-            print("Finished intraction!");
         }
 
         [SerializeField] private CharacterType _characterType;
+        [SerializeField] private Animator _animator;
 
         private CharacterMovement _movement;
         private CharacterInput _input;

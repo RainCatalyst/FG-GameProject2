@@ -4,6 +4,8 @@ namespace SpaceGame
 {
     public class CharacterMovement : MonoBehaviour
     {
+        public float CurrentSpeed => _currentDirection.magnitude;
+        
         public void SetMovementLock(bool locked)
         {
             _isMovementLocked = locked;
@@ -36,11 +38,11 @@ namespace SpaceGame
                 transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, Time.deltaTime * _rotationSmooth);
             }
         }
-        
+
         [SerializeField] private float _speed = 4f;
         [SerializeField] private float _smooth = 24f;
         [SerializeField] private float _rotationSmooth = 16f;
-        
+
         private Vector2 _targetDirection;
         private Vector2 _currentDirection;
         private bool _isMovementLocked;
