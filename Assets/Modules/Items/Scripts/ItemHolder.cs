@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-    [RequireComponent(typeof(Sprite))]
+//Pickup logic, this component displays an item that the player is holding
+
     public class ItemHolder : MonoBehaviour
     {
         public ItemData Item => ItemDatabase.Get(_id);

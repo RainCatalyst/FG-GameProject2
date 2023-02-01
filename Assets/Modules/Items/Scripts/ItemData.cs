@@ -9,12 +9,11 @@ using UnityEngine;
     public class ItemData : ScriptableObject
     {
         public string Id => _id;
-        public GameObject GameObject => gameObject;
-
+        public GameObject GameObject => _gameObject;
         [SerializeField]
         private string _id;
         [SerializeField]
-        public GameObject gameObject;
+        public GameObject _gameObject;
 
     public void Print()
     {

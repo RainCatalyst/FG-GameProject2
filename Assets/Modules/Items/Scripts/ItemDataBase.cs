@@ -4,7 +4,7 @@ using UnityEngine;
 
     public class ItemDatabase : MonoSingleton<ItemDatabase>
     {
-        public static ItemData Get(string id) => id == null ? null : _items[id]; //returns a ItemData object. If value of id is null, return null, else return value of the id key from the items dictionary in Instance object.
+        public static ItemData Get(string id) => id == null ? null : Instance._items[id]; //returns a ItemData object. If value of id is null, return null, else return value of the id key from the items dictionary in Instance object.
 
 
         protected override void Awake()
@@ -28,5 +28,5 @@ using UnityEngine;
         [SerializeField]
         private string _itemsFolder;
 
-        private static Dictionary<string, ItemData> _items = new Dictionary<string, ItemData>();
-    }
+        private Dictionary<string, ItemData> _items; 
+}
