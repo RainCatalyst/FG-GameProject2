@@ -100,8 +100,8 @@ namespace SpaceGame
         [SerializeField] private float _duration = 1f;
         [SerializeField] private InteractableBubble _bubble;
 
+        protected Interactor _currentInteractor;
         private int _availableInteractorsCount;
-        private Interactor _currentInteractor;
         private float _interactionTimer;
     }
 }
