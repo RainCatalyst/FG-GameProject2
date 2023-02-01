@@ -911,7 +911,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _range: 2
-  _duration: 2
+  _duration: 0.5
   _bubble: {fileID: 2105329275}
   _isRepaired: 0
 --- !u!1001 &2105329274

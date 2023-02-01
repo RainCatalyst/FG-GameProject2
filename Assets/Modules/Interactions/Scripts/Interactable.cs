@@ -8,7 +8,7 @@ namespace SpaceGame
         public static List<Interactable> Interactables = new();
         public float Range => _range;
         
-        public virtual bool CanInteract(Interactor interactor) => _currentInteractor == null;
+        public virtual bool CanInteract(Interactor interactor) => _currentInteractor == null || _currentInteractor == interactor;
 
         public void AddInteractor()
         {
@@ -50,6 +50,7 @@ namespace SpaceGame
         protected virtual void OnInteractionCanceled()
         {
             // This happens when we cancel the interactionw
+            _bubble.SetProgress(0);
         }
 
         protected virtual void OnInteractionUpdate()
