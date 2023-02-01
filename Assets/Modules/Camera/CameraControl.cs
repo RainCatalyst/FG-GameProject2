@@ -24,6 +24,7 @@ public class CameraControl : MonoBehaviour
         CameraMove();
         // CameraZoom();
     }
+    
     private void CameraMove()
     {
         FindAveragePosition(); // Find average position

@@ -125,7 +125,7 @@ PrefabInstance:
     - target: {fileID: 2500040247822789120, guid: fa0c7a90380185d4b94648a57a7232e8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2500040247822789120, guid: fa0c7a90380185d4b94648a57a7232e8,
         type: 3}
@@ -187,6 +187,16 @@ PrefabInstance:
       propertyPath: _animator
       value: 
       objectReference: {fileID: 3441797972474303118}
+    - target: {fileID: 2500040247822789375, guid: fa0c7a90380185d4b94648a57a7232e8,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2500040247822789375, guid: fa0c7a90380185d4b94648a57a7232e8,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
     - target: {fileID: 5927536433646047798, guid: fa0c7a90380185d4b94648a57a7232e8,
         type: 3}
       propertyPath: m_LocalPosition.x
