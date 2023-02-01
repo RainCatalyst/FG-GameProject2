@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,10 +8,7 @@ namespace SpaceGame
         public static List<Interactable> Interactables = new();
         public float Range => _range;
         
-        public virtual bool CanInteract(Interactor interactor)
-        {
-            return true;
-        }
+        public virtual bool CanInteract(Interactor interactor) => _currentInteractor == null || _currentInteractor == interactor;
 
         public void AddInteractor()
         {
@@ -54,6 +50,7 @@ namespace SpaceGame
         protected virtual void OnInteractionCanceled()
         {
             // This happens when we cancel the interactionw
+            _bubble.SetProgress(0);
         }
 
         protected virtual void OnInteractionUpdate()
@@ -103,8 +100,8 @@ namespace SpaceGame
         [SerializeField] private float _duration = 1f;
         [SerializeField] private InteractableBubble _bubble;
 
+        protected Interactor _currentInteractor;
         private int _availableInteractorsCount;
-        private Interactor _currentInteractor;
         private float _interactionTimer;
     }
 }

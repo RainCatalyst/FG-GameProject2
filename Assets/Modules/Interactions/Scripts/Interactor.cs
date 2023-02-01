@@ -7,7 +7,14 @@ namespace SpaceGame
     public class Interactor : MonoBehaviour
     {
         public event Action InteractionStarted; 
-        public event Action InteractionFinished; 
+        public event Action InteractionFinished;
+
+        public ItemHolder ItemHolder => _itemHolder;
+
+        public void Setup(ItemHolder itemHolder)
+        {
+            _itemHolder = itemHolder;
+        }
 
         public void TryInteract()
         {
@@ -80,5 +87,6 @@ namespace SpaceGame
 
         private Interactable _currentInteractable;
         private Interactable _closestInteractable;
+        private ItemHolder _itemHolder;
     }
 }

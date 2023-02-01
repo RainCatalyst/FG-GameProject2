@@ -6,7 +6,7 @@ namespace SpaceGame
     {
         public override bool CanInteract(Interactor interactor)
         {
-            return !_isRepaired;
+            return base.CanInteract(interactor) && !_isRepaired && interactor.ItemHolder.ItemId == "repairkit";
         }
 
         protected override void OnInteractionStarted()
@@ -17,9 +17,11 @@ namespace SpaceGame
 
         protected override void OnInteractionFinished()
         {
-            base.OnInteractionFinished();
             _isRepaired = true;
+            _meshRenderer.material = _repaired;
+            _currentInteractor.ItemHolder.SetItem(null);
             print("Repair finished! Show particles and stuff!");
+            base.OnInteractionFinished();
         }
 
         protected override void OnInteractionCanceled()
@@ -35,5 +37,7 @@ namespace SpaceGame
         }
 
         [SerializeField] private bool _isRepaired;
+        [SerializeField] private MeshRenderer _meshRenderer;
+        [SerializeField] private Material _repaired;
     }
 }
