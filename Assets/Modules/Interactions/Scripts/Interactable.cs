@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,10 +8,7 @@ namespace SpaceGame
         public static List<Interactable> Interactables = new();
         public float Range => _range;
         
-        public virtual bool CanInteract(Interactor interactor)
-        {
-            return true;
-        }
+        public virtual bool CanInteract(Interactor interactor) => _currentInteractor == null;
 
         public void AddInteractor()
         {
