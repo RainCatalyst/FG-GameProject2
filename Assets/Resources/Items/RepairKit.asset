@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: RepairKit
   m_EditorClassIdentifier: 
   _id: _repairkit
-  gameObject: {fileID: 7008215166428434684, guid: b440df461db0479459835eb9b8edda16,
+  _gameObject: {fileID: 7008215166428434684, guid: b440df461db0479459835eb9b8edda16,
     type: 3}
