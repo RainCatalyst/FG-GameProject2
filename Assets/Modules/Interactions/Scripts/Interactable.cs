@@ -82,7 +82,7 @@ namespace SpaceGame
         private void OnEnable() => Interactables.Add(this);
         private void OnDisable() => Interactables.Remove(this);
 
-        private void Update()
+        protected virtual void Update()
         {
             if (_currentInteractor != null)
             {

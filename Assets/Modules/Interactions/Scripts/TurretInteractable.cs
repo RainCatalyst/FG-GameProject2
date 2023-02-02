@@ -10,7 +10,6 @@ namespace SpaceGame
         {
             return base.CanInteract(interactor) && !_isFilled && interactor.ItemHolder.ItemId == "ammo";
         }
-
         protected override void OnInteractionStarted()
         {
             base.OnInteractionStarted();
@@ -20,21 +19,29 @@ namespace SpaceGame
         {
             _isFilled = true;
             _currentInteractor.ItemHolder.SetItem(null);
+            _ammoTimer = 10f;
             base.OnInteractionFinished();
         }
-        protected override void OnInteractionCanceled()
+        protected override void Update()
         {
-            base.OnInteractionCanceled();
-            print("Cancel repair, zap the player with lightning! Ouch!");
+            base.Update();
+            if (_isFilled && _ammoTimer >= 0f)
+            {
+                _ammoTimer -= Time.deltaTime;
+                print(_ammoTimer + " Ammo is loaded");
+                if (_ammoTimer <= 0f)
+                    OutOfAmmo();
+            }
         }
-        protected override void OnInteractionUpdate()
+
+        private void OutOfAmmo()
         {
-            base.OnInteractionUpdate();
-            print("Repairing in progress...");
+            print("Out of Ammo");
         }
+
 
         [SerializeField] private bool _isFilled;
-
-
+        [SerializeField] private float _ammoTimer;
+        private float _ammo;
     }
 }

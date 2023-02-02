@@ -265,6 +265,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2081825251295204909, guid: 6896ec724a76efa428da18b87f30b4e2,
+        type: 3}
+      propertyPath: _ammoTimer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2081825251295204911, guid: 6896ec724a76efa428da18b87f30b4e2,
         type: 3}
       propertyPath: m_Name
