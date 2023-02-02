@@ -12,6 +12,9 @@ namespace SpaceGame
         {
             base.Awake();
             _activeEvents = new();
+
+           // _turretInteractables = FindObjectOfType<TurretInteractable>();
+            _repairables = FindObjectsOfType<RepairInteractable>();
         }
 
         private void Update()
@@ -48,7 +51,8 @@ namespace SpaceGame
             print($"Removed! Total events: {_activeEvents.Count}");
         }
 
-        [SerializeField] private RepairInteractable[] _repairables;
+        private RepairInteractable[] _repairables;
+        private TurretInteractable[] _turretInteractables;
         
         private List<BaseEvent> _activeEvents;
     }

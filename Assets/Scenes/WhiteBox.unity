@@ -123,18 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &115347305 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7511406907385427159, guid: f9cea3f9695916f43801b34fa14ca550,
-    type: 3}
-  m_PrefabInstance: {fileID: 8467615833476529653}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 914fae8468424e2990a87ca214322e1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &201224062
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,11 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fbe29ae5d8249daaa1437b17d6e7ea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _repairables:
-  - {fileID: 471373928}
-  - {fileID: 858945372}
-  - {fileID: 268513738}
-  - {fileID: 115347305}
 --- !u!4 &201224064
 Transform:
   m_ObjectHideFlags: 0
@@ -257,18 +240,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65c3795c2c945c9478edee038858db32, type: 3}
---- !u!114 &268513738 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4843261947175249736, guid: f9cea3f9695916f43801b34fa14ca550,
-    type: 3}
-  m_PrefabInstance: {fileID: 8467615833476529653}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 914fae8468424e2990a87ca214322e1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!850595691 &387234333
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -333,18 +304,6 @@ LightingSettings:
   m_PVRTiledBaking: 0
   m_NumRaysToShootPerTexel: -1
   m_RespectSceneVisibilityWhenBakingGI: 0
---- !u!114 &471373928 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3768261459239708711, guid: f9cea3f9695916f43801b34fa14ca550,
-    type: 3}
-  m_PrefabInstance: {fileID: 8467615833476529653}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 914fae8468424e2990a87ca214322e1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &839545843
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,18 +433,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &858945372 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7278667619365697660, guid: f9cea3f9695916f43801b34fa14ca550,
-    type: 3}
-  m_PrefabInstance: {fileID: 8467615833476529653}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 914fae8468424e2990a87ca214322e1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &894082861
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,7 +608,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-386108
+  m_Name: pb_Mesh-20914
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -1606,6 +1553,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1347639351}
+    - target: {fileID: 6914146465200038483, guid: f9cea3f9695916f43801b34fa14ca550,
+        type: 3}
+      propertyPath: _ammoTimer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7101552607460676161, guid: f9cea3f9695916f43801b34fa14ca550,
         type: 3}
       propertyPath: m_Mesh
@@ -1626,6 +1578,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1960994414}
+    - target: {fileID: 8355340771832318254, guid: f9cea3f9695916f43801b34fa14ca550,
+        type: 3}
+      propertyPath: _ammoTimer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9033695743941975148, guid: f9cea3f9695916f43801b34fa14ca550,
         type: 3}
       propertyPath: m_RootOrder

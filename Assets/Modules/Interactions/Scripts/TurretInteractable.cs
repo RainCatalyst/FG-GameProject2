@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 namespace SpaceGame
 {
     public class TurretInteractable : Interactable
     {
-       // public event Action 
+        public event Action TurretStuff;
+        public bool IsFilled => _isFilled;
+
+
         public override bool CanInteract(Interactor interactor)
         {
             return base.CanInteract(interactor) && !_isFilled && interactor.ItemHolder.ItemId == "ammo";
@@ -38,11 +42,11 @@ namespace SpaceGame
         private void OutOfAmmo()
         {
             print("Out of Ammo");
-            //Invoke action
+            TurretStuff?.Invoke(); //Invoking an event. All listeners will do something. 
         }
 
 
         [SerializeField] private bool _isFilled;
-        [SerializeField] private float _ammoTimer;
+        [SerializeField] private float _ammoTimer = 10f;
     }
 }
