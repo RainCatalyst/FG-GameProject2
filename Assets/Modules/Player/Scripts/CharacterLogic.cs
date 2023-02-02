@@ -39,7 +39,7 @@ namespace SpaceGame
             
             // Animation
             _animator.SetFloat("Speed", _movement.CurrentSpeed);
-            _animator.SetBool("Holding", false);
+            _animator.SetBool("Holding", _itemHolder.ItemId != null);
         }
 
         private void OnInteractionStarted()
