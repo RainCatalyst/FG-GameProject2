@@ -6,17 +6,26 @@ namespace SpaceGame
     {
         public void SetActive(bool active)
         {
-            // Do animations
             _active = active;
-            _visuals.SetActive(active);
+            LeanTween.cancel(_visuals.gameObject);
+            if (active)
+            {
+                SetProgress(0);
+                LeanTween.scale(_visuals.gameObject, Vector3.one, 0.21f).setEaseOutBack();
+            }
+            else
+            {
+                LeanTween.scale(_visuals.gameObject, Vector3.zero, 0.21f).setEaseInBack();
+            }
         }
 
         public void SetProgress(float progress)
         {
-            transform.localScale = Vector3.one * (0.5f + progress * 0.75f);
+            _visuals.material.SetFloat("_Fill", progress * 0.9f);
         }
 
-        [SerializeField] private GameObject _visuals;
+        [SerializeField]
+        private MeshRenderer _visuals;
         private bool _active;
     }
 }

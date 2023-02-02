@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace SpaceGame
@@ -9,6 +10,9 @@ namespace SpaceGame
             _movement = GetComponent<CharacterMovement>();
             _input = GetComponent<CharacterInput>();
             _interactor = GetComponent<Interactor>();
+            _itemHolder = GetComponent<ItemHolder>();
+            
+            _interactor.Setup(_itemHolder);
 
             _interactor.InteractionStarted += OnInteractionStarted;
             _interactor.InteractionFinished += OnInteractionFinished;
@@ -22,7 +26,7 @@ namespace SpaceGame
             Vector2 moveDirection = _input.GetAxis();
             _movement.Move(moveDirection);
 
-            // Intractions
+            // Interactions
             if (_input.IsInteractionPressed())
             {
                 _interactor.TryInteract();
@@ -35,7 +39,7 @@ namespace SpaceGame
             
             // Animation
             _animator.SetFloat("Speed", _movement.CurrentSpeed);
-            _animator.SetBool("Holding", false);
+            _animator.SetBool("Holding", _itemHolder.ItemId != null);
         }
 
         private void OnInteractionStarted()
@@ -54,5 +58,6 @@ namespace SpaceGame
         private CharacterMovement _movement;
         private CharacterInput _input;
         private Interactor _interactor;
+        private ItemHolder _itemHolder;
     }
 }
