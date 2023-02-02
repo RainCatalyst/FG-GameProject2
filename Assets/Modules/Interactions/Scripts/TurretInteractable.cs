@@ -6,6 +6,7 @@ namespace SpaceGame
 {
     public class TurretInteractable : Interactable
     {
+       // public event Action 
         public override bool CanInteract(Interactor interactor)
         {
             return base.CanInteract(interactor) && !_isFilled && interactor.ItemHolder.ItemId == "ammo";
@@ -37,11 +38,11 @@ namespace SpaceGame
         private void OutOfAmmo()
         {
             print("Out of Ammo");
+            //Invoke action
         }
 
 
         [SerializeField] private bool _isFilled;
         [SerializeField] private float _ammoTimer;
-        private float _ammo;
     }
 }
