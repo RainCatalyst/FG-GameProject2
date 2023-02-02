@@ -47,11 +47,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _range: 2
-  _duration: 0.5
+  _duration: 1
   _bubble: {fileID: 2344335585523730050}
   _isRepaired: 0
   _meshRenderer: {fileID: 165098284233038720}
-  _repaired: {fileID: 2100000, guid: 74117f645ca87544896e430b75e9a316, type: 2}
+  _repairedMaterial: {fileID: 2100000, guid: 74117f645ca87544896e430b75e9a316, type: 2}
 --- !u!1 &165098284233038721
 GameObject:
   m_ObjectHideFlags: 0
