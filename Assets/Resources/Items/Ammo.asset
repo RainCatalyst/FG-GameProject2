@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 546872562b803b646965c2667da95448, type: 3}
   m_Name: Ammo
   m_EditorClassIdentifier: 
-  _id: 
-  _gameObject: {fileID: 0}
+  _id: ammo
+  _gameObject: {fileID: 3119713189303186487, guid: 9ff173a2e6f3e9a4b95be9c0095fdb13,
+    type: 3}
