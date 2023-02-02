@@ -8,7 +8,7 @@ namespace SpaceGame
     {
         public override bool CanInteract(Interactor interactor)
         {
-            return base.CanInteract(interactor);
+            return base.CanInteract(interactor) && !_isFilled && interactor.ItemHolder.ItemId == "ammo";
         }
 
         protected override void OnInteractionStarted()
@@ -18,6 +18,8 @@ namespace SpaceGame
 
         protected override void OnInteractionFinished()
         {
+            _isFilled = true;
+            _currentInteractor.ItemHolder.SetItem(null);
             base.OnInteractionFinished();
         }
         protected override void OnInteractionCanceled()
