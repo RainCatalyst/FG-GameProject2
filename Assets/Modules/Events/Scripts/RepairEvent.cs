@@ -15,6 +15,7 @@ namespace SpaceGame
         {
             base.Begin();
             _interactable.Break();
+            _interactable.Repaired += OnComplete;
         }
 
         public override void End()
@@ -29,6 +30,7 @@ namespace SpaceGame
 
         protected override void OnComplete()
         {
+            _interactable.Repaired -= OnComplete;
             base.OnComplete();
         }
 

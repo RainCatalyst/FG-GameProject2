@@ -5,12 +5,14 @@ namespace SpaceGame
 {
     public class RepairInteractable : Interactable
     {
+        public event Action Repaired;
         public bool IsRepaired => _isRepaired;
 
         public void Repair()
         {
             _isRepaired = true;
             _meshRenderer.material = _repairedMaterial;
+            Repaired?.Invoke();
         }
 
         public void Break()
