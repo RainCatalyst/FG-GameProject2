@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace SpaceGame
 {
@@ -11,10 +12,27 @@ namespace SpaceGame
             _enemyHp = _startEnemyHp;
         }
 
+        public void Restart()
+        {
+            Time.timeScale = 1;
+            SceneManager.LoadScene("Game");
+        }
+
+        public void GameOver()
+        {
+            _gameUI.ShowGameOver();
+            Time.timeScale = 0f;
+        }
+
         public void DealAllyDamage(int damage)
         {
             _allyHp -= damage;
             _gameUI.UpdateAllyHP(_allyHp / _startAllyHp);
+
+            if (_allyHp <= 0)
+            {
+                GameOver();
+            }
             print($"Dealt {damage} to ally, left: {_allyHp}");
             // Update UI, trigger lose in case allyHp goes to 0
         }

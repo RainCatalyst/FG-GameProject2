@@ -57,7 +57,7 @@ MonoBehaviour:
   _repairedMaterial: {fileID: 2100000, guid: 74117f645ca87544896e430b75e9a316, type: 2}
   _escalationBar: {fileID: 6370380367607442942}
   _timeUntilFailure: 10
-  _damage: 1
+  _damage: 11
   _effectOrigin: {fileID: 920108335325017811}
   _sparks: {fileID: 1315150853207820839}
 --- !u!1 &165098284233038721
