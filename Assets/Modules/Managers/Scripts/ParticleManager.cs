@@ -1,14 +1,13 @@
 using System;
 using UnityEngine;
 
-namespace GP1.Global
+namespace SpaceGame
 {
     public enum ParticleType
     {
         None,
-        SmallPickup,
-        Crash,
-        BigPickup
+        Explosion,
+        TurretShot
     }
     
     public class ParticleManager : MonoSingleton<ParticleManager>
@@ -23,18 +22,15 @@ namespace GP1.Global
         private GameObject GetParticleObject(ParticleType type) => type switch
         {
             ParticleType.None => null,
-            ParticleType.SmallPickup => _smallPickup,
-            ParticleType.Crash => _crash,
-            ParticleType.BigPickup => _bigPickup,
+            ParticleType.Explosion => _explosion,
+            ParticleType.TurretShot => _turretShot,
             _ => throw new ArgumentOutOfRangeException(nameof(type), $"VfxType not found: {type}"),
         };
         
         [Header("Particles")]
         [SerializeField]
-        private GameObject _smallPickup;
+        private GameObject _explosion;
         [SerializeField]
-        private GameObject _bigPickup;
-        [SerializeField]
-        private GameObject _crash;
+        private GameObject _turretShot;
     }
 }
