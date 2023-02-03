@@ -46,6 +46,7 @@ namespace SpaceGame
                     GameManager.Instance.DealEnemyDamage(_damage);
                     _shootTimer = 0;
                     Shoot?.Invoke();
+                    ParticleManager.Instance.Spawn(ParticleType.Explosion, _effectOrigin.position);
                 }
             }
         }
@@ -64,6 +65,8 @@ namespace SpaceGame
         [Header("Shooting")]
         [SerializeField] private float _shootDelay = 5f;
         [SerializeField] private int _damage = 1;
+        [Header("Effects")]
+        [SerializeField] private Transform _effectOrigin;
         private float _shootTimer;
         private float _ammoTimer;
     }

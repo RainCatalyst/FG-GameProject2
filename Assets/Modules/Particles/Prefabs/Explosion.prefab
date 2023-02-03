@@ -4835,7 +4835,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c0f8462245c2b9d41a3f46177523c3ff, type: 2}
+  - {fileID: 2100000, guid: 27cf615be919581448e770dc19971888, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4898,7 +4898,7 @@ GameObject:
   - component: {fileID: 4054038762999794632}
   - component: {fileID: 2942886260099618666}
   m_Layer: 0
-  m_Name: PickupSplash
+  m_Name: Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

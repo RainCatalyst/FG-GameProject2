@@ -14,6 +14,7 @@ namespace SpaceGame
             _isRepaired = true;
             _meshRenderer.material = _repairedMaterial;
             _escalationBar.gameObject.SetActive(false);
+            _sparks.SetActive(false);
             Repaired?.Invoke();
         }
 
@@ -22,6 +23,8 @@ namespace SpaceGame
             _isRepaired = false;
             _meshRenderer.material = _defaultMaterial;
             _escalationBar.gameObject.SetActive(true);
+            ParticleManager.Instance.Spawn(ParticleType.Explosion, _effectOrigin.position);
+            _sparks.SetActive(true);
         }
         
         public override bool CanInteract(Interactor interactor)
@@ -65,6 +68,10 @@ namespace SpaceGame
         [Header("Escalation")]
         [SerializeField] private float _timeUntilFailure = 10f;
         [SerializeField] private int _damage = 1;
+        [Header("Effects")]
+        [SerializeField] private Transform _effectOrigin;
+        [SerializeField] private GameObject _sparks;
+        
         private float _timer;
         private Material _defaultMaterial;
     }
