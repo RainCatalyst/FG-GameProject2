@@ -722,6 +722,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1112695125}
   - component: {fileID: 1112695124}
+  - component: {fileID: 1112695127}
+  - component: {fileID: 1112695126}
   m_Layer: 0
   m_Name: Events
   m_TagString: Untagged
@@ -741,8 +743,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fbe29ae5d8249daaa1437b17d6e7ea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _repairEventDelayMin: 10
-  _repairEventDelayMax: 20
 --- !u!4 &1112695125
 Transform:
   m_ObjectHideFlags: 0
@@ -758,6 +758,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1112695126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112695123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 347f5ec9eb6d4eeb82d942f6b7d4bec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initialDelay: 15
+  _delayMax: 10
+  _delayMin: 20
+--- !u!114 &1112695127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112695123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc5c2468cf2f4de791ca9d8185e21b95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1152638416
 PrefabInstance:
   m_ObjectHideFlags: 0

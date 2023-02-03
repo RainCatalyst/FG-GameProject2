@@ -45,20 +45,24 @@ namespace SpaceGame
         protected override void Update()
         {
             base.Update();
-            _timer += Time.deltaTime;
-            _escalationBar.Progress = 1f - _timer / _timeUntilFailure;
-            if (_timer >= _timeUntilFailure)
+            if (!_isRepaired)
             {
-                GameManager.Instance.DealAllyDamage(_damage);
-                _timer = 0;
-                Exploded?.Invoke();
+                _timer += Time.deltaTime;
+                _escalationBar.Progress = 1f - _timer / _timeUntilFailure;
+                if (_timer >= _timeUntilFailure)
+                {
+                    GameManager.Instance.DealAllyDamage(_damage);
+                    _timer = 0;
+                    Exploded?.Invoke();
+                }
             }
         }
-
+        
         [SerializeField] private bool _isRepaired;
         [SerializeField] private MeshRenderer _meshRenderer;
         [SerializeField] private Material _repairedMaterial;
         [SerializeField] private ProgressBar _escalationBar;
+        [Header("Escalation")]
         [SerializeField] private float _timeUntilFailure = 10f;
         [SerializeField] private int _damage = 1;
         private float _timer;

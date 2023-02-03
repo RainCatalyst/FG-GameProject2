@@ -4,7 +4,7 @@ namespace SpaceGame
 {
     public class TurretEvent : BaseEvent
     {
-        public TurretEvent (TurretInteractable interactable) //constructor
+        public TurretEvent (TurretInteractable interactable)
         {
             _interactable = interactable;
         }
@@ -14,11 +14,6 @@ namespace SpaceGame
             base.Begin();
             _interactable.OutOfAmmo += OnFail;
             _interactable.AmmoRefilled += OnComplete;
-        }
-
-        public override void End()
-        {
-            base.End();
         }
 
         protected override void OnFail()
