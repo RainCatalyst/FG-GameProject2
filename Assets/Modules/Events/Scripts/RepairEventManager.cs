@@ -24,7 +24,7 @@ namespace SpaceGame
             _eventManager.AddEvent(repairEvent);
         }
         
-        private void Awake()
+        private void Start()
         {
             _repairInteractables = FindObjectsOfType<RepairInteractable>();
             _repairEventTimer = _initialDelay;

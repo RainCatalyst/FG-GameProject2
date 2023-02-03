@@ -13,12 +13,13 @@ namespace SpaceGame
         {
             foreach (var turret in _turretInteractables)
             {
+                print(turret);
                 var turrentEvent = new TurretEvent(turret);
                 _eventManager.AddEvent(turrentEvent);
             }
         }
         
-        private void Awake()
+        private void Start()
         {
             _turretInteractables = FindObjectsOfType<TurretInteractable>();
             AddTurretEvents();
