@@ -49,7 +49,7 @@ MonoBehaviour:
   _range: 2.5
   _duration: 0.2
   _bubble: {fileID: 4478387557474144918}
-  _isFilled: 0
+  _addAmmoTime: 10
 --- !u!1 &2081825252170480071
 GameObject:
   m_ObjectHideFlags: 0
@@ -78,7 +78,7 @@ Transform:
   m_GameObject: {fileID: 2081825252170480071}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2081825251295204908}
@@ -181,7 +181,7 @@ PrefabInstance:
     - target: {fileID: 8343823789959754701, guid: 754aa710ba238ec42a1a26789a9ee91a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 8343823789959754701, guid: 754aa710ba238ec42a1a26789a9ee91a,
         type: 3}

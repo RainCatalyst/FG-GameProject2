@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using SpaceGame;
 using UnityEngine;
 
 public class CameraControl : MonoBehaviour
@@ -7,8 +9,8 @@ public class CameraControl : MonoBehaviour
     public float m_DampTime = 0.2f; //Approx time for camera movement                 
     public float m_ScreenEdgeBuffer = 4f; //Buffer for the players to be in screen           
     public float m_MinSize = 6.5f; // Minimum zoom for the camera                 
-    public Transform[] m_Targets; // Array of transforms, players
 
+    private Transform[] m_Targets; // Array of transforms, players
     private Camera m_Camera; // Reference to camera                        
     private float m_ZoomSpeed; // Damp variable for zoom speed                      
     private Vector3 m_MoveVelocity; // Damp variable for movevelocity                  
@@ -17,6 +19,7 @@ public class CameraControl : MonoBehaviour
     private void Awake()
     {
         m_Camera = GetComponentInChildren<Camera>();
+        m_Targets = FindObjectsOfType<CharacterLogic>().Select(c => c.transform).ToArray();
     }
 
     private void FixedUpdate()
