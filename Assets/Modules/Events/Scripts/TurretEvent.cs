@@ -12,7 +12,6 @@ namespace SpaceGame
         public override void Begin()
         {
             base.Begin();
-            _isActive = true;
             _interactable.OutOfAmmo += OnFail;
             _interactable.AmmoRefilled += OnComplete;
         }
@@ -45,7 +44,7 @@ namespace SpaceGame
 
         protected override void OnComplete()
         {
-            Debug.Log("Turret out of ammo! Show warning!");
+            Debug.Log("Turret refilled!");
             // Set failed flag to false
             _isActive = true;
             _timer = 0;

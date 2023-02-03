@@ -1445,6 +1445,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fbe29ae5d8249daaa1437b17d6e7ea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _repairEventDelayMin: 10
+  _repairEventDelayMax: 20
 --- !u!4 &1112695125
 Transform:
   m_ObjectHideFlags: 0

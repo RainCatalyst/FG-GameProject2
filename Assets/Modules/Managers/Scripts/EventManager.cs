@@ -21,11 +21,17 @@ namespace SpaceGame
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-                AddRepairEvent();
             foreach (var activeEvent in _activeEvents)
             {
                 activeEvent.Update();
+            }
+            
+            // Trigger repair events randomly
+            _repairEventTimer -= Time.deltaTime;
+            if (_repairEventTimer < 0)
+            {
+                AddRepairEvent();
+                _repairEventTimer = Random.Range(_repairEventDelayMin, _repairEventDelayMax);
             }
         }
 
@@ -65,9 +71,13 @@ namespace SpaceGame
             _activeEvents.Remove(baseEvent);
             print($"Removed! Total events: {_activeEvents.Count}");
         }
-
+        
         private RepairInteractable[] _repairInteractables;
         private TurretInteractable[] _turretInteractables;
+
+        private float _repairEventTimer;
+        [SerializeField] private float _repairEventDelayMin;
+        [SerializeField] private float _repairEventDelayMax;
         
         private List<BaseEvent> _activeEvents;
     }
