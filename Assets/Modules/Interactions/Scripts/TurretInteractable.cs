@@ -9,6 +9,7 @@ namespace SpaceGame
     {
         public event Action OutOfAmmo;
         public event Action AmmoRefilled;
+        public event Action Shoot;
 
         public override bool CanInteract(Interactor interactor)
         {
@@ -23,6 +24,8 @@ namespace SpaceGame
                 AmmoRefilled?.Invoke();
             }
             _ammoTimer += _addAmmoTime;
+            if (_ammoTimer > _maxTime)
+                _ammoTimer = _maxTime;
             base.OnInteractionFinished();
         }
         
@@ -32,19 +35,36 @@ namespace SpaceGame
             if (_ammoTimer > 0f)
             {
                 _ammoTimer -= Time.deltaTime;
+                _ammoBar.Progress = _ammoTimer / _maxTime;
                 if (_ammoTimer <= 0f)
                     RunOutOfAmmo();
+                
+                // Deal damage to the enemy ship
+                _shootTimer += Time.deltaTime;
+                if (_shootTimer >= _shootDelay)
+                {
+                    GameManager.Instance.DealEnemyDamage(_damage);
+                    _shootTimer = 0;
+                    Shoot?.Invoke();
+                }
             }
         }
 
         private void RunOutOfAmmo()
         {
-            print("Out of Ammo");
-            OutOfAmmo?.Invoke(); //Invoking an event. All listeners will do something.
+            _ammoBar.Progress = 0;
+            OutOfAmmo?.Invoke();
             _ammoTimer = 0f;
         }
         
+        [Header("Ammo")]
         [SerializeField] private float _addAmmoTime = 10f;
+        [SerializeField] private float _maxTime = 30f;
+        [SerializeField] private ProgressBar _ammoBar;
+        [Header("Shooting")]
+        [SerializeField] private float _shootDelay = 5f;
+        [SerializeField] private int _damage = 1;
+        private float _shootTimer;
         private float _ammoTimer;
     }
 }

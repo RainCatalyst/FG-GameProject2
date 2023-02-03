@@ -14,26 +14,12 @@ namespace SpaceGame
             base.Begin();
             _interactable.Break();
             _interactable.Repaired += OnComplete;
-        }
-
-        public override void Update()
-        {
-            _timer += Time.deltaTime;
-            if (_timer >= _timeUntilFailure)
-            {
-                GameManager.Instance.DealAllyDamage(_damage);
-                _timer = 0;
-            }
-        }
-
-        public override void End()
-        {
-            base.End();
+            _interactable.Exploded += OnFail;
         }
 
         protected override void OnFail()
         {
-            base.OnFail();
+            // base.OnFail();
         }
 
         protected override void OnComplete()
@@ -42,13 +28,6 @@ namespace SpaceGame
             base.OnComplete();
         }
 
-        protected override void OnProgress()
-        {
-            base.OnProgress();
-        }
-
-        private float _timeUntilFailure = 10f;
-        private int _damage = 1;
         private RepairInteractable _interactable;
         private float _timer;
     }
