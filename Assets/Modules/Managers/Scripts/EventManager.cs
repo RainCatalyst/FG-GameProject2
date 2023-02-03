@@ -23,6 +23,10 @@ namespace SpaceGame
         {
             if (Input.GetKeyDown(KeyCode.Space))
                 AddRepairEvent();
+            foreach (var activeEvent in _activeEvents)
+            {
+                activeEvent.Update();
+            }
         }
 
         public void AddRepairEvent()

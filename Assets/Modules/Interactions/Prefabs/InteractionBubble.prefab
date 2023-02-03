@@ -145,6 +145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8343823789959754701}
   - component: {fileID: 2504648766918418565}
+  - component: {fileID: 955698350647691858}
   m_Layer: 0
   m_Name: InteractionBubble
   m_TagString: Untagged
@@ -181,6 +182,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _visuals: {fileID: 6452736837064606239}
+--- !u!114 &955698350647691858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5070467959234026239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7894eb9384db794dace2adec8f687aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7165139375797348578
 GameObject:
   m_ObjectHideFlags: 0

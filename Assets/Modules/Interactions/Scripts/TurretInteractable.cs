@@ -8,6 +8,7 @@ namespace SpaceGame
     public class TurretInteractable : Interactable
     {
         public event Action OutOfAmmo;
+        public event Action AmmoRefilled;
 
         public override bool CanInteract(Interactor interactor)
         {
@@ -17,6 +18,10 @@ namespace SpaceGame
         protected override void OnInteractionFinished()
         {
             _currentInteractor.ItemHolder.SetItem(null);
+            if (_ammoTimer <= 0f)
+            {
+                AmmoRefilled?.Invoke();
+            }
             _ammoTimer += _addAmmoTime;
             base.OnInteractionFinished();
         }

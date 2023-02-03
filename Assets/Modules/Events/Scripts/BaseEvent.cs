@@ -19,6 +19,11 @@ namespace SpaceGame
             // Hide UI, give rewards etc
         }
 
+        public virtual void Update()
+        {
+            // Called every frame
+        }
+
         protected virtual void OnFail()
         {
             // Do something on event fail
