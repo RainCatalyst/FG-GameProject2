@@ -13,8 +13,10 @@ namespace SpaceGame
             base.Awake();
             _activeEvents = new();
 
-           // _turretInteractables = FindObjectOfType<TurretInteractable>();
-            _repairables = FindObjectsOfType<RepairInteractable>();
+            _turretInteractables = FindObjectsOfType<TurretInteractable>();
+            _repairInteractables = FindObjectsOfType<RepairInteractable>();
+            
+            AddTurretEvents();
         }
 
         private void Update()
@@ -25,7 +27,7 @@ namespace SpaceGame
 
         public void AddRepairEvent()
         {
-            var availableRepairables = _repairables.Where(r => r.IsRepaired).ToArray();
+            var availableRepairables = _repairInteractables.Where(r => r.IsRepaired).ToArray();
             if (availableRepairables.Length == 0)
             {
                 Debug.LogWarning("Unable to add a RepairEvent, no more interactables to break!");
@@ -34,6 +36,15 @@ namespace SpaceGame
 
             var repairEvent = new RepairEvent(availableRepairables[Random.Range(0, availableRepairables.Length)]);
             OnEventAdded(repairEvent);
+        }
+
+        private void AddTurretEvents()
+        {
+            foreach (var turret in _turretInteractables)
+            {
+                var turrentEvent = new TurretEvent(turret);
+                OnEventAdded(turrentEvent);
+            }
         }
 
         private void OnEventAdded(BaseEvent baseEvent)
@@ -51,7 +62,7 @@ namespace SpaceGame
             print($"Removed! Total events: {_activeEvents.Count}");
         }
 
-        private RepairInteractable[] _repairables;
+        private RepairInteractable[] _repairInteractables;
         private TurretInteractable[] _turretInteractables;
         
         private List<BaseEvent> _activeEvents;

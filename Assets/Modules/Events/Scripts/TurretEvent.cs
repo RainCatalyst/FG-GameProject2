@@ -1,5 +1,3 @@
-using System;
-using System.Linq;
 using UnityEngine;
 
 namespace SpaceGame
@@ -14,8 +12,7 @@ namespace SpaceGame
         public override void Begin()
         {
             base.Begin();
-            _interactable.TurretStuff += OnComplete;
-
+            _interactable.OutOfAmmo += OnFail;
         }
 
         public override void End()
@@ -25,12 +22,12 @@ namespace SpaceGame
 
         protected override void OnFail()
         {
-            base.OnFail();
+            Debug.Log("Turret out of ammo! Show warning!");
+            // base.OnFail();
         }
 
         protected override void OnComplete()
         {
-            _interactable.TurretStuff -= OnComplete;
             base.OnComplete();
         }
 

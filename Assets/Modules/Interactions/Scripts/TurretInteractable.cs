@@ -7,46 +7,39 @@ namespace SpaceGame
 {
     public class TurretInteractable : Interactable
     {
-        public event Action TurretStuff;
-        public bool IsFilled => _isFilled;
-
+        public event Action OutOfAmmo;
 
         public override bool CanInteract(Interactor interactor)
         {
-            return base.CanInteract(interactor) && !_isFilled && interactor.ItemHolder.ItemId == "ammo";
-        }
-        protected override void OnInteractionStarted()
-        {
-            base.OnInteractionStarted();
+            return base.CanInteract(interactor) && interactor.ItemHolder.ItemId == "ammo";
         }
 
         protected override void OnInteractionFinished()
         {
-            _isFilled = true;
             _currentInteractor.ItemHolder.SetItem(null);
-            _ammoTimer = 10f;
+            _ammoTimer += _addAmmoTime;
             base.OnInteractionFinished();
         }
+        
         protected override void Update()
         {
             base.Update();
-            if (_isFilled && _ammoTimer >= 0f)
+            if (_ammoTimer > 0f)
             {
                 _ammoTimer -= Time.deltaTime;
-                print(_ammoTimer + " Ammo is loaded");
                 if (_ammoTimer <= 0f)
-                    OutOfAmmo();
+                    RunOutOfAmmo();
             }
         }
 
-        private void OutOfAmmo()
+        private void RunOutOfAmmo()
         {
             print("Out of Ammo");
-            TurretStuff?.Invoke(); //Invoking an event. All listeners will do something. 
+            OutOfAmmo?.Invoke(); //Invoking an event. All listeners will do something.
+            _ammoTimer = 0f;
         }
-
-
-        [SerializeField] private bool _isFilled;
-        [SerializeField] private float _ammoTimer = 10f;
+        
+        [SerializeField] private float _addAmmoTime = 10f;
+        private float _ammoTimer;
     }
 }

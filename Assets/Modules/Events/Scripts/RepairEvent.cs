@@ -1,7 +1,3 @@
-using System;
-using System.Linq;
-using UnityEngine;
-
 namespace SpaceGame
 {
     public class RepairEvent : BaseEvent
