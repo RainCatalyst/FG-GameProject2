@@ -13,48 +13,15 @@ namespace SpaceGame
             base.Awake();
             _activeEvents = new();
 
-            _turretInteractables = FindObjectsOfType<TurretInteractable>();
-            _repairInteractables = FindObjectsOfType<RepairInteractable>();
-            
-            AddTurretEvents();
+            _repairEvents = GetComponent<RepairEventManager>();
+            _repairEvents.Setup(this);
+            _turretEvents = GetComponent<TurretEventManager>();
+            _turretEvents.Setup(this);
         }
 
-        private void Update()
+        public void AddEvent(BaseEvent baseEvent)
         {
-            foreach (var activeEvent in _activeEvents)
-            {
-                activeEvent.Update();
-            }
-            
-            // Trigger repair events randomly
-            _repairEventTimer -= Time.deltaTime;
-            if (_repairEventTimer < 0)
-            {
-                AddRepairEvent();
-                _repairEventTimer = Random.Range(_repairEventDelayMin, _repairEventDelayMax);
-            }
-        }
-
-        public void AddRepairEvent()
-        {
-            var availableRepairables = _repairInteractables.Where(r => r.IsRepaired).ToArray();
-            if (availableRepairables.Length == 0)
-            {
-                Debug.LogWarning("Unable to add a RepairEvent, no more interactables to break!");
-                return;
-            }
-
-            var repairEvent = new RepairEvent(availableRepairables[Random.Range(0, availableRepairables.Length)]);
-            OnEventAdded(repairEvent);
-        }
-
-        private void AddTurretEvents()
-        {
-            foreach (var turret in _turretInteractables)
-            {
-                var turrentEvent = new TurretEvent(turret);
-                OnEventAdded(turrentEvent);
-            }
+            OnEventAdded(baseEvent);
         }
 
         private void OnEventAdded(BaseEvent baseEvent)
@@ -71,14 +38,10 @@ namespace SpaceGame
             _activeEvents.Remove(baseEvent);
             print($"Removed! Total events: {_activeEvents.Count}");
         }
-        
-        private RepairInteractable[] _repairInteractables;
-        private TurretInteractable[] _turretInteractables;
 
-        private float _repairEventTimer;
-        [SerializeField] private float _repairEventDelayMin;
-        [SerializeField] private float _repairEventDelayMax;
-        
+        private RepairEventManager _repairEvents;
+        private TurretEventManager _turretEvents;
+
         private List<BaseEvent> _activeEvents;
     }
 }
