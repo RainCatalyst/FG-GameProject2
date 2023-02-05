@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,12 +26,7 @@ namespace SpaceGame
             _image.material.SetFloat("_Fill", progress * 0.9f);
         }
 
-        private void Awake()
-        {
-            _image = GetComponent<Image>();
-        }
-
-        private Image _image;
+        [SerializeField] private Image _image;
         private bool _active;
     }
 }
