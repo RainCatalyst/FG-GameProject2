@@ -1,7 +1,6 @@
 using UnityEngine;
 
 //Pickup logic, this component displays an item that the player is holding
-
 public class ItemHolder : MonoBehaviour
 {
     public string ItemId => _id;

@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace SpaceGame
 {
@@ -7,25 +9,24 @@ namespace SpaceGame
         public void SetActive(bool active)
         {
             _active = active;
-            LeanTween.cancel(_visuals.gameObject);
+            LeanTween.cancel(gameObject);
             if (active)
             {
                 SetProgress(0);
-                LeanTween.scale(_visuals.gameObject, Vector3.one, 0.21f).setEaseOutBack();
+                LeanTween.scale(gameObject, Vector3.one, 0.21f).setEaseOutBack();
             }
             else
             {
-                LeanTween.scale(_visuals.gameObject, Vector3.zero, 0.21f).setEaseInBack();
+                LeanTween.scale(gameObject, Vector3.zero, 0.21f).setEaseInBack();
             }
         }
 
         public void SetProgress(float progress)
         {
-            _visuals.material.SetFloat("_Fill", progress * 0.9f);
+            _image.material.SetFloat("_Fill", progress * 0.9f);
         }
 
-        [SerializeField]
-        private MeshRenderer _visuals;
+        [SerializeField] private Image _image;
         private bool _active;
     }
 }
