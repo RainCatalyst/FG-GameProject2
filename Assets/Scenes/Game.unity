@@ -340,7 +340,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-7210
+  m_Name: pb_Mesh-21370
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -646,7 +646,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-7198
+  m_Name: pb_Mesh-21358
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -901,6 +901,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 656266135930663587, guid: f9cea3f9695916f43801b34fa14ca550,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 872681505127696740, guid: f9cea3f9695916f43801b34fa14ca550,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -924,7 +929,7 @@ PrefabInstance:
     - target: {fileID: 876868557356260548, guid: f9cea3f9695916f43801b34fa14ca550,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 5000
+      value: 5033
       objectReference: {fileID: 0}
     - target: {fileID: 1064757875730112792, guid: f9cea3f9695916f43801b34fa14ca550,
         type: 3}
@@ -936,6 +941,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arena1
       objectReference: {fileID: 0}
+    - target: {fileID: 1362838197734027822, guid: f9cea3f9695916f43801b34fa14ca550,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363612316162872029, guid: f9cea3f9695916f43801b34fa14ca550,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1638056388228309599, guid: f9cea3f9695916f43801b34fa14ca550,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 1715972551661243553, guid: f9cea3f9695916f43801b34fa14ca550,
         type: 3}
       propertyPath: m_Mesh
@@ -944,7 +964,7 @@ PrefabInstance:
     - target: {fileID: 1715972551661243553, guid: f9cea3f9695916f43801b34fa14ca550,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 3803
+      value: 3836
       objectReference: {fileID: 0}
     - target: {fileID: 1952432652485526846, guid: f9cea3f9695916f43801b34fa14ca550,
         type: 3}
@@ -1011,6 +1031,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 522946873}
+    - target: {fileID: 3704251552799707533, guid: f9cea3f9695916f43801b34fa14ca550,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 3972094182836940355, guid: f9cea3f9695916f43801b34fa14ca550,
         type: 3}
       propertyPath: m_SizeDelta.y
@@ -1026,6 +1051,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4232348052100892962, guid: f9cea3f9695916f43801b34fa14ca550,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 4586490249404427552, guid: f9cea3f9695916f43801b34fa14ca550,
         type: 3}
       propertyPath: m_Mesh
@@ -1034,7 +1064,12 @@ PrefabInstance:
     - target: {fileID: 4586490249404427552, guid: f9cea3f9695916f43801b34fa14ca550,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 3743
+      value: 3776
+      objectReference: {fileID: 0}
+    - target: {fileID: 5034077333838398484, guid: f9cea3f9695916f43801b34fa14ca550,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 5134782554548504151, guid: f9cea3f9695916f43801b34fa14ca550,
         type: 3}
@@ -1091,6 +1126,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1031822325}
+    - target: {fileID: 6155835265813016147, guid: f9cea3f9695916f43801b34fa14ca550,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6192707155804849561, guid: f9cea3f9695916f43801b34fa14ca550,
         type: 3}
       propertyPath: m_SizeDelta.y
@@ -1106,6 +1146,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6364447075499434744, guid: f9cea3f9695916f43801b34fa14ca550,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6399068833192413490, guid: f9cea3f9695916f43801b34fa14ca550,
         type: 3}
       propertyPath: m_SizeDelta.y
@@ -1120,6 +1165,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7040951891352590320, guid: f9cea3f9695916f43801b34fa14ca550,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7448366848548796451, guid: f9cea3f9695916f43801b34fa14ca550,
         type: 3}
@@ -1165,6 +1215,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406071326236619147, guid: f9cea3f9695916f43801b34fa14ca550,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8890483849226323467, guid: f9cea3f9695916f43801b34fa14ca550,
         type: 3}
@@ -1235,6 +1290,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9108163367549861324, guid: f9cea3f9695916f43801b34fa14ca550,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1360,7 +1420,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-7066
+  m_Name: pb_Mesh-21226
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
