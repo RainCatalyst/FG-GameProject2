@@ -5,11 +5,20 @@ namespace SpaceGame
 {
     public class GameManager : MonoSingleton<GameManager>
     {
+        [SerializeField] IntEventChannelSO scoreEvent; //change
+
+        int score; //change
         protected override void Awake()
         {
+            scoreEvent.OnValueAdded += OnScoreAdded; //change
             base.Awake();
             _allyHp = _startAllyHp;
             _enemyHp = _startEnemyHp;
+        }
+        void OnScoreAdded() //change
+        {
+            score++;
+            scoreEvent.UpdateValue(score);
         }
 
         public void Restart()
