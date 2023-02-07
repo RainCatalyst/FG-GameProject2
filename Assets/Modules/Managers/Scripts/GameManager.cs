@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,22 +6,13 @@ namespace SpaceGame
 {
     public class GameManager : MonoSingleton<GameManager>
     {
-        [SerializeField] IntEventChannelSO scoreEvent; //change
-
-        int score; //change
         protected override void Awake()
         {
-            scoreEvent.OnValueAdded += OnScoreAdded; //change
+            // TODO: Make sure we properly dispose of events later
+            _taskCompleteEvent.EventRaised += OnTaskCompleted;
             base.Awake();
-            _allyHp = _startAllyHp;
-            _enemyHp = _startEnemyHp;
         }
-        void OnScoreAdded() //change
-        {
-            score++;
-            scoreEvent.UpdateValue(score);
-        }
-
+        
         public void Restart()
         {
             Time.timeScale = 1;
@@ -33,33 +25,21 @@ namespace SpaceGame
             Time.timeScale = 0f;
         }
 
-        public void DealAllyDamage(int damage)
+        private void OnTaskCompleted()
         {
-            _allyHp -= damage;
-            _gameUI.UpdateAllyHP(_allyHp / _startAllyHp);
-
-            if (_allyHp <= 0)
-            {
-                GameOver();
-            }
-            print($"Dealt {damage} to ally, left: {_allyHp}");
-            // Update UI, trigger lose in case allyHp goes to 0
+            AddScore();
         }
         
-        public void DealEnemyDamage(int damage)
+        private void AddScore()
         {
-            _enemyHp -= damage;
-            _gameUI.UpdateEnemyHP(_enemyHp / _startEnemyHp);
-            print($"Dealt {damage} to enemy, left: {_enemyHp}");
-            // Update UI, trigger win in case enemyHp goes to 0
+            _score++;
+            _scoreEvent.RaiseEvent(_score);
         }
 
-        [SerializeField] private int _startAllyHp = 10;
-        [SerializeField] private int _startEnemyHp = 10;
-
         [SerializeField] private GameUI _gameUI;
+        [SerializeField] IntEventChannel _scoreEvent;
+        [SerializeField] VoidEventChannel _taskCompleteEvent;
 
-        private float _allyHp;
-        private float _enemyHp;
+        int _score;
     }
 }

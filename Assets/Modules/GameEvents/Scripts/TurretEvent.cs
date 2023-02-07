@@ -12,8 +12,8 @@ namespace SpaceGame
         public override void Begin()
         {
             base.Begin();
-            _interactable.OutOfAmmo += OnFail;
-            _interactable.AmmoRefilled += OnComplete;
+            // _interactable.OutOfAmmo += OnFail;
+            // _interactable.AmmoRefilled += OnComplete;
         }
 
         protected override void OnFail()

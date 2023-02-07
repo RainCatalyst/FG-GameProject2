@@ -9,6 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5feeecf9db68bf648a414d994dd39f9d, type: 3}
-  m_Name: RepairEventSO
+  m_Script: {fileID: 11500000, guid: 546872562b803b646965c2667da95448, type: 3}
+  m_Name: AmmoEmpty
   m_EditorClassIdentifier: 
+  _id: cartridge
+  _gameObject: {fileID: 3160800963426971791, guid: 7b396b9fe2663df4da9b8886315b401a,
+    type: 3}

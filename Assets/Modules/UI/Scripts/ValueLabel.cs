@@ -1,31 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 using TMPro;
 
-[RequireComponent(typeof(TextMeshProUGUI))]
-public class ValueLabel : MonoBehaviour
+namespace SpaceGame
 {
-    [SerializeField] IntEventChannelSO valueEvent;
-    [SerializeField] string text;
-
-    TextMeshProUGUI textMesh;
-
-    void Awake()
+    [RequireComponent(typeof(TextMeshProUGUI))]
+    public class ValueLabel : MonoBehaviour
     {
-        textMesh = GetComponent<TextMeshProUGUI>();
-    }
+        private void Awake() => _textMesh = GetComponent<TextMeshProUGUI>();
+        private void OnEnable() => _eventChannel.EventRaised += UpdateText;
+        private void OnDisable() => _eventChannel.EventRaised -= UpdateText;
+        private void UpdateText(int value) => _textMesh.text = $"{_extraText}{value}";
 
-    void OnEnable()
-    {
-        valueEvent.ValueUpdated += ValueUpdated;
-    }
+        [SerializeField]
+        private IntEventChannel _eventChannel;
+        [SerializeField]
+        private string _extraText;
 
-    void OnDisable()
-    {
-        valueEvent.ValueUpdated -= ValueUpdated;
+        private TextMeshProUGUI _textMesh;
     }
-
-    void ValueUpdated(int value) => textMesh.text = $"{text}{value}";
 }
