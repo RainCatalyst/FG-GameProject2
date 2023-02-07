@@ -19,7 +19,10 @@ namespace SpaceGame
             }
             base.OnInteractionFinished();
         }
-
+        private void Awake()
+        {
+            _items = new List<string>();
+        }
         private bool TryAddItem(string id)
         {
             if (id == null)

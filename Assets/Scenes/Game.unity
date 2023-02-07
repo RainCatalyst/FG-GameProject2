@@ -645,6 +645,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1152638417}
     m_Modifications:
+    - target: {fileID: 7263658587797666108, guid: 846bf6017b8d25d4d923275a9f906e2d,
+        type: 3}
+      propertyPath: _itemId
+      value: ammo
+      objectReference: {fileID: 0}
     - target: {fileID: 7653833183408998656, guid: 846bf6017b8d25d4d923275a9f906e2d,
         type: 3}
       propertyPath: m_RootOrder
@@ -861,7 +866,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &762051066
 PrefabInstance:
@@ -871,6 +876,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1152638417}
     m_Modifications:
+    - target: {fileID: 7263658587797666108, guid: 846bf6017b8d25d4d923275a9f906e2d,
+        type: 3}
+      propertyPath: _itemId
+      value: ammo
+      objectReference: {fileID: 0}
     - target: {fileID: 7653833183408998656, guid: 846bf6017b8d25d4d923275a9f906e2d,
         type: 3}
       propertyPath: m_RootOrder
@@ -1569,7 +1579,7 @@ PrefabInstance:
     - target: {fileID: 9033695743941975148, guid: f9cea3f9695916f43801b34fa14ca550,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9033695743941975148, guid: f9cea3f9695916f43801b34fa14ca550,
         type: 3}
@@ -1733,6 +1743,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1152638417}
     m_Modifications:
+    - target: {fileID: 724617336069179593, guid: a420ee00cd79a694a8f1945378965895,
+        type: 3}
+      propertyPath: _sourceItemId
+      value: ammo
+      objectReference: {fileID: 0}
     - target: {fileID: 7653833183408998656, guid: a420ee00cd79a694a8f1945378965895,
         type: 3}
       propertyPath: m_RootOrder
