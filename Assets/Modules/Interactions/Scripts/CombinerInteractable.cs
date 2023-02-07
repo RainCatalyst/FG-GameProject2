@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace SpaceGame
@@ -7,42 +8,77 @@ namespace SpaceGame
     {
         public override bool CanInteract(Interactor interactor)
         {
-            return base.CanInteract(interactor) && (TryAddItem(interactor.ItemHolder.ItemId) || CanPickup());
+            return base.CanInteract(interactor) && (CanAddItem(interactor.ItemHolder.ItemId) || CanPickup());
         }        
         
         protected override void OnInteractionFinished()
         {
-            _currentInteractor.ItemHolder.SetItem(CanPickup() ? _resultId : null);
-            foreach (var itemHolder in _itemHolders)
+            if (CanPickup())
             {
-                itemHolder.SetItem(null);
+                _currentInteractor.ItemHolder.SetItem(GetResult());
+                foreach (var itemHolder in _itemHolders)
+                {
+                    itemHolder.SetItem(null);
+                }
+                _items.Clear();
+            }
+            else
+            {
+                AddItem(_currentInteractor.ItemHolder.ItemId);
+                _currentInteractor.ItemHolder.SetItem(null);
             }
             base.OnInteractionFinished();
         }
+        
         private void Awake()
         {
             _items = new List<string>();
         }
-        private bool TryAddItem(string id)
+
+        private bool CanAddItem(string id)
         {
             if (id == null)
             {
                 return false;
             }
-            if (_requiredItems.Contains(id) && !_items.Contains(id))
-            {
-                _items.Add(id);
-                _itemHolders[_items.Count - 1].SetItem(id);
-                return true;
-            }
 
-            return false;
+            return _recipes.Any(recipe => recipe.RequiredItems.Contains(id) && !_items.Contains(id));
         }
 
-        private bool CanPickup() => _items.Count == _requiredItems.Count;
+        private void AddItem(string id)
+        {
+            _items.Add(id);
+            _itemHolders[_items.Count - 1].SetItem(id);
+        }
 
-        [SerializeField] private List<string> _requiredItems;
-        [SerializeField] private string _resultId;
+        private string GetResult()
+        {
+            foreach (var recipe in _recipes)
+            {
+                bool found = true;
+                foreach (var item in _items)
+                {
+                    if (!recipe.RequiredItems.Contains(item))
+                    {
+                        found = false;
+                        break;
+                    }
+                }
+
+                if (found)
+                {
+                    return recipe.Result;
+                }
+            }
+
+            return null;
+        }
+
+        // TODO: Connect to the recipe
+        private bool CanPickup() => _items.Count == 2;
+
+        [SerializeField]
+        private List<RecipeData> _recipes;
         [SerializeField] private List<ItemHolder> _itemHolders;
         
         private List<string> _items;

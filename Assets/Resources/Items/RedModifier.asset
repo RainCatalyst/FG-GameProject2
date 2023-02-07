@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 546872562b803b646965c2667da95448, type: 3}
-  m_Name: AmmoEmpty
+  m_Name: RedModifier
   m_EditorClassIdentifier: 
-  _id: ammo
-  _gameObject: {fileID: 3160800963426971791, guid: 7b396b9fe2663df4da9b8886315b401a,
+  _id: modifier_a
+  _gameObject: {fileID: 3119713189303186487, guid: 93aeb78bc3bfa2746895b2687188e10c,
     type: 3}

@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 546872562b803b646965c2667da95448, type: 3}
-  m_Name: AmmoB
+  m_Name: GreenAmmo
   m_EditorClassIdentifier: 
   _id: ammo_b
-  _gameObject: {fileID: 0}
+  _gameObject: {fileID: 3119713189303186487, guid: 01dce7ec0c376e344b67e09c38fd0090,
+    type: 3}
