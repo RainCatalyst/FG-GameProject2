@@ -19,13 +19,13 @@ public class ValueLabel : MonoBehaviour
 
     void OnEnable()
     {
-        valueEvent.OnValueUpdated += OnValueUpdated;
+        valueEvent.ValueUpdated += ValueUpdated;
     }
 
     void OnDisable()
     {
-        valueEvent.OnValueUpdated -= OnValueUpdated;
+        valueEvent.ValueUpdated -= ValueUpdated;
     }
 
-    void OnValueUpdated(int value) => textMesh.text = $"{text}{value}";
+    void ValueUpdated(int value) => textMesh.text = $"{text}{value}";
 }
