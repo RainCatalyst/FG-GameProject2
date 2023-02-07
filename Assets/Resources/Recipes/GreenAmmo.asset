@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 546872562b803b646965c2667da95448, type: 3}
-  m_Name: AmmoB
+  m_Script: {fileID: 11500000, guid: 82f226d6d8e30a744914e8ed44ff92a6, type: 3}
+  m_Name: GreenAmmo
   m_EditorClassIdentifier: 
-  _id: ammo_b
-  _gameObject: {fileID: 0}
+  _requiredItems:
+  - ammo
+  - modifier_b
+  _result: ammo_b

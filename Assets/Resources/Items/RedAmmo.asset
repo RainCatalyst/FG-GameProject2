@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: RedAmmo
   m_EditorClassIdentifier: 
   _id: ammo_a
-  _gameObject: {fileID: 3119713189303186487, guid: 9ff173a2e6f3e9a4b95be9c0095fdb13,
+  _gameObject: {fileID: 3119713189303186487, guid: f2e64b43003f39a4b85b82ebfa7655a7,
     type: 3}
