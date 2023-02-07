@@ -4,13 +4,13 @@ namespace SpaceGame
     {
         public override bool CanInteract(Interactor interactor)
         {
-            return base.CanInteract(interactor) && interactor.ItemHolder.ItemId == "ammo";
+            return base.CanInteract(interactor) && _taskManager.CanCompleteTask(interactor.ItemHolder.ItemId);
         }
 
         protected override void OnInteractionFinished()
         {
             _currentInteractor.ItemHolder.SetItem(null);
-            _taskManager.CompleteCurrentTask();
+            _taskManager.CompleteTask();
             base.OnInteractionFinished();
         }
 
