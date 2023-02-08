@@ -546,7 +546,7 @@
         "y": 0.0
     },
     "m_Labels": [],
-    "m_Channel": 2
+    "m_Channel": 0
 }
 
 {
@@ -680,8 +680,8 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -742.0,
-            "y": 1103.0,
+            "x": -741.9999389648438,
+            "y": 1160.0,
             "width": 152.0,
             "height": 34.0
         }
@@ -936,9 +936,9 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -294.00006103515627,
-            "y": 470.0,
-            "width": 208.00010681152345,
+            "x": -331.9999694824219,
+            "y": 395.0,
+            "width": 207.99993896484376,
             "height": 302.0
         }
     },
@@ -1084,8 +1084,8 @@
     "m_ObjectId": "5d7c5ef555424473acea42fc91c6679e",
     "m_Title": "DISSOLVE",
     "m_Position": {
-        "x": 10.0,
-        "y": 10.0
+        "x": -1644.9998779296875,
+        "y": 587.9999389648438
     }
 }
 
