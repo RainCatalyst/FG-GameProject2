@@ -5,8 +5,6 @@ using System.Collections;
 public class FireSpawnManager : MonoBehaviour
 {
     public List<Transform> SpawnLocation;
-
-
     public void Start()
     {
         SpawnFirePrefab();
