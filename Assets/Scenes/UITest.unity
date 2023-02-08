@@ -176,6 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _eventChannel: {fileID: 11400000, guid: ef81f221da35dd24390189f0cd3f310f, type: 2}
   _extraText: 
+  _textMesh: {fileID: 0}
 --- !u!114 &168708943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -700,6 +701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _eventChannel: {fileID: 11400000, guid: ef81f221da35dd24390189f0cd3f310f, type: 2}
   _extraText: 
+  _textMesh: {fileID: 0}
 --- !u!114 &870741365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1407,6 +1409,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4af108418cdcec249a74e26b8c3ef9cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _slider: {fileID: 0}
+  _progress: 0
 --- !u!114 &1282438046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1511,6 +1515,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4af108418cdcec249a74e26b8c3ef9cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _slider: {fileID: 0}
+  _progress: 0
 --- !u!114 &1323371824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2033,6 +2039,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _eventChannel: {fileID: 11400000, guid: ef81f221da35dd24390189f0cd3f310f, type: 2}
   _extraText: 
+  _textMesh: {fileID: 0}
 --- !u!114 &1617234125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2399,7 +2406,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 053869364fcd6f2448ff8b654c58a9f9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c301040dba453334fa9d90da21cd241d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2546,6 +2553,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4af108418cdcec249a74e26b8c3ef9cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _slider: {fileID: 0}
+  _progress: 0
 --- !u!114 &1826117142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2742,6 +2751,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4af108418cdcec249a74e26b8c3ef9cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _slider: {fileID: 0}
+  _progress: 0
 --- !u!114 &1913296939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3003,7 +3014,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 053869364fcd6f2448ff8b654c58a9f9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c301040dba453334fa9d90da21cd241d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
