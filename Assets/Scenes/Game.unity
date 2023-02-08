@@ -1217,10 +1217,10 @@ MonoBehaviour:
   - {fileID: 1288324995}
   - {fileID: 991663912}
   - {fileID: 431774438}
-  _prefabToSpawn: {fileID: 9051295901035802448, guid: c9d596214f639a7429cf40f39011c7d5,
+  _prefabToSpawn: {fileID: 2212614525664411364, guid: c9d596214f639a7429cf40f39011c7d5,
     type: 3}
   _minDelay: 1
-  _maxDelay: 50
+  _maxDelay: 20
 --- !u!4 &1426881727
 Transform:
   m_ObjectHideFlags: 0

@@ -1,26 +1,22 @@
 using System.Collections;
 using UnityEngine;
+using System;
 
 public class DestroyFire : MonoBehaviour
 {
+    public event Action<DestroyFire> Destroyed;
 
-    private void OnEnable()
-    {
-        manager = GetComponentInParent<FireSpawnManager>();
-        
+    private void Start()
+    { 
         StartCoroutine(DestroyAfterTime());
-        
     }
-
     private IEnumerator DestroyAfterTime()
     {
         yield return new WaitForSeconds(_fireTimer);
-        manager.OnDestroyedPrefab(this.gameObject);
-        Debug.Log("DESTROYEEDDDDD");
-
+        Destroyed?.Invoke(this);
+        Destroy(gameObject);
     }
 
-    FireSpawnManager manager;
     [SerializeField]
     private float _fireTimer = 20f;
 }
