@@ -917,6 +917,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 347f5ec9eb6d4eeb82d942f6b7d4bec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _initialDelay: 0
+  _delayMax: 0
+  _delayMin: 0
 --- !u!114 &1112695127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1022,6 +1025,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 522946873}
+    - target: {fileID: 7653833185033363208, guid: f9cea3f9695916f43801b34fa14ca550,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.94
+      objectReference: {fileID: 0}
     - target: {fileID: 9033695743941975148, guid: f9cea3f9695916f43801b34fa14ca550,
         type: 3}
       propertyPath: m_RootOrder
