@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1.957}
+  m_AnchoredPosition: {x: 0, y: 0.50000024}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2234128813832965089
@@ -197,7 +197,12 @@ PrefabInstance:
     - target: {fileID: 2313199251288974725, guid: 1e6c1fbf05601d541a415d84ea7d5a45,
         type: 3}
       propertyPath: m_text
-      value: Empty Ammo
+      value: Turret
+      objectReference: {fileID: 0}
+    - target: {fileID: 5842439090651430131, guid: 1e6c1fbf05601d541a415d84ea7d5a45,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 5861741826518964960, guid: 1e6c1fbf05601d541a415d84ea7d5a45,
         type: 3}
@@ -342,8 +347,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _availableTasks:
   - {fileID: 11400000, guid: c4093450142840d4dba10612de057f41, type: 2}
-  - {fileID: 11400000, guid: 30087f95fc0fab44cb89319c2d97449c, type: 2}
+  - {fileID: 11400000, guid: c4093450142840d4dba10612de057f41, type: 2}
+  - {fileID: 11400000, guid: c4093450142840d4dba10612de057f41, type: 2}
+  - {fileID: 11400000, guid: c4093450142840d4dba10612de057f41, type: 2}
   - {fileID: 11400000, guid: 4de8a32402e314a4981c0ccfb9671dfa, type: 2}
+  - {fileID: 11400000, guid: 30087f95fc0fab44cb89319c2d97449c, type: 2}
   _taskProgressBar: {fileID: 6782017140244869378}
   _taskIcon: {fileID: 3440910871812685097}
   _taskCompleteEvent: {fileID: 11400000, guid: 6186530058e06e340b20d241c43ad928, type: 2}
