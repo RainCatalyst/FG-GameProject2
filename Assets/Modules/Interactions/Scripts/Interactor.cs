@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 
 namespace SpaceGame
+    //TODO: Drop current item, check if holding, spawning an iteminteractable
 {
     // This class will interact with interactables
     public class Interactor : MonoBehaviour

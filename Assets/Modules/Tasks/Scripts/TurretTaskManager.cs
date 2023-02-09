@@ -59,6 +59,8 @@ namespace SpaceGame
         private Image _taskIcon;
         [SerializeField]
         private VoidEventChannel _taskCompleteEvent;
+        [SerializeField]
+        private VoidEventChannel _turretFailedChannel;
 
         private Task _currentTask;
     }
