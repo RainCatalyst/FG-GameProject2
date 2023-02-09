@@ -121,7 +121,7 @@ PrefabInstance:
     - target: {fileID: 2313199251288974725, guid: 1e6c1fbf05601d541a415d84ea7d5a45,
         type: 3}
       propertyPath: m_text
-      value: Empty Ammo
+      value: Red Ingredient
       objectReference: {fileID: 0}
     - target: {fileID: 5861741826518964960, guid: 1e6c1fbf05601d541a415d84ea7d5a45,
         type: 3}

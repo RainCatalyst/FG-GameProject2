@@ -4,10 +4,8 @@ using System.Collections;
 
 public class FireSpawnManager : MonoBehaviour
 {
-
     private void Update()
     {
-        print($"active prefabs: {_activePrefabs.Count}");
         if (_activePrefabs.Count < _spawnLocation.Count)
         {
             _timer += Time.deltaTime;
@@ -27,6 +25,7 @@ public class FireSpawnManager : MonoBehaviour
         _activePrefabs.Add(newPrefab);
         newPrefab.Destroyed += OnDestroyedPrefab;
     }
+        
     public void OnDestroyedPrefab(DestroyFire prefab)
     {
         _activePrefabs.Remove(prefab);

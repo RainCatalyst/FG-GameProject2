@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95ba779380459af458c75e5174b2339f, type: 3}
   m_Name: RedAmmo
   m_EditorClassIdentifier: 
-  _duration: 30
+  _duration: 50
   _itemId: ammo_a
   _icon: {fileID: 21300000, guid: 881798b77426a8f47b533dcc4767e9e5, type: 3}
