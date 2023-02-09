@@ -355,8 +355,7 @@ MonoBehaviour:
   _taskProgressBar: {fileID: 6782017140244869378}
   _taskIcon: {fileID: 3440910871812685097}
   _taskCompleteEvent: {fileID: 11400000, guid: 6186530058e06e340b20d241c43ad928, type: 2}
-  _turretFailedChannel: {fileID: 11400000, guid: bf59cdb0a2eaf2843b46e126b6fa5b86,
-    type: 2}
+  _taskFailEvent: {fileID: 11400000, guid: bf59cdb0a2eaf2843b46e126b6fa5b86, type: 2}
 --- !u!4 &7653833184466430800 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5861741825461680304, guid: 1e6c1fbf05601d541a415d84ea7d5a45,

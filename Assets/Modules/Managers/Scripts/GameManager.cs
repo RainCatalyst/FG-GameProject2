@@ -10,9 +10,13 @@ namespace SpaceGame
         {
             // TODO: Make sure we properly dispose of events later
             _taskCompleteEvent.EventRaised += OnTaskCompleted;
+            _taskFailEvent.EventRaised += OnTaskFailed;
+            
+            _allyHealth.Setup();
+            _enemyHealth.Setup();
             base.Awake();
         }
-        
+
         public void Restart()
         {
             Time.timeScale = 1;
@@ -27,24 +31,21 @@ namespace SpaceGame
 
         private void OnTaskCompleted()
         {
-            AddScore();
+            // Do nothing for now
         }
         
-        private void AddScore()
+        private void OnTaskFailed()
         {
-            _score++;
-            _scoreEvent.RaiseEvent(_score);
+            // Deal damage to the player's ship
+            _allyHealth.DealDamage(1);
         }
 
         [SerializeField] private GameUI _gameUI;
-        [SerializeField] IntEventChannel _scoreEvent;
-        [SerializeField] VoidEventChannel _taskCompleteEvent;
-        [SerializeField] VoidEventChannel _taskFailEvent;
-
-        int _score;
-        [SerializeField]
-        float _currentHp;
-        [SerializeField]
-        float _maxHp;
+        [Header("Health")]
+        [SerializeField] private HealthData _allyHealth;
+        [SerializeField] private HealthData _enemyHealth;
+        [Header("Events")]
+        [SerializeField] private VoidEventChannel _taskCompleteEvent;
+        [SerializeField] private VoidEventChannel _taskFailEvent;
     }
 }
