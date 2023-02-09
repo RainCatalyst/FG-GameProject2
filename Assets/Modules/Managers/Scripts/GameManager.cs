@@ -39,7 +39,12 @@ namespace SpaceGame
         [SerializeField] private GameUI _gameUI;
         [SerializeField] IntEventChannel _scoreEvent;
         [SerializeField] VoidEventChannel _taskCompleteEvent;
+        [SerializeField] VoidEventChannel _taskFailEvent;
 
         int _score;
+        [SerializeField]
+        float _currentHp;
+        [SerializeField]
+        float _maxHp;
     }
 }

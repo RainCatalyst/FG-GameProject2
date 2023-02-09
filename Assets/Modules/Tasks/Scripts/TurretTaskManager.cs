@@ -7,19 +7,20 @@ namespace SpaceGame
 {
     public class TurretTaskManager : MonoBehaviour
     {
-        public bool CanCompleteTask(string itemId) => _currentTask.Data.ItemId == itemId;
+        // Returns true if current tasks itemid matches the input
+        public bool CanCompleteTask(string itemId) => _currentTask.Data.ItemId == itemId; 
         
         public void CompleteTask()
         {
             // Update score etc
             _taskCompleteEvent.RaiseEvent();
             GetNewTask();
-            print("Task competed! :>");
+            print("Task completed! :>");
         }
 
         private void OnTaskFailed()
         {
-            // Do something bad :<
+            _taskFailEvent.RaiseEvent();
             GetNewTask();
             print("Task failed! :<");
         }
@@ -60,7 +61,7 @@ namespace SpaceGame
         [SerializeField]
         private VoidEventChannel _taskCompleteEvent;
         [SerializeField]
-        private VoidEventChannel _turretFailedChannel;
+        private VoidEventChannel _taskFailEvent;
 
         private Task _currentTask;
     }
