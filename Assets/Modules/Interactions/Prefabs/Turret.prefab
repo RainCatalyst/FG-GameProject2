@@ -264,6 +264,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turret
       objectReference: {fileID: 0}
+    - target: {fileID: 7309455655060988642, guid: 1e6c1fbf05601d541a415d84ea7d5a45,
+        type: 3}
+      propertyPath: _useGradient
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7309455655060988642, guid: 1e6c1fbf05601d541a415d84ea7d5a45,
+        type: 3}
+      propertyPath: _progressFill
+      value: 
+      objectReference: {fileID: 5410764591634391011}
+    - target: {fileID: 7309455655060988642, guid: 1e6c1fbf05601d541a415d84ea7d5a45,
+        type: 3}
+      propertyPath: _colorOverProgress.key0.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7309455655060988642, guid: 1e6c1fbf05601d541a415d84ea7d5a45,
+        type: 3}
+      propertyPath: _colorOverProgress.key0.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7309455655060988642, guid: 1e6c1fbf05601d541a415d84ea7d5a45,
+        type: 3}
+      propertyPath: _colorOverProgress.key0.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7309455655060988642, guid: 1e6c1fbf05601d541a415d84ea7d5a45,
+        type: 3}
+      propertyPath: _colorOverProgress.key1.b
+      value: 0.21226418
+      objectReference: {fileID: 0}
+    - target: {fileID: 7309455655060988642, guid: 1e6c1fbf05601d541a415d84ea7d5a45,
+        type: 3}
+      propertyPath: _colorOverProgress.key1.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7309455655060988642, guid: 1e6c1fbf05601d541a415d84ea7d5a45,
+        type: 3}
+      propertyPath: _colorOverProgress.key1.r
+      value: 0.40987134
+      objectReference: {fileID: 0}
     - target: {fileID: 8104247467508933873, guid: 1e6c1fbf05601d541a415d84ea7d5a45,
         type: 3}
       propertyPath: m_SizeDelta.y
@@ -300,6 +340,18 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 208261275963417498}
   m_SourcePrefab: {fileID: 100100000, guid: 1e6c1fbf05601d541a415d84ea7d5a45, type: 3}
+--- !u!114 &5410764591634391011 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8104247468338154499, guid: 1e6c1fbf05601d541a415d84ea7d5a45,
+    type: 3}
+  m_PrefabInstance: {fileID: 4282632531733812192}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6782017140244869378 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7309455655060988642, guid: 1e6c1fbf05601d541a415d84ea7d5a45,
