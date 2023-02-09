@@ -369,7 +369,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 431774437}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.9, y: 0, z: -10.55}
+  m_LocalPosition: {x: -12.24, y: 0, z: -10.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3223,7 +3223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1329765034}
   m_Layer: 0
-  m_Name: -------------MANAGERS------------------------
+  m_Name: ----------------------MANAGERS------------------------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3277,10 +3277,10 @@ MonoBehaviour:
   - {fileID: 1288324995}
   - {fileID: 991663912}
   - {fileID: 431774438}
-  _prefabToSpawn: {fileID: 2212614525664411364, guid: c9d596214f639a7429cf40f39011c7d5,
+  _prefabToSpawn: {fileID: 4492237982279296997, guid: c97a6d88dad15734e84c709f48679477,
     type: 3}
   _minDelay: 1
-  _maxDelay: 20
+  _maxDelay: 50
 --- !u!4 &1426881727
 Transform:
   m_ObjectHideFlags: 0
