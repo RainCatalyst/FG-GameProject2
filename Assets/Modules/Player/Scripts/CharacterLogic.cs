@@ -29,7 +29,14 @@ namespace SpaceGame
             // Interactions
             if (_input.IsInteractionPressed())
             {
-                _interactor.TryInteract();
+                if (_interactor.CanInteract)
+                {
+                    _interactor.Interact();
+                }
+                else if (_interactor.CanDropItem)
+                {
+                    _interactor.DropItem();
+                }
             }
 
             if (_input.IsInteractionReleased())

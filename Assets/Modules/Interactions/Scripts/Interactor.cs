@@ -9,6 +9,8 @@ namespace SpaceGame
         public event Action InteractionStarted; 
         public event Action InteractionFinished;
 
+        public bool CanInteract => _closestInteractable != null;
+        public bool CanDropItem => _itemHolder.ItemId != null;
         public ItemHolder ItemHolder => _itemHolder;
 
         public void Setup(ItemHolder itemHolder)
@@ -16,15 +18,11 @@ namespace SpaceGame
             _itemHolder = itemHolder;
         }
 
-        public void TryInteract()
+        public void Interact()
         {
-            // Try to interact with the closest interactable if available
-            if (_closestInteractable != null)
-            {
-                _closestInteractable.Interact(this);
-                _currentInteractable = _closestInteractable;
-                InteractionStarted?.Invoke();
-            }
+            _closestInteractable.Interact(this);
+            _currentInteractable = _closestInteractable;
+            InteractionStarted?.Invoke();
         }
 
         public void CancelInteract()
@@ -36,6 +34,17 @@ namespace SpaceGame
                 InteractionFinished?.Invoke();
                 _currentInteractable = null;
             }
+        }
+
+        public void DropItem()
+        {
+            var itemId = _itemHolder.ItemId;
+            _itemHolder.SetItem(null);
+            var itemParent = _itemHolder.ItemParent;
+            var droppedItem = Instantiate(_itemPrefab, itemParent.position, itemParent.rotation);
+            droppedItem.SetItem(itemId);
+            
+            droppedItem.Throw((itemParent.forward - Vector3.up * 1f) * _throwForce);
         }
 
         public void FinishInteraction()
@@ -84,6 +93,11 @@ namespace SpaceGame
 
             return closest;
         }
+
+        [SerializeField]
+        private ItemInteractable _itemPrefab;
+        [SerializeField]
+        private float _throwForce;
 
         private Interactable _currentInteractable;
         private Interactable _closestInteractable;

@@ -5,6 +5,7 @@ public class ItemHolder : MonoBehaviour
 {
     public string ItemId => _id;
     public ItemData Item => ItemDatabase.Get(_id);
+    public Transform ItemParent => _itemParent;
 
     public void SetItem(string id)
     {
