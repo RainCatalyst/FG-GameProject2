@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 
 namespace SpaceGame
-{
+{//If pickup, check for null 
     public class CombinerInteractable : Interactable
     {
         public override bool CanInteract(Interactor interactor)
@@ -35,7 +35,7 @@ namespace SpaceGame
             _items = new List<string>();
         }
 
-        private bool CanAddItem(string id)
+        private bool CanAddItem(string id) 
         {
             if (id == null)
             {
