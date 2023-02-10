@@ -1957,7 +1957,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DampTime: 0.2
   m_ScreenEdgeBuffer: 4
-  m_MinSize: 15
+  m_MinSize: 11
 --- !u!1001 &844618110
 PrefabInstance:
   m_ObjectHideFlags: 0
