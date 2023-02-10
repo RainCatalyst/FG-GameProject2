@@ -10,11 +10,17 @@ public class DestroyFire : MonoBehaviour
     { 
         StartCoroutine(DestroyAfterTime());
     }
+
+    public void DestroySelf()
+    {
+        Destroyed?.Invoke(this);
+        Destroy(gameObject);
+    }
+    
     private IEnumerator DestroyAfterTime()
     {
         yield return new WaitForSeconds(_fireTimer);
-        Destroyed?.Invoke(this);
-        Destroy(gameObject);
+        DestroySelf();
     }
 
     [SerializeField]

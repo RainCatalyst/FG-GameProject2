@@ -14,6 +14,7 @@ namespace SpaceGame
             
             _allyHealth.Setup();
             _enemyHealth.Setup();
+            _allyHealth.Died += GameOver;
             base.Awake();
         }
 
@@ -38,6 +39,7 @@ namespace SpaceGame
         {
             // Deal damage to the player's ship
             _allyHealth.DealDamage(1);
+            CameraShakeTest.Instance.Shake();
         }
 
         [SerializeField] private GameUI _gameUI;
