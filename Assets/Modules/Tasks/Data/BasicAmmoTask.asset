@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95ba779380459af458c75e5174b2339f, type: 3}
   m_Name: BasicAmmoTask
   m_EditorClassIdentifier: 
-  _duration: 15
+  _timeToDeliver: 5
+  _cooldown: 5
   _itemId: ammo
-  _icon: {fileID: 21300000, guid: 6a3a9a3af4bec574ea607104331bbace, type: 3}
+  _icon: {fileID: 21300000, guid: e3a573116993a0043a089f1f8e3a9682, type: 3}
