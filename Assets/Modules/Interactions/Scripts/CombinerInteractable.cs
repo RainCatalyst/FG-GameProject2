@@ -3,12 +3,26 @@ using System.Linq;
 using UnityEngine;
 
 namespace SpaceGame
-{//If pickup, check for null 
+{
     public class CombinerInteractable : Interactable
     {
-        public override bool CanInteract(Interactor interactor)
+        public override bool CanInteract(Interactor interactor) 
         {
-            return base.CanInteract(interactor) && (CanAddItem(interactor.ItemHolder.ItemId) || CanPickup());
+            if(!base.CanInteract(interactor)) //if its NOT null or NOT matches the interactor we need....?
+            {
+                return false;
+            }
+                
+            if(interactor.ItemHolder.ItemId == null && CanPickup()) //if were not holding anything and the current items in the combiner is 2
+            {
+                return true;
+            }
+            else if(CanAddItem(interactor.ItemHolder.ItemId))
+            {
+                return true; 
+            }
+            else
+                return false;
         }        
         
         protected override void OnInteractionFinished()
