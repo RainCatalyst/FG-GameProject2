@@ -94,6 +94,10 @@ MonoBehaviour:
   _speed: 8
   _smooth: 10
   _rotationSmooth: 16
+  _wallMask:
+    serializedVersion: 2
+    m_Bits: 256
+  _wallSteerOffset: 0.325
 --- !u!114 &4485258100965594194
 MonoBehaviour:
   m_ObjectHideFlags: 0
