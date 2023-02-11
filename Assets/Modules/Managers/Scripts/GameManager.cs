@@ -39,7 +39,13 @@ namespace SpaceGame
         {
             // Deal damage to the player's ship
             _allyHealth.DealDamage(1);
-            CameraShakeTest.Instance.Shake();
+            CameraShake.Instance.Shake();
+        }
+
+        private void Update()
+        {
+            if (Input.GetMouseButtonDown(0))
+                CameraShake.Instance.Shake();
         }
 
         [SerializeField] private GameUI _gameUI;

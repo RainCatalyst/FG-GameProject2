@@ -1418,6 +1418,26 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4262187972868671435, guid: c3c4e9a63b26d1a4f999928b5780822f,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4262187973254434916, guid: c3c4e9a63b26d1a4f999928b5780822f,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4262187973700398906, guid: c3c4e9a63b26d1a4f999928b5780822f,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4262187974555924629, guid: c3c4e9a63b26d1a4f999928b5780822f,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4267388500082958824, guid: c3c4e9a63b26d1a4f999928b5780822f,
         type: 3}
       propertyPath: m_Layer
@@ -2798,9 +2818,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e76b0ede6ac0bd42b181f70783644a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _strength: 1
-  _speed: 0.15
-  _duration: 0.35
+  _strength: 2
+  _speed: 2.35
+  _duration: 0.3
 --- !u!4 &439771206 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6722702150961870760, guid: c3c4e9a63b26d1a4f999928b5780822f,
