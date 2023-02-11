@@ -13,11 +13,11 @@ namespace SpaceGame
                 return false;
             }
                 
-            if(interactor.ItemHolder.ItemId == null && CanPickup()) //if were not holding anything and the current items in the combiner is 2
+            if (interactor.ItemHolder.ItemId == null && CanPickup()) //if were not holding anything and the current items in the combiner is 2
             {
                 return true;
             }
-            else if(CanAddItem(interactor.ItemHolder.ItemId))
+            else if (CanAddItem(interactor.ItemHolder.ItemId))
             {
                 return true; 
             }
@@ -56,6 +56,34 @@ namespace SpaceGame
                 return false;
             }
 
+            if (_items.Count > 0)
+            {
+                foreach (var recipe in _recipes)
+                {
+                    // We have other item in the recipe
+                    if (recipe.RequiredItems.Contains(_items[0]))
+                    {
+                        string requiredItemId = null;
+                        foreach (string itemId in recipe.RequiredItems)
+                        {
+                            if (itemId != _items[0])
+                            {
+                                requiredItemId = itemId;
+                            }
+                        }
+
+                        if (requiredItemId != null && requiredItemId == id)
+                        {
+                            return true; 
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            
             return _recipes.Any(recipe => recipe.RequiredItems.Contains(id) && !_items.Contains(id));
         }
 

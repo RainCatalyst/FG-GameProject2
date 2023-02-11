@@ -19,7 +19,7 @@ namespace SpaceGame
         {
             Vector2 axis;
             axis.x = Input.GetAxisRaw(_horizontalAxis) + Input.GetAxisRaw(_horizontalAxisJoy);
-            axis.y = Input.GetAxisRaw(_verticalAxis) + Input.GetAxisRaw(_verticalAxisJoy);
+            axis.y = Input.GetAxisRaw(_verticalAxis) - Input.GetAxisRaw(_verticalAxisJoy);
             return axis.normalized;
         }
 

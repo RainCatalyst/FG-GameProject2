@@ -2570,21 +2570,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turret (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 7672573545584848659, guid: 9fde037f34973be4e82da0c51d2cb5a9,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 7672573545584848659, guid: 9fde037f34973be4e82da0c51d2cb5a9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 4.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 7672573545584848659, guid: 9fde037f34973be4e82da0c51d2cb5a9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 3.7
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
