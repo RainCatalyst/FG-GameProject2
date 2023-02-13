@@ -103,7 +103,7 @@ Transform:
   - {fileID: 6054482765904106710}
   - {fileID: 368930429}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6054482764669416111
 MonoBehaviour:
@@ -122,6 +122,7 @@ MonoBehaviour:
   _enemyHealth: {fileID: 11400000, guid: 41b95afde6a8337459073fc93daa4d51, type: 2}
   _taskCompleteEvent: {fileID: 11400000, guid: 6186530058e06e340b20d241c43ad928, type: 2}
   _taskFailEvent: {fileID: 11400000, guid: bf59cdb0a2eaf2843b46e126b6fa5b86, type: 2}
+  _scoreEvent: {fileID: 11400000, guid: ef81f221da35dd24390189f0cd3f310f, type: 2}
 --- !u!114 &6054482764669416104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,50 +190,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6054482764669416105}
     m_Modifications:
-    - target: {fileID: 1354216438867724596, guid: 3d337d3377d4edb43bd1f91afce0b4da,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1354216438867724596, guid: 3d337d3377d4edb43bd1f91afce0b4da,
+    - target: {fileID: 144483395846870996, guid: 3d337d3377d4edb43bd1f91afce0b4da,
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3181608976205474092, guid: 3d337d3377d4edb43bd1f91afce0b4da,
+    - target: {fileID: 144483397232246565, guid: 3d337d3377d4edb43bd1f91afce0b4da,
         type: 3}
-      propertyPath: m_fontColor.b
-      value: 1
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3181608976205474092, guid: 3d337d3377d4edb43bd1f91afce0b4da,
+    - target: {fileID: 4913188437246897923, guid: 3d337d3377d4edb43bd1f91afce0b4da,
         type: 3}
-      propertyPath: m_fontColor.g
-      value: 1
+      propertyPath: m_AnchorMax.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3181608976205474092, guid: 3d337d3377d4edb43bd1f91afce0b4da,
+    - target: {fileID: 4913188437246897923, guid: 3d337d3377d4edb43bd1f91afce0b4da,
         type: 3}
-      propertyPath: m_fontColor.r
-      value: 1
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3181608976205474092, guid: 3d337d3377d4edb43bd1f91afce0b4da,
+    - target: {fileID: 4913188437246897923, guid: 3d337d3377d4edb43bd1f91afce0b4da,
         type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4294967295
+      propertyPath: m_AnchorMin.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3536474476261137487, guid: 3d337d3377d4edb43bd1f91afce0b4da,
+    - target: {fileID: 4913188438078212082, guid: 3d337d3377d4edb43bd1f91afce0b4da,
         type: 3}
-      propertyPath: _eventChannel
-      value: 
-      objectReference: {fileID: 11400000, guid: ef81f221da35dd24390189f0cd3f310f,
-        type: 2}
-    - target: {fileID: 5193035255945244102, guid: 3d337d3377d4edb43bd1f91afce0b4da,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5647229480608783737, guid: 3d337d3377d4edb43bd1f91afce0b4da,
-        type: 3}
-      propertyPath: m_IsActive
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7949511799633886123, guid: 3d337d3377d4edb43bd1f91afce0b4da,
@@ -344,21 +329,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 7949511800177154005, guid: 3d337d3377d4edb43bd1f91afce0b4da,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7949511801493323555, guid: 3d337d3377d4edb43bd1f91afce0b4da,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7949511801493323555, guid: 3d337d3377d4edb43bd1f91afce0b4da,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

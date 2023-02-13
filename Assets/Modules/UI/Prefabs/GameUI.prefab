@@ -363,7 +363,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6952810380855419941
 RectTransform:
   m_ObjectHideFlags: 0
@@ -421,8 +421,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -493,7 +493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd67598cab5ac14b979c794d89e9148, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventChannel: {fileID: 0}
+  _eventChannel: {fileID: 11400000, guid: ef81f221da35dd24390189f0cd3f310f, type: 2}
   _extraText: 
 --- !u!1 &7723491018489779134
 GameObject:
@@ -803,6 +803,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AllyHealth
       objectReference: {fileID: 0}
+    - target: {fileID: 1228053737868447658, guid: e1593122298604242becbe26e277ed1b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1228053737868447661, guid: e1593122298604242becbe26e277ed1b,
         type: 3}
       propertyPath: m_Pivot.x
@@ -846,7 +851,7 @@ PrefabInstance:
     - target: {fileID: 1228053737868447661, guid: e1593122298604242becbe26e277ed1b,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 69.230774
       objectReference: {fileID: 0}
     - target: {fileID: 1228053737868447661, guid: e1593122298604242becbe26e277ed1b,
         type: 3}
@@ -911,7 +916,7 @@ PrefabInstance:
     - target: {fileID: 1228053738629916508, guid: e1593122298604242becbe26e277ed1b,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8623983758449829715, guid: e1593122298604242becbe26e277ed1b,
         type: 3}
@@ -968,6 +973,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyHealth
       objectReference: {fileID: 0}
+    - target: {fileID: 1228053737868447658, guid: e1593122298604242becbe26e277ed1b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1228053737868447660, guid: e1593122298604242becbe26e277ed1b,
         type: 3}
       propertyPath: m_Value
@@ -1021,7 +1031,7 @@ PrefabInstance:
     - target: {fileID: 1228053737868447661, guid: e1593122298604242becbe26e277ed1b,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 69.230774
       objectReference: {fileID: 0}
     - target: {fileID: 1228053737868447661, guid: e1593122298604242becbe26e277ed1b,
         type: 3}
@@ -1086,17 +1096,17 @@ PrefabInstance:
     - target: {fileID: 1228053738629916508, guid: e1593122298604242becbe26e277ed1b,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1228053738629916508, guid: e1593122298604242becbe26e277ed1b,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1228053738629916508, guid: e1593122298604242becbe26e277ed1b,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1228053738629916511, guid: e1593122298604242becbe26e277ed1b,
         type: 3}

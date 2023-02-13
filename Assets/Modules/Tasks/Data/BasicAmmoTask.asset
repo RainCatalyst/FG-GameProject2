@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BasicAmmoTask
   m_EditorClassIdentifier: 
   _timeToDeliver: 20
-  _cooldown: 5
+  _cooldown: 0.1
   _itemId: ammo
   _icon: {fileID: 21300000, guid: e3a573116993a0043a089f1f8e3a9682, type: 3}

@@ -15,6 +15,8 @@ namespace SpaceGame
             _allyHealth.Setup();
             _enemyHealth.Setup();
             _allyHealth.Died += GameOver;
+            
+            _scoreEvent.RaiseEvent(_score);
             base.Awake();
         }
 
@@ -33,6 +35,8 @@ namespace SpaceGame
         private void OnTaskCompleted()
         {
             // Do nothing for now
+            _score += 1;
+            _scoreEvent.RaiseEvent(_score);
         }
         
         private void OnTaskFailed()
@@ -48,6 +52,8 @@ namespace SpaceGame
                 CameraShake.Instance.Shake();
         }
 
+        private int _score = 0;
+
         [SerializeField] private GameUI _gameUI;
         [Header("Health")]
         [SerializeField] private HealthData _allyHealth;
@@ -55,5 +61,6 @@ namespace SpaceGame
         [Header("Events")]
         [SerializeField] private VoidEventChannel _taskCompleteEvent;
         [SerializeField] private VoidEventChannel _taskFailEvent;
+        [SerializeField] private IntEventChannel _scoreEvent;
     }
 }

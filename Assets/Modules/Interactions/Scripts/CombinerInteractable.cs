@@ -8,21 +8,22 @@ namespace SpaceGame
     {
         public override bool CanInteract(Interactor interactor) 
         {
-            if(!base.CanInteract(interactor)) //if its NOT null or NOT matches the interactor we need....?
+            if (!base.CanInteract(interactor)) //if its NOT null or NOT matches the interactor we need....?
             {
                 return false;
             }
-                
-            if (interactor.ItemHolder.ItemId == null && CanPickup()) //if were not holding anything and the current items in the combiner is 2
+
+            if (interactor.ItemHolder.ItemId == null && CanPickup() && _detector.AreBothPlayersIn) //if were not holding anything and the current items in the combiner is 2
             {
                 return true;
             }
-            else if (CanAddItem(interactor.ItemHolder.ItemId))
+            
+            if (CanAddItem(interactor.ItemHolder.ItemId))
             {
                 return true; 
             }
-            else
-                return false;
+            
+            return false;
         }        
         
         protected override void OnInteractionFinished()
@@ -55,36 +56,17 @@ namespace SpaceGame
             {
                 return false;
             }
-
-            if (_items.Count > 0)
+            
+            var newItems = _items.Append(id).ToList();
+            foreach (var recipe in _recipes)
             {
-                foreach (var recipe in _recipes)
+                if (recipe.OverlapsItems(newItems))
                 {
-                    // We have other item in the recipe
-                    if (recipe.RequiredItems.Contains(_items[0]))
-                    {
-                        string requiredItemId = null;
-                        foreach (string itemId in recipe.RequiredItems)
-                        {
-                            if (itemId != _items[0])
-                            {
-                                requiredItemId = itemId;
-                            }
-                        }
-
-                        if (requiredItemId != null && requiredItemId == id)
-                        {
-                            return true; 
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
+                    return true;
                 }
             }
-            
-            return _recipes.Any(recipe => recipe.RequiredItems.Contains(id) && !_items.Contains(id));
+
+            return false;
         }
 
         private void AddItem(string id)
@@ -97,17 +79,7 @@ namespace SpaceGame
         {
             foreach (var recipe in _recipes)
             {
-                bool found = true;
-                foreach (var item in _items)
-                {
-                    if (!recipe.RequiredItems.Contains(item))
-                    {
-                        found = false;
-                        break;
-                    }
-                }
-
-                if (found)
+                if (recipe.CanCraft(_items))
                 {
                     return recipe.Result;
                 }
@@ -115,13 +87,13 @@ namespace SpaceGame
 
             return null;
         }
-
-        // TODO: Connect to the recipe
-        private bool CanPickup() => _items.Count == 2;
+        
+        private bool CanPickup() => GetResult() != null;
 
         [SerializeField]
         private List<RecipeData> _recipes;
         [SerializeField] private List<ItemHolder> _itemHolders;
+        [SerializeField] private PlayerDetector _detector;
         
         private List<string> _items;
     }
