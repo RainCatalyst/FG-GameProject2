@@ -3,7 +3,7 @@ Shader "Unlit/Radial Fill"
     Properties
 	{
 		_MainTex ("Texture", 2D) = "white" {}
-		_Fill ("Fill", float) = 1
+		[PerRendererData] _Fill ("Fill", float) = 1
 		_Alpha ("Alpha", float) = 1
 	}
 	SubShader

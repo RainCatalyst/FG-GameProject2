@@ -44,8 +44,8 @@ namespace SpaceGame
             // Deal damage to the player's ship
             _allyHealth.DealDamage(0);
             CameraShake.Instance.Shake();
-            //Seth edit
-            _repairEventManager.AddRepairEvent();
+            // //Seth edit
+            // _repairEventManager.AddRepairEvent();
         }
 
         private void Update()

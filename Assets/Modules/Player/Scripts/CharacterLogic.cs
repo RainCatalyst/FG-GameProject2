@@ -12,7 +12,7 @@ namespace SpaceGame
             _interactor = GetComponent<Interactor>();
             _itemHolder = GetComponent<ItemHolder>();
             
-            _interactor.Setup(_itemHolder);
+            _interactor.Setup(_itemHolder, _characterType);
 
             _interactor.InteractionStarted += OnInteractionStarted;
             _interactor.InteractionFinished += OnInteractionFinished;

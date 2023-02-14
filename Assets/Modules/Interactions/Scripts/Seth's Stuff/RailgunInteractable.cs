@@ -8,19 +8,25 @@ namespace SpaceGame
     {
         public override bool CanInteract(Interactor interactor)
         {
-           if(_railgunManager._readyToFire)
-               if (_characterType == CharacterType.Human)
-               {
-                   return base.CanInteract(interactor) && interactor.ItemHolder.ItemId == null &&
-                          interactor.CharacterType == CharacterType.Human;
-               }
-
-           if(_railgunManager._readyToFire)
-               if (_characterType == CharacterType.Robot)
-               {
-                   return base.CanInteract(interactor) && interactor.ItemHolder.ItemId == null &&
-                          interactor.CharacterType == CharacterType.Robot;
-               }
+            // Base
+            // ReadyToFire
+            // No item
+            // Character type
+            
+           //  if (_railgunManager._readyToFire)
+           //  { 
+           //      if (_characterType == CharacterType.Human)
+           //     {
+           //         return base.CanInteract(interactor) && interactor.ItemHolder.ItemId == null &&
+           //                interactor.CharacterType == CharacterType.Human;
+           //     }
+           //
+           // if(_railgunManager._readyToFire)
+           //     if (_characterType == CharacterType.Robot)
+           //     {
+           //         return base.CanInteract(interactor) && interactor.ItemHolder.ItemId == null &&
+           //                interactor.CharacterType == CharacterType.Robot;
+           //     }
 
            return base.CanInteract(null);
         }
@@ -39,7 +45,6 @@ namespace SpaceGame
         }
 
         [SerializeField] private CharacterType _characterType;
-        
         [SerializeField] private ProgressBar _launchBar;
         [SerializeField] private RailgunManager _railgunManager;
 
