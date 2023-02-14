@@ -60,7 +60,7 @@ namespace SpaceGame
             var newItems = _items.Append(id).ToList();
             foreach (var recipe in _recipes)
             {
-                if (recipe.OverlapsItems(newItems))
+                if (recipe.OverlapsItems(newItems, _combineInSequence))
                 {
                     return true;
                 }
@@ -79,7 +79,7 @@ namespace SpaceGame
         {
             foreach (var recipe in _recipes)
             {
-                if (recipe.CanCraft(_items))
+                if (recipe.CanCraft(_items, _combineInSequence))
                 {
                     return recipe.Result;
                 }
@@ -93,6 +93,7 @@ namespace SpaceGame
         [SerializeField]
         private List<RecipeData> _recipes;
         [SerializeField] private List<ItemHolder> _itemHolders;
+        [SerializeField] private bool _combineInSequence;
         [SerializeField] private PlayerDetector _detector;
         
         private List<string> _items;
