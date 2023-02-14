@@ -32,13 +32,13 @@ namespace SpaceGame
         
         private void Update()
         {
-            // Trigger repair events randomly
-            _repairEventTimer -= Time.deltaTime;
-            if (_repairEventTimer < 0)
-            {
-                AddRepairEvent();
-                _repairEventTimer = Random.Range(_delayMin, _delayMax);
-            }
+            // // Trigger repair events randomly
+            // _repairEventTimer -= Time.deltaTime;
+            // if (_repairEventTimer < 0)
+            // {
+            //     AddRepairEvent();
+            //     _repairEventTimer = Random.Range(_delayMin, _delayMax);
+            // }
         }
         
         [SerializeField] private float _initialDelay;
@@ -46,7 +46,7 @@ namespace SpaceGame
         [SerializeField] private float _delayMin;
         
         private float _repairEventTimer;
-        private RepairInteractable[] _repairInteractables;
+        [SerializeField] private RepairInteractable[] _repairInteractables;
         private EventManager _eventManager;
     }
 }
