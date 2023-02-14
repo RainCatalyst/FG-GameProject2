@@ -42,8 +42,10 @@ namespace SpaceGame
         private void OnTaskFailed()
         {
             // Deal damage to the player's ship
-            _allyHealth.DealDamage(1);
+            _allyHealth.DealDamage(0);
             CameraShake.Instance.Shake();
+            //Seth edit
+            _repairEventManager.AddRepairEvent();
         }
 
         private void Update()
@@ -53,6 +55,8 @@ namespace SpaceGame
         }
 
         private int _score = 0;
+        //Seth edit
+        [SerializeField] private RepairEventManager _repairEventManager;
 
         [SerializeField] private GameUI _gameUI;
         [Header("Health")]

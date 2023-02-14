@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -41,7 +42,10 @@ namespace SpaceGame
         
         public void GetNewTask()
         {
-            var taskData = _availableTasks[Random.Range(0, _availableTasks.Count)];
+            //Seth edit
+            //var taskData = _availableTasks[Random.Range(0, _availableTasks.Count)];
+            var taskData = _availableTasks[(Random.value > 0.8) ? Random.Range(1, _availableTasks.Count) : (0)];
+            
             _taskIcon.sprite = taskData.Icon;
             _taskIconParent.SetActive(true);
             _taskProgressBar.ColorOverProgress = _taskWaitGradient;

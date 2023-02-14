@@ -23,19 +23,21 @@ namespace SpaceGame
             _isRepaired = false;
             _meshRenderer.material = _defaultMaterial;
             _escalationBar.gameObject.SetActive(true);
-            ParticleManager.Instance.Spawn(ParticleType.Explosion, _effectOrigin.position);
+            //ParticleManager.Instance.Spawn(ParticleType.Explosion, _effectOrigin.position);
             _sparks.SetActive(true);
         }
         
         public override bool CanInteract(Interactor interactor)
         {
-            return base.CanInteract(interactor) && !_isRepaired && interactor.ItemHolder.ItemId == "repairkit";
+            //Seth edit
+            return base.CanInteract(interactor) && !_isRepaired && interactor.ItemHolder.ItemId == "wrench";
         }
 
         protected override void OnInteractionFinished()
         {
             Repair();
-            _currentInteractor.ItemHolder.SetItem(null);
+            //Seth edit
+           // _currentInteractor.ItemHolder.SetItem(null);
             base.OnInteractionFinished();
         }
 
@@ -68,7 +70,7 @@ namespace SpaceGame
         [SerializeField] private float _timeUntilFailure = 10f;
         [SerializeField] private int _damage = 1;
         [Header("Effects")]
-        [SerializeField] private Transform _effectOrigin;
+        //[SerializeField] private Transform _effectOrigin;
         [SerializeField] private GameObject _sparks;
         
         private float _timer;
