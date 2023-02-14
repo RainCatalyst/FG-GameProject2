@@ -8,6 +8,18 @@ namespace SpaceGame
     {
         public UnityEvent Interacted;
 
+        public void Enable()
+        {
+            _buttonA.IsDisabled = false;
+            _buttonB.IsDisabled = false;
+        }
+        
+        public void Disable()
+        {
+            _buttonA.IsDisabled = true;
+            _buttonB.IsDisabled = true;
+        }
+
         private void Awake()
         {
             _buttonA.Interacted += OnButtonPressed;
@@ -19,6 +31,9 @@ namespace SpaceGame
             if (_isWaitingForButton)
             {
                 _timer += Time.deltaTime;
+                float progress = _timer / _pressWindow;
+                _buttonA.SetTimeWindowProgress(progress);
+                _buttonB.SetTimeWindowProgress(progress);
                 if (_timer > _pressWindow)
                 {
                     FailInteraction();

@@ -11,6 +11,7 @@ namespace SpaceGame
             // TODO: Make sure we properly dispose of events later
             _taskCompleteEvent.EventRaised += OnTaskCompleted;
             _taskFailEvent.EventRaised += OnTaskFailed;
+            _railgunFireEvent.EventRaised += OnRailgunFired;
             
             _allyHealth.Setup();
             _enemyHealth.Setup();
@@ -19,7 +20,7 @@ namespace SpaceGame
             _scoreEvent.RaiseEvent(_score);
             base.Awake();
         }
-
+        
         public void Restart()
         {
             Time.timeScale = 1;
@@ -42,10 +43,15 @@ namespace SpaceGame
         private void OnTaskFailed()
         {
             // Deal damage to the player's ship
-            _allyHealth.DealDamage(0);
+            _allyHealth.DealDamage(1);
             CameraShake.Instance.Shake();
             // //Seth edit
             // _repairEventManager.AddRepairEvent();
+        }
+        
+        private void OnRailgunFired()
+        {
+            _enemyHealth.DealDamage(1);
         }
 
         private void Update()
@@ -65,6 +71,7 @@ namespace SpaceGame
         [Header("Events")]
         [SerializeField] private VoidEventChannel _taskCompleteEvent;
         [SerializeField] private VoidEventChannel _taskFailEvent;
+        [SerializeField] private VoidEventChannel _railgunFireEvent;
         [SerializeField] private IntEventChannel _scoreEvent;
     }
 }

@@ -134,6 +134,8 @@ GameObject:
   m_Component:
   - component: {fileID: 174781726}
   - component: {fileID: 174781725}
+  - component: {fileID: 174781728}
+  - component: {fileID: 174781727}
   m_Layer: 0
   m_Name: RailgunButtons
   m_TagString: Untagged
@@ -186,6 +188,62 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &174781727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174781724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba6bee9c7f83edd4dbdbc5eb8595e587, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RaisedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 174781725}
+        m_TargetAssemblyTypeName: SpaceGame.CoopButtonInteractable, Assembly-CSharp
+        m_MethodName: Disable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  _channel: {fileID: 11400000, guid: b43612a88b8120b4b924b6e24129627d, type: 2}
+--- !u!114 &174781728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174781724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba6bee9c7f83edd4dbdbc5eb8595e587, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RaisedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 174781725}
+        m_TargetAssemblyTypeName: SpaceGame.CoopButtonInteractable, Assembly-CSharp
+        m_MethodName: Enable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  _channel: {fileID: 11400000, guid: 39578e777b1988049a156056e9517f87, type: 2}
 --- !u!1001 &208890863
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -274,6 +332,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6054482764669416111, guid: 42ac96c659a421e49b6c3aa0f0954a58,
+        type: 3}
+      propertyPath: _railgunFireEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: b43612a88b8120b4b924b6e24129627d,
+        type: 2}
     - target: {fileID: 6198247337926931298, guid: 42ac96c659a421e49b6c3aa0f0954a58,
         type: 3}
       propertyPath: m_SizeDelta.y
@@ -560,6 +624,16 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 406957218590644020, guid: c3c4e9a63b26d1a4f999928b5780822f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 406957218590644020, guid: c3c4e9a63b26d1a4f999928b5780822f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.06
+      objectReference: {fileID: 0}
     - target: {fileID: 406957218590644023, guid: c3c4e9a63b26d1a4f999928b5780822f,
         type: 3}
       propertyPath: m_Layer
@@ -689,6 +763,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017671939688569387, guid: c3c4e9a63b26d1a4f999928b5780822f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017671939688569387, guid: c3c4e9a63b26d1a4f999928b5780822f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1035674402154345389, guid: c3c4e9a63b26d1a4f999928b5780822f,
         type: 3}
@@ -3929,7 +4013,7 @@ PrefabInstance:
     - target: {fileID: 8169785484120995488, guid: f25539b2b1aa2cc4eb6561cc4e12dd7a,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 668
+      value: 756.53
       objectReference: {fileID: 0}
     - target: {fileID: 8169785484120995488, guid: f25539b2b1aa2cc4eb6561cc4e12dd7a,
         type: 3}
@@ -4077,7 +4161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _timer: 0
   _readyToFire: 0
-  _timeUntilFire: 15
+  _timeUntilFire: 30
   _launchBar: {fileID: 1387067154}
   _railgunFireEvent: {fileID: 11400000, guid: b43612a88b8120b4b924b6e24129627d, type: 2}
   _railgunChargedEvent: {fileID: 11400000, guid: 39578e777b1988049a156056e9517f87,

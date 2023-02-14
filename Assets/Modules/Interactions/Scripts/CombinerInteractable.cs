@@ -6,6 +6,17 @@ namespace SpaceGame
 {
     public class CombinerInteractable : Interactable
     {
+        public void Craft()
+        {
+            _resultItemHolder.SetItem(_resultItemId);
+            foreach (var itemHolder in _itemHolders)
+            {
+                itemHolder.SetItem(null);
+            }
+            _items.Clear();
+            _buttons.Disable();
+        }
+        
         public override bool CanInteract(Interactor interactor) 
         {
             if (!base.CanInteract(interactor)) //if its NOT null or NOT matches the interactor we need....?
@@ -13,12 +24,12 @@ namespace SpaceGame
                 return false;
             }
 
-            if (interactor.ItemHolder.ItemId == null && CanPickup() && _detector.AreBothPlayersIn) //if were not holding anything and the current items in the combiner is 2
+            if (interactor.ItemHolder.ItemId == null && CanPickup()) //if were not holding anything and the current items in the combiner is 2
             {
                 return true;
             }
             
-            if (CanAddItem(interactor.ItemHolder.ItemId))
+            if (CanAddItem(interactor.ItemHolder.ItemId) && !CanPickup())
             {
                 return true; 
             }
@@ -30,17 +41,18 @@ namespace SpaceGame
         {
             if (CanPickup())
             {
-                _currentInteractor.ItemHolder.SetItem(GetResult());
-                foreach (var itemHolder in _itemHolders)
-                {
-                    itemHolder.SetItem(null);
-                }
-                _items.Clear();
+                _currentInteractor.ItemHolder.SetItem(_resultItemHolder.ItemId);
+                _resultItemHolder.SetItem(null);
             }
             else
             {
                 AddItem(_currentInteractor.ItemHolder.ItemId);
                 _currentInteractor.ItemHolder.SetItem(null);
+                if (GetResult() != null)
+                {
+                    _resultItemId = GetResult();
+                    _buttons.Enable();
+                }
             }
             base.OnInteractionFinished();
         }
@@ -88,14 +100,18 @@ namespace SpaceGame
             return null;
         }
         
-        private bool CanPickup() => GetResult() != null;
+        private bool CanPickup() => _resultItemHolder.ItemId != null;
+
+        private string _resultItemId;
 
         [SerializeField]
         private List<RecipeData> _recipes;
+        [SerializeField] private ItemHolder _resultItemHolder;
         [SerializeField] private List<ItemHolder> _itemHolders;
         [SerializeField] private bool _combineInSequence;
-        [SerializeField] private PlayerDetector _detector;
-        
+        [SerializeField]
+        private CoopButtonInteractable _buttons;
+
         private List<string> _items;
     }
 }

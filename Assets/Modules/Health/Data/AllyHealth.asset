@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 940fa676eeaa49c488786f8cc0f7cbd6, type: 3}
   m_Name: AllyHealth
   m_EditorClassIdentifier: 
-  _maxHealth: 15
+  _maxHealth: 2

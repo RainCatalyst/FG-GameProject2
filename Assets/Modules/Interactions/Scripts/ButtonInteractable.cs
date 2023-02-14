@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace SpaceGame
 {
@@ -12,6 +13,8 @@ namespace SpaceGame
             set => _isButtonDisabled = value;
         }
 
+        public void SetTimeWindowProgress(float progress) => _timeWindowBubble.fillAmount = progress;
+
         public override bool CanInteract(Interactor interactor)
         {
             return base.CanInteract(interactor) && !_isButtonDisabled &&
@@ -22,10 +25,12 @@ namespace SpaceGame
         {
             base.OnInteractionFinished();
             Interacted?.Invoke(this);
+            SetTimeWindowProgress(0);
             print("Interacted!");
         }
 
         private bool _isButtonDisabled;
+        [SerializeField] private Image _timeWindowBubble;
         [SerializeField] private CharacterType _characterType;
     }
 }
