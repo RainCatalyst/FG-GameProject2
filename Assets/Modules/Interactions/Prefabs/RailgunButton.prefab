@@ -529,6 +529,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7952452583125540325}
+    - targetCorrespondingSourceObject: {fileID: 5861741826518964962, guid: 1e6c1fbf05601d541a415d84ea7d5a45,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4594891617514688716}
+    - targetCorrespondingSourceObject: {fileID: 5861741826518964962, guid: 1e6c1fbf05601d541a415d84ea7d5a45,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 267123840979013223}
   m_SourcePrefab: {fileID: 100100000, guid: 1e6c1fbf05601d541a415d84ea7d5a45, type: 3}
 --- !u!1 &7653833183408998658 stripped
 GameObject:
@@ -553,6 +561,62 @@ MonoBehaviour:
   _bubble: {fileID: 8880709498304602265}
   _isDisabled: 1
   _characterType: 0
+--- !u!114 &4594891617514688716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7653833183408998658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba6bee9c7f83edd4dbdbc5eb8595e587, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RaisedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7952452583125540325}
+        m_TargetAssemblyTypeName: SpaceGame.Interactable, Assembly-CSharp
+        m_MethodName: Enable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  _channel: {fileID: 11400000, guid: 39578e777b1988049a156056e9517f87, type: 2}
+--- !u!114 &267123840979013223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7653833183408998658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba6bee9c7f83edd4dbdbc5eb8595e587, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RaisedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7952452583125540325}
+        m_TargetAssemblyTypeName: SpaceGame.Interactable, Assembly-CSharp
+        m_MethodName: Disable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  _channel: {fileID: 11400000, guid: b43612a88b8120b4b924b6e24129627d, type: 2}
 --- !u!4 &7653833184466430800 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5861741825461680304, guid: 1e6c1fbf05601d541a415d84ea7d5a45,

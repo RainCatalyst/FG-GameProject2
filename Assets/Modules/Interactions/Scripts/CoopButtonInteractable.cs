@@ -28,7 +28,7 @@ namespace SpaceGame
 
         private void OnButtonPressed(ButtonInteractable button)
         {
-            button.IsButtonDisabled = false;
+            button.IsButtonDisabled = true;
             if (_isWaitingForButton)
             {
                 CompleteInteraction();
@@ -56,6 +56,7 @@ namespace SpaceGame
 
         private void FailInteraction()
         {
+            print("Nay:<");
             _isWaitingForButton = false;
             // Reset buttons
             _buttonA.IsButtonDisabled = false;

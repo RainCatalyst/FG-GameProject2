@@ -18,6 +18,9 @@ namespace SpaceGame
         
         public virtual bool CanInteract(Interactor interactor) => !_isDisabled && (_currentInteractor == null || _currentInteractor == interactor);
 
+        public void Enable() => _isDisabled = false;
+        public void Disable() => _isDisabled = true;
+
         public void AddInteractor()
         {
             _availableInteractorsCount++;

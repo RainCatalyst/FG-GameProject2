@@ -11,7 +11,7 @@ namespace SpaceGame
             get => _isButtonDisabled;
             set => _isButtonDisabled = value;
         }
-        
+
         public override bool CanInteract(Interactor interactor)
         {
             return base.CanInteract(interactor) && !_isButtonDisabled &&
