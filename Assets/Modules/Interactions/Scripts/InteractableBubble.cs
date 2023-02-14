@@ -23,10 +23,13 @@ namespace SpaceGame
 
         public void SetProgress(float progress)
         {
-            _image.material.SetFloat("_Fill", progress * 0.9f);
+            _image.fillAmount = progress;
+            // _propertyBlock.SetFloat("_Fill", progress * 0.9f);
+            // _image.
         }
 
-        [SerializeField] private Image _image;
+        [SerializeField]
+        private Image _image;
         private bool _active;
     }
 }
