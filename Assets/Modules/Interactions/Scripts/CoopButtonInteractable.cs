@@ -65,8 +65,7 @@ namespace SpaceGame
             print("Yay!");
             Interacted?.Invoke();
             // Reset buttons
-            _buttonA.IsButtonDisabled = false;
-            _buttonB.IsButtonDisabled = false;
+            ResetButtons();
         }
 
         private void FailInteraction()
@@ -74,8 +73,15 @@ namespace SpaceGame
             print("Nay:<");
             _isWaitingForButton = false;
             // Reset buttons
+            ResetButtons();
+        }
+
+        private void ResetButtons()
+        {
             _buttonA.IsButtonDisabled = false;
             _buttonB.IsButtonDisabled = false;
+            _buttonA.SetTimeWindowProgress(0);
+            _buttonB.SetTimeWindowProgress(0);
         }
 
         // State 1 - nobody pressed any buttons (default)
