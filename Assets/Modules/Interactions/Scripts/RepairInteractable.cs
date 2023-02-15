@@ -7,15 +7,17 @@ namespace SpaceGame
     {
         public event Action Repaired;
         public event Action Exploded;
+        public event Action Damaged;
         public bool IsRepaired => _isRepaired;
 
-        public void Repair()
+        public void Repair(bool ignoreEvents = false)
         {
             _isRepaired = true;
             _meshRenderer.material = _repairedMaterial;
             _escalationBar.gameObject.SetActive(false);
             _sparks.SetActive(false);
-            Repaired?.Invoke();
+            if (!ignoreEvents)
+                Repaired?.Invoke();
         }
 
         public void Break()
@@ -25,6 +27,7 @@ namespace SpaceGame
             _escalationBar.gameObject.SetActive(true);
             //ParticleManager.Instance.Spawn(ParticleType.Explosion, _effectOrigin.position);
             _sparks.SetActive(true);
+            Damaged?.Invoke();
         }
         
         public override bool CanInteract(Interactor interactor)
@@ -44,22 +47,22 @@ namespace SpaceGame
         private void Awake()
         {
             _defaultMaterial = _meshRenderer.material;
-            Repair();
+            Repair(true);
         }
 
         protected override void Update()
         {
             base.Update();
-            if (!_isRepaired)
-            {
-                _timer += Time.deltaTime;
-                _escalationBar.Progress = 1f - _timer / _timeUntilFailure;
-                if (_timer >= _timeUntilFailure)
-                {
-                    _timer = 0;
-                    Exploded?.Invoke();
-                }
-            }
+            // if (!_isRepaired)
+            // {
+            //     _timer += Time.deltaTime;
+            //     _escalationBar.Progress = 1f - _timer / _timeUntilFailure;
+            //     if (_timer >= _timeUntilFailure)
+            //     {
+            //         _timer = 0;
+            //         Exploded?.Invoke();
+            //     }
+            // }
         }
         
         [SerializeField] private bool _isRepaired;
