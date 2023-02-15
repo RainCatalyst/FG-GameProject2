@@ -21,14 +21,12 @@ namespace SpaceGame
             // Update score etc
             _taskCompleteEvent.RaiseEvent();
             StartTaskCooldown();
-            print("Task completed! :>");
         }
 
         private void OnTaskFailed()
         {
             _taskFailEvent.RaiseEvent();
             StartTaskCooldown();
-            print("Task failed! :<");
         }
 
         private void StartTaskCooldown()

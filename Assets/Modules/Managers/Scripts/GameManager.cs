@@ -12,6 +12,7 @@ namespace SpaceGame
             _taskCompleteEvent.EventRaised += OnTaskCompleted;
             _taskFailEvent.EventRaised += OnTaskFailed;
             _railgunFireEvent.EventRaised += OnRailgunFired;
+            _outOfOxygenEvent.EventRaised += OnOutOfOxygen;
             
             _allyHealth.Setup();
             _enemyHealth.Setup();
@@ -43,10 +44,9 @@ namespace SpaceGame
         private void OnTaskFailed()
         {
             // Deal damage to the player's ship
-            _allyHealth.DealDamage(1);
+            // _allyHealth.DealDamage(1);
             CameraShake.Instance.Shake();
-            // //Seth edit
-            // _repairEventManager.AddRepairEvent();
+            RepairManager.Instance.BreakRandom();
         }
         
         private void OnRailgunFired()
@@ -54,10 +54,9 @@ namespace SpaceGame
             _enemyHealth.DealDamage(1);
         }
 
-        private void Update()
+        private void OnOutOfOxygen()
         {
-            if (Input.GetMouseButtonDown(0))
-                CameraShake.Instance.Shake();
+            GameOver();
         }
 
         private int _score = 0;
@@ -72,6 +71,7 @@ namespace SpaceGame
         [SerializeField] private VoidEventChannel _taskCompleteEvent;
         [SerializeField] private VoidEventChannel _taskFailEvent;
         [SerializeField] private VoidEventChannel _railgunFireEvent;
+        [SerializeField] private VoidEventChannel _outOfOxygenEvent;
         [SerializeField] private IntEventChannel _scoreEvent;
     }
 }

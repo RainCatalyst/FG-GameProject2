@@ -8,11 +8,14 @@ namespace SpaceGame
 {
     public class RailgunManager : MonoBehaviour
     {
-        private void Awake()
+        public void Fire()
         {
-            _railgunFireEvent.EventRaised += OnRailgunFire;
+            _railgunFireEvent.RaiseEvent();
+            _readyToFire = false;
+            _timer = 0;
+            print("Fire!!!!");
         }
-
+        
         private void Update()
         {
             if (!_readyToFire)
@@ -22,18 +25,9 @@ namespace SpaceGame
                 if (_timer >= _timeUntilFire)
                 {
                     _readyToFire = true;
-                    print("Charged!");
                     _railgunChargedEvent.RaiseEvent();
                 }
             }
-        }
-        
-        private void OnRailgunFire()
-        {
-            // Particles, reset timer etc
-            _readyToFire = false;
-            _timer = 0;
-            print("Fire!!!!");
         }
 
         public float _timer;
