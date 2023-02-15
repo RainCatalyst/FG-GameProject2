@@ -219,7 +219,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
-  _pressWindow: 2.5
+  _pressWindow: 1.5
   _buttonA: {fileID: 364138121}
   _buttonB: {fileID: 787020772}
 --- !u!4 &174781726

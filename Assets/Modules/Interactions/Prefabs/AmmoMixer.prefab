@@ -632,7 +632,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
-  _pressWindow: 2.5
+  _pressWindow: 1
   _buttonA: {fileID: 4918390283018490417}
   _buttonB: {fileID: 8516782940371189347}
 --- !u!4 &7653833184466430800 stripped
