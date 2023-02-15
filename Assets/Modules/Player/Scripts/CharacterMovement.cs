@@ -73,7 +73,7 @@ namespace SpaceGame
             return Vector2.Lerp(current, steerDirection, 0.8f);
         }
 
-        [SerializeField] private float _speed = 4f;
+        public float _speed = 4f;
         [SerializeField] private float _smooth = 24f;
         [SerializeField] private float _rotationSmooth = 16f;
         [SerializeField] private LayerMask _wallMask;
