@@ -10,13 +10,14 @@ namespace SpaceGame
         public event Action Damaged;
         public bool IsRepaired => _isRepaired;
 
-        public void Repair()
+        public void Repair(bool ignoreEvents = false)
         {
             _isRepaired = true;
             _meshRenderer.material = _repairedMaterial;
             _escalationBar.gameObject.SetActive(false);
             _sparks.SetActive(false);
-            Repaired?.Invoke();
+            if (!ignoreEvents)
+                Repaired?.Invoke();
         }
 
         public void Break()
@@ -46,7 +47,7 @@ namespace SpaceGame
         private void Awake()
         {
             _defaultMaterial = _meshRenderer.material;
-            Repair();
+            Repair(true);
         }
 
         protected override void Update()

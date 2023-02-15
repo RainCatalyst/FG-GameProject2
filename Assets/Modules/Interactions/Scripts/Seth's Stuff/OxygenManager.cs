@@ -10,18 +10,12 @@ public class OxygenManager : MonoBehaviour
    private void Awake()
    {
       _oxygenLevel = 99f;
-      _damageMultiplier = 0f;
-   }
-
-   private void Start()
-   {
-      _oxygenLevel = 100f;
-      _damageMultiplier = 0f;
+      _damageMultiplier = 0;
    }
 
    private void Update()
    {
-      if (_damageMultiplier != 0f)
+      if (_damageMultiplier != 0)
       {
          _oxygenLevel -= _damageMultiplier * Time.deltaTime;
          _oxygenBar.Progress = _oxygenLevel;
@@ -31,6 +25,8 @@ public class OxygenManager : MonoBehaviour
          _oxygenLevel += _oxygenRegainLevel * Time.deltaTime;
          _oxygenBar.Progress = _oxygenLevel;
       }
+
+      _oxygenLevel = Mathf.Clamp(_oxygenLevel, 0, 100);
    }
 
    private void OnEnable()
@@ -70,8 +66,8 @@ public class OxygenManager : MonoBehaviour
 
 
    [SerializeField] private float _oxygenRegainLevel = 1f;
-   [SerializeField] [Range(0, 100)] private float _oxygenLevel;
-   [SerializeField] private float _damageMultiplier;
+   [SerializeField] private float _oxygenLevel;
+   [SerializeField] private int _damageMultiplier;
    [SerializeField] private ProgressBar _oxygenBar;
    [SerializeField] private RepairInteractable[] _repairInteractable;
 }
