@@ -18,6 +18,8 @@ namespace SpaceGame
             _interactor.InteractionFinished += OnInteractionFinished;
             
             _input.SetPlayerIndex((int) _characterType);
+
+            _chargeSpeed = 5f;
         }
 
         private void Update()
@@ -45,12 +47,12 @@ namespace SpaceGame
             }
 
             //Seth edit (added new button to throw)
-            if (_input.IsInteractionHeld() && _interactor.CanDropItem)
+            if (_input.IsInteractionHeld() && _interactor.CanDropItem && _interactor.CharacterType == CharacterType.Human)
             {
                 _interactor._throwForce += Time.deltaTime * _chargeSpeed;
             }
 
-            if (_input.IsChargeReleased() && _interactor.CanDropItem)
+            if (_input.IsChargeReleased() && _interactor.CanDropItem && _interactor.CharacterType == CharacterType.Human)
             {
                 _interactor.DropItem();
                 _interactor._throwForce = 5f;
@@ -74,7 +76,7 @@ namespace SpaceGame
         [SerializeField] private CharacterType _characterType;
         [SerializeField] private Animator _animator;
 
-        [SerializeField] private float _chargeSpeed = 5f;
+        [SerializeField] private float _chargeSpeed;
 
         private CharacterMovement _movement;
         private CharacterInput _input;
