@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: TurretLoad
   m_EditorClassIdentifier: 
   _clip: {fileID: 8300000, guid: 468aa250752977648bd018014368f6d2, type: 3}
-  _volume: 1
+  _volume: 0.3
