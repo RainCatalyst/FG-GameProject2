@@ -43,6 +43,18 @@ namespace SpaceGame
             {
                 _interactor.CancelInteract();
             }
+
+            //Seth edit (added new button to throw)
+            if (_input.IsInteractionHeld() && _interactor.CanDropItem)
+            {
+                _interactor._throwForce += Time.deltaTime * _chargeSpeed;
+            }
+
+            if (_input.IsChargeReleased() && _interactor.CanDropItem)
+            {
+                _interactor.DropItem();
+                _interactor._throwForce = 5f;
+            }
             
             // Animation
             _animator.SetFloat("Speed", _movement.CurrentSpeed);
@@ -61,6 +73,8 @@ namespace SpaceGame
 
         [SerializeField] private CharacterType _characterType;
         [SerializeField] private Animator _animator;
+
+        [SerializeField] private float _chargeSpeed = 5f;
 
         private CharacterMovement _movement;
         private CharacterInput _input;

@@ -13,6 +13,8 @@ namespace SpaceGame
             _verticalAxis = "Vertical" + indexName;
             _verticalAxisJoy = "VerticalJoy" + indexName;
             _interactAxis = "Interact" + indexName;
+            //Seth edit (added new axis for new button)
+            _chargeAxis = "Charge" + indexName;
         }
 
         public Vector2 GetAxis()
@@ -25,6 +27,9 @@ namespace SpaceGame
 
         public bool IsInteractionPressed() => Input.GetButtonDown(_interactAxis);
         public bool IsInteractionReleased() => Input.GetButtonUp(_interactAxis);
+        
+        public bool IsInteractionHeld() => Input.GetButton(_chargeAxis);
+        public bool IsChargeReleased() => Input.GetButtonUp(_chargeAxis);
 
         private void Awake()
         {
@@ -36,6 +41,7 @@ namespace SpaceGame
         private string _verticalAxis;
         private string _verticalAxisJoy;
         private string _interactAxis;
+        private string _chargeAxis;
         
         private int _playerIndex;
     }

@@ -76,6 +76,10 @@ namespace SpaceGame
             }
 
             _closestInteractable = newInteractable;
+
+            //Seth edit (clamped force)
+            _throwForce = Mathf.Clamp(_throwForce, 1f, 20f);
+
         }
 
         private Interactable FindClosestInteractable()
@@ -98,7 +102,8 @@ namespace SpaceGame
         }
 
         [SerializeField] private ItemInteractable _itemPrefab;
-        [SerializeField] private float _throwForce;
+        //Seth edit (made public)
+        public float _throwForce;
 
         private CharacterType _characterType;
         private Interactable _currentInteractable;
