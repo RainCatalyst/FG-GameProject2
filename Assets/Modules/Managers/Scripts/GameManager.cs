@@ -9,19 +9,31 @@ namespace SpaceGame
         protected override void Awake()
         {
             // TODO: Make sure we properly dispose of events later
+            _allyHealth.Setup();
+            _enemyHealth.Setup();
+            _scoreEvent.RaiseEvent(_score);
+            base.Awake();
+            Time.timeScale = 1;
+        }
+
+        private void OnEnable()
+        {
             _taskCompleteEvent.EventRaised += OnTaskCompleted;
             _taskFailEvent.EventRaised += OnTaskFailed;
             _railgunFireEvent.EventRaised += OnRailgunFired;
             _outOfOxygenEvent.EventRaised += OnOutOfOxygen;
-            
-            _allyHealth.Setup();
-            _enemyHealth.Setup();
             _allyHealth.Died += GameOver;
-            
-            _scoreEvent.RaiseEvent(_score);
-            base.Awake();
         }
-        
+
+        private void OnDisable()
+        {
+            _taskCompleteEvent.EventRaised -= OnTaskCompleted;
+            _taskFailEvent.EventRaised -= OnTaskFailed;
+            _railgunFireEvent.EventRaised -= OnRailgunFired;
+            _outOfOxygenEvent.EventRaised -= OnOutOfOxygen;
+            _allyHealth.Died -= GameOver;
+        }
+
         public void Restart()
         {
             Time.timeScale = 1;
@@ -60,8 +72,6 @@ namespace SpaceGame
         }
 
         private int _score = 0;
-        //Seth edit
-        [SerializeField] private RepairEventManager _repairEventManager;
 
         [SerializeField] private GameUI _gameUI;
         [Header("Health")]
