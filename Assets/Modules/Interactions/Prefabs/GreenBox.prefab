@@ -223,6 +223,7 @@ MonoBehaviour:
   _duration: 3
   _bubble: {fileID: 8880709498304602265}
   _isDisabled: 0
+  _interactSoundClip: {fileID: 11400000, guid: a2e4a888c2152284dba60de5af484ebc, type: 2}
   _itemId: modifier_b
 --- !u!4 &7653833184466430800 stripped
 Transform:

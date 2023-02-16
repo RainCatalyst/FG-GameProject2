@@ -123,6 +123,8 @@ MonoBehaviour:
   _range: 1.5
   _duration: 0.1
   _bubble: {fileID: 642045685794652981}
+  _isDisabled: 0
+  _interactSoundClip: {fileID: 11400000, guid: a2e4a888c2152284dba60de5af484ebc, type: 2}
   _itemId: 
   _itemHolder: {fileID: 1235546355690359047}
 --- !u!65 &5025179531479291448

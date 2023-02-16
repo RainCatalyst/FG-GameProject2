@@ -86,7 +86,7 @@ PrefabInstance:
     - target: {fileID: 5861741826518964962, guid: 1e6c1fbf05601d541a415d84ea7d5a45,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -144,6 +144,7 @@ MonoBehaviour:
   _duration: 1
   _bubble: {fileID: 8880709498304602265}
   _isDisabled: 0
+  _interactSoundClip: {fileID: 0}
 --- !u!65 &8188412158024427341
 BoxCollider:
   m_ObjectHideFlags: 0
