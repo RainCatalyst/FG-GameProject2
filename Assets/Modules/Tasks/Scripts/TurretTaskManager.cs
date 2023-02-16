@@ -42,7 +42,7 @@ namespace SpaceGame
         {
             //Seth edit
             //var taskData = _availableTasks[Random.Range(0, _availableTasks.Count)];
-            var taskData = _availableTasks[(Random.value > 0.8) ? Random.Range(1, _availableTasks.Count) : (0)];
+            var taskData = _availableTasks[(Random.value > _chance) ? Random.Range(1, _availableTasks.Count) : (0)];
             
             _taskIcon.sprite = taskData.Icon;
             _taskIconParent.SetActive(true);
@@ -100,5 +100,7 @@ namespace SpaceGame
         private Task _currentTask;
         private float _taskCooldownTimer;
         private float _taskCooldownDuration;
+        [SerializeField]
+        private float _chance = 0.5f;
     }
 }
