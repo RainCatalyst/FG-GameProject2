@@ -44,6 +44,7 @@ namespace SpaceGame
             SceneManager.LoadScene("Game");
         }
 
+        [ContextMenu("Game Over!")]
         public void GameOver()
         {
             _gameUI.ShowGameOver();
