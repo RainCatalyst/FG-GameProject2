@@ -1,10 +1,9 @@
 using UnityEngine;
 
-public class CameraShake : MonoSingleton<CameraShake>
+public class CameraShake : MonoBehaviour
 {
-    protected override void Awake()
+    private void Awake()
     {
-        base.Awake();
         _originalPos = transform.localPosition;
     }
 

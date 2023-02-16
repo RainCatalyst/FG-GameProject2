@@ -57,6 +57,8 @@ namespace SpaceGame
 
         private void Update()
         {
+            if (GameManager.Instance.IsGameplayPaused)
+                return;
             if (_currentTask != null)
             {
                 _currentTask.Update();

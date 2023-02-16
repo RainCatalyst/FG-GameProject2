@@ -1,11 +1,14 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using SpaceGame;
 
 public class FireSpawnManager : MonoBehaviour
 {
     private void Update()
     {
+        if (GameManager.Instance.IsGameplayPaused)
+            return;
         if (_activePrefabs.Count < _spawnLocation.Count)
         {
             _timer += Time.deltaTime;

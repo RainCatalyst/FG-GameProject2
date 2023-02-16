@@ -11,6 +11,8 @@ namespace SpaceGame
 
       private void Update()
       {
+         if (GameManager.Instance.IsGameplayPaused)
+            return;
          int multiplier = RepairManager.Instance.TotalDamaged;
          if (multiplier != 0)
          {

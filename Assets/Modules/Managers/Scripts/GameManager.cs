@@ -6,6 +6,8 @@ namespace SpaceGame
 {
     public class GameManager : MonoSingleton<GameManager>
     {
+        public bool IsGameplayPaused => _isGameplayPaused;
+        
         protected override void Awake()
         {
             // TODO: Make sure we properly dispose of events later
@@ -34,6 +36,8 @@ namespace SpaceGame
             _allyHealth.Died -= GameOver;
         }
 
+        public void ToggleGameplayPause(bool paused) => _isGameplayPaused = paused;
+
         public void Restart()
         {
             Time.timeScale = 1;
@@ -57,7 +61,7 @@ namespace SpaceGame
         {
             // Deal damage to the player's ship
             // _allyHealth.DealDamage(1);
-            CameraShake.Instance.Shake();
+            CameraControl.Instance.Shake();
             RepairManager.Instance.BreakRandom();
         }
         
@@ -72,6 +76,7 @@ namespace SpaceGame
         }
 
         private int _score = 0;
+        private bool _isGameplayPaused;
 
         [SerializeField] private GameUI _gameUI;
         [Header("Health")]

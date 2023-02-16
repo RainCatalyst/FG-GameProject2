@@ -62,7 +62,6 @@ namespace SpaceGame
 
         private void CompleteInteraction()
         {
-            print("Yay!");
             Interacted?.Invoke();
             // Reset buttons
             ResetButtons();
@@ -70,7 +69,6 @@ namespace SpaceGame
 
         private void FailInteraction()
         {
-            print("Nay:<");
             _isWaitingForButton = false;
             // Reset buttons
             ResetButtons();
