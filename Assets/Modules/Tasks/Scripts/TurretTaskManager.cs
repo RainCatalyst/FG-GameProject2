@@ -19,7 +19,6 @@ namespace SpaceGame
         private void OnTaskCompleted()
         {
             // Update score etc
-            _turretReloadClip.Play();
             _taskCompleteEvent.RaiseEvent();
             StartTaskCooldown();
         }
@@ -97,8 +96,6 @@ namespace SpaceGame
         private VoidEventChannel _taskCompleteEvent;
         [SerializeField]
         private VoidEventChannel _taskFailEvent;
-        [SerializeField]
-        private AudioClipSO _turretReloadClip;
 
         private Task _currentTask;
         private float _taskCooldownTimer;

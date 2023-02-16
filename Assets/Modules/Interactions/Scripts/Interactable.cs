@@ -56,6 +56,7 @@ namespace SpaceGame
             // This happens when we complete the interaction
             _currentInteractor.FinishInteraction();
             _currentInteractor = null;
+            _interactSoundClip?.Play();
             _bubble.SetProgress(0f);
         }
 
@@ -112,6 +113,7 @@ namespace SpaceGame
         [SerializeField] private float _duration = 1f;
         [SerializeField] private InteractableBubble _bubble;
         [SerializeField] private bool _isDisabled;
+        [SerializeField] private AudioClipSO _interactSoundClip;
 
         protected Interactor _currentInteractor;
         private int _availableInteractorsCount;

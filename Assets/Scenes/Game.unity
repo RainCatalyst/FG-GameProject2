@@ -2306,6 +2306,11 @@ PrefabInstance:
       propertyPath: _detector
       value: 
       objectReference: {fileID: 654461282}
+    - target: {fileID: 5235114352938863549, guid: c3c4e9a63b26d1a4f999928b5780822f,
+        type: 3}
+      propertyPath: _interactSoundClip
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5243588302476083134, guid: c3c4e9a63b26d1a4f999928b5780822f,
         type: 3}
       propertyPath: m_Layer
@@ -2925,6 +2930,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7926691382943753375, guid: c3c4e9a63b26d1a4f999928b5780822f,
+        type: 3}
+      propertyPath: _interactSoundClip
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7981199785300300915, guid: c3c4e9a63b26d1a4f999928b5780822f,
         type: 3}

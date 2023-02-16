@@ -1143,6 +1143,7 @@ MonoBehaviour:
   _duration: 0.2
   _bubble: {fileID: 8880709498304602265}
   _isDisabled: 0
+  _interactSoundClip: {fileID: 11400000, guid: d589ff7403a26e343acd268230d9daa2, type: 2}
 --- !u!114 &208261275963417498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1225,7 +1226,6 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   _taskCompleteEvent: {fileID: 11400000, guid: 6186530058e06e340b20d241c43ad928, type: 2}
   _taskFailEvent: {fileID: 11400000, guid: bf59cdb0a2eaf2843b46e126b6fa5b86, type: 2}
-  _turretReloadClip: {fileID: 11400000, guid: d589ff7403a26e343acd268230d9daa2, type: 2}
 --- !u!4 &7653833184466430800 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5861741825461680304, guid: 1e6c1fbf05601d541a415d84ea7d5a45,

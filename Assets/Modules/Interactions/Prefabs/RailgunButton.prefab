@@ -653,6 +653,7 @@ MonoBehaviour:
   _duration: 1
   _bubble: {fileID: 8880709498304602265}
   _isDisabled: 1
+  _interactSoundClip: {fileID: 0}
   _timeWindowBubble: {fileID: 6624395687876030721}
   _characterType: 0
 --- !u!4 &7653833184466430800 stripped
