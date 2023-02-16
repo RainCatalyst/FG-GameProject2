@@ -6,15 +6,27 @@ namespace SpaceGame
     [RequireComponent(typeof(TextMeshProUGUI))]
     public class ValueLabel : MonoBehaviour
     {
-        private void Awake() => _textMesh = GetComponent<TextMeshProUGUI>();
+        private void Awake()
+        {
+            _textMesh = GetComponent<TextMeshProUGUI>();
+            _rect = GetComponent<RectTransform>();
+        }
+
         private void OnEnable() => _eventChannel.EventRaised += UpdateText;
         private void OnDisable() => _eventChannel.EventRaised -= UpdateText;
-        private void UpdateText(int value) => _textMesh.text = $"{_extraText}{value}";
+        private void UpdateText(int value)
+        {
+            transform.localScale = Vector3.one * 1.2f;
+            LeanTween.cancel(_rect);
+            LeanTween.scale(_rect, Vector3.one, 0.2f).setEaseOutBack();
+            _textMesh.text = $"{_extraText}{value}";
+        }
 
         [SerializeField]
         private IntEventChannel _eventChannel;
         [SerializeField]
         private string _extraText;
+        private RectTransform _rect;
 
         private TextMeshProUGUI _textMesh;
     }

@@ -28,14 +28,7 @@ namespace SpaceGame
                 }
             }
 
-            if (_readyToFire)
-            {
-                _launchBar.ProgressFill.color = Color.green;
-            }
-            else
-            {
-                _launchBar.ProgressFill.color = Color.yellow;
-            }
+            _launchBar.Color = _readyToFire ? Color.green : Color.yellow;
         }
 
         private IEnumerator CoFire()

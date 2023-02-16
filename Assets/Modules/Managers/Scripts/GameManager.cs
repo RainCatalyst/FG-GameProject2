@@ -68,7 +68,9 @@ namespace SpaceGame
         
         private void OnRailgunFired()
         {
-            _enemyHealth.DealDamage(1);
+            _score++;
+            _scoreEvent.RaiseEvent(_score);
+            // _enemyHealth.DealDamage(1);
         }
 
         private void OnOutOfOxygen()

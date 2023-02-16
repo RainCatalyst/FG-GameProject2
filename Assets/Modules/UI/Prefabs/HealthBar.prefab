@@ -11,7 +11,12 @@ PrefabInstance:
     - target: {fileID: 8169785483357953617, guid: f25539b2b1aa2cc4eb6561cc4e12dd7a,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169785483357953618, guid: f25539b2b1aa2cc4eb6561cc4e12dd7a,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8169785484120995488, guid: f25539b2b1aa2cc4eb6561cc4e12dd7a,
         type: 3}
@@ -129,7 +134,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8169785484120995495, guid: f25539b2b1aa2cc4eb6561cc4e12dd7a,
         type: 3}
-      insertIndex: 3
+      insertIndex: -1
       addedObject: {fileID: 8623983758449829715}
   m_SourcePrefab: {fileID: 100100000, guid: f25539b2b1aa2cc4eb6561cc4e12dd7a, type: 3}
 --- !u!1 &1228053737868447658 stripped

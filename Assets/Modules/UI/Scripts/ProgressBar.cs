@@ -9,34 +9,18 @@ public class ProgressBar : MonoBehaviour
         set
         {
             _progress = value;
-            if (_useGradient)
-                _progressFill.color = _colorOverProgress.Evaluate(value);
-            _slider.value = _progress;
+            _progressFill.fillAmount = _progress;
         }
     }
 
-    public Gradient ColorOverProgress
+    public Color Color
     {
-        get => _colorOverProgress;
-        set
-        {
-            _colorOverProgress = value;
-            _progressFill.color = _colorOverProgress.Evaluate(_progress);
-        }
+        get => _progressFill.color;
+        set => _progressFill.color = value;
     }
-
-    private void Awake()
-    {
-        _slider = GetComponent<Slider>();
-    }
-
-    [SerializeField]
-    private bool _useGradient;
-    [SerializeField]
-    private Gradient _colorOverProgress;
+    
     [SerializeField]
     private Image _progressFill;
     
-    private Slider _slider;
     private float _progress;
 }

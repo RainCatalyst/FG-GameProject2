@@ -34,7 +34,7 @@ namespace SpaceGame
             _taskCooldownTimer = _currentTask.Data.Cooldown;
             _taskCooldownDuration = _currentTask.Data.Cooldown;
             _taskIconParent.SetActive(false);
-            _taskProgressBar.ColorOverProgress = _taskCooldownGradient;
+            // _taskProgressBar.ColorOverProgress = _taskCooldownGradient;
             _currentTask = null;
         }
         
@@ -46,7 +46,7 @@ namespace SpaceGame
             
             _taskIcon.sprite = taskData.Icon;
             _taskIconParent.SetActive(true);
-            _taskProgressBar.ColorOverProgress = _taskWaitGradient;
+            // _taskProgressBar.ColorOverProgress = _taskWaitGradient;
             _currentTask = new Task(taskData);
         }
         
@@ -65,6 +65,7 @@ namespace SpaceGame
                 float progress = _currentTask.GetProgress();
                 // Update progress bar
                 _taskProgressBar.Progress = progress;
+                _taskProgressBar.Color = _taskWaitGradient.Evaluate(_taskProgressBar.Progress);
 
                 if (_currentTask.IsFailed)
                 {
@@ -75,6 +76,7 @@ namespace SpaceGame
             {
                 _taskCooldownTimer -= Time.deltaTime;
                 _taskProgressBar.Progress = 1f - _taskCooldownTimer / _taskCooldownDuration;
+                _taskProgressBar.Color = _taskCooldownGradient.Evaluate(_taskProgressBar.Progress);
                 if (_taskCooldownTimer <= 0f)
                 {
                     GetNewTask();
