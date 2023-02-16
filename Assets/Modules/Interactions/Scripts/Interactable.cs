@@ -7,8 +7,19 @@ namespace SpaceGame
     {
         public static List<Interactable> Interactables = new();
         public float Range => _range;
+        public bool IsDisabled
+        {
+            get => _isDisabled;
+            set
+            {
+                _isDisabled = value;
+            }
+        }
         
-        public virtual bool CanInteract(Interactor interactor) => _currentInteractor == null || _currentInteractor == interactor;
+        public virtual bool CanInteract(Interactor interactor) => !_isDisabled && (_currentInteractor == null || _currentInteractor == interactor);
+
+        public void Enable() => _isDisabled = false;
+        public void Disable() => _isDisabled = true;
 
         public void AddInteractor()
         {
@@ -45,6 +56,7 @@ namespace SpaceGame
             // This happens when we complete the interaction
             _currentInteractor.FinishInteraction();
             _currentInteractor = null;
+            _bubble.SetProgress(0f);
         }
 
         protected virtual void OnInteractionCanceled()
@@ -99,6 +111,7 @@ namespace SpaceGame
         [SerializeField] private float _range = 1f;
         [SerializeField] private float _duration = 1f;
         [SerializeField] private InteractableBubble _bubble;
+        [SerializeField] private bool _isDisabled;
 
         protected Interactor _currentInteractor;
         private int _availableInteractorsCount;

@@ -15,6 +15,16 @@ public class ProgressBar : MonoBehaviour
         }
     }
 
+    public Gradient ColorOverProgress
+    {
+        get => _colorOverProgress;
+        set
+        {
+            _colorOverProgress = value;
+            _progressFill.color = _colorOverProgress.Evaluate(_progress);
+        }
+    }
+
     private void Awake()
     {
         _slider = GetComponent<Slider>();

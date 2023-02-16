@@ -6,26 +6,53 @@ namespace SpaceGame
 {
     public class CombinerInteractable : Interactable
     {
-        public override bool CanInteract(Interactor interactor)
+        public void Craft()
         {
-            return base.CanInteract(interactor) && (CanAddItem(interactor.ItemHolder.ItemId) || CanPickup());
+            _resultItemHolder.SetItem(_resultItemId);
+            foreach (var itemHolder in _itemHolders)
+            {
+                itemHolder.SetItem(null);
+            }
+            _items.Clear();
+            _buttons.Disable();
+        }
+        
+        public override bool CanInteract(Interactor interactor) 
+        {
+            if (!base.CanInteract(interactor)) //if its NOT null or NOT matches the interactor we need....?
+            {
+                return false;
+            }
+
+            if (interactor.ItemHolder.ItemId == null && CanPickup()) //if were not holding anything and the current items in the combiner is 2
+            {
+                return true;
+            }
+            
+            if (CanAddItem(interactor.ItemHolder.ItemId) && !CanPickup())
+            {
+                return true; 
+            }
+            
+            return false;
         }        
         
         protected override void OnInteractionFinished()
         {
             if (CanPickup())
             {
-                _currentInteractor.ItemHolder.SetItem(GetResult());
-                foreach (var itemHolder in _itemHolders)
-                {
-                    itemHolder.SetItem(null);
-                }
-                _items.Clear();
+                _currentInteractor.ItemHolder.SetItem(_resultItemHolder.ItemId);
+                _resultItemHolder.SetItem(null);
             }
             else
             {
                 AddItem(_currentInteractor.ItemHolder.ItemId);
                 _currentInteractor.ItemHolder.SetItem(null);
+                if (GetResult() != null)
+                {
+                    _resultItemId = GetResult();
+                    _buttons.Enable();
+                }
             }
             base.OnInteractionFinished();
         }
@@ -35,14 +62,23 @@ namespace SpaceGame
             _items = new List<string>();
         }
 
-        private bool CanAddItem(string id)
+        private bool CanAddItem(string id) 
         {
             if (id == null)
             {
                 return false;
             }
+            
+            var newItems = _items.Append(id).ToList();
+            foreach (var recipe in _recipes)
+            {
+                if (recipe.OverlapsItems(newItems, _combineInSequence))
+                {
+                    return true;
+                }
+            }
 
-            return _recipes.Any(recipe => recipe.RequiredItems.Contains(id) && !_items.Contains(id));
+            return false;
         }
 
         private void AddItem(string id)
@@ -55,17 +91,7 @@ namespace SpaceGame
         {
             foreach (var recipe in _recipes)
             {
-                bool found = true;
-                foreach (var item in _items)
-                {
-                    if (!recipe.RequiredItems.Contains(item))
-                    {
-                        found = false;
-                        break;
-                    }
-                }
-
-                if (found)
+                if (recipe.CanCraft(_items, _combineInSequence))
                 {
                     return recipe.Result;
                 }
@@ -73,14 +99,19 @@ namespace SpaceGame
 
             return null;
         }
+        
+        private bool CanPickup() => _resultItemHolder.ItemId != null;
 
-        // TODO: Connect to the recipe
-        private bool CanPickup() => _items.Count == 2;
+        private string _resultItemId;
 
         [SerializeField]
         private List<RecipeData> _recipes;
+        [SerializeField] private ItemHolder _resultItemHolder;
         [SerializeField] private List<ItemHolder> _itemHolders;
-        
+        [SerializeField] private bool _combineInSequence;
+        [SerializeField]
+        private CoopButtonInteractable _buttons;
+
         private List<string> _items;
     }
 }

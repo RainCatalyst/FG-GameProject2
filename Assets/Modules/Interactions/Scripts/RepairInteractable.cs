@@ -7,57 +7,62 @@ namespace SpaceGame
     {
         public event Action Repaired;
         public event Action Exploded;
+        public event Action Damaged;
         public bool IsRepaired => _isRepaired;
 
-        public void Repair()
+        public void Repair(bool ignoreEvents = false)
         {
             _isRepaired = true;
             _meshRenderer.material = _repairedMaterial;
-            _escalationBar.gameObject.SetActive(false);
+            // _escalationBar.gameObject.SetActive(false);
             _sparks.SetActive(false);
-            Repaired?.Invoke();
+            if (!ignoreEvents)
+                Repaired?.Invoke();
         }
 
         public void Break()
         {
             _isRepaired = false;
             _meshRenderer.material = _defaultMaterial;
-            _escalationBar.gameObject.SetActive(true);
-            ParticleManager.Instance.Spawn(ParticleType.Explosion, _effectOrigin.position);
+            // _escalationBar.gameObject.SetActive(true);
+            //ParticleManager.Instance.Spawn(ParticleType.Explosion, _effectOrigin.position);
             _sparks.SetActive(true);
+            Damaged?.Invoke();
         }
         
         public override bool CanInteract(Interactor interactor)
         {
-            return base.CanInteract(interactor) && !_isRepaired && interactor.ItemHolder.ItemId == "repairkit";
+            //Seth edit
+            return base.CanInteract(interactor) && !_isRepaired && interactor.ItemHolder.ItemId == "wrench";
         }
 
         protected override void OnInteractionFinished()
         {
             Repair();
-            _currentInteractor.ItemHolder.SetItem(null);
+            //Seth edit
+           // _currentInteractor.ItemHolder.SetItem(null);
             base.OnInteractionFinished();
         }
 
         private void Awake()
         {
             _defaultMaterial = _meshRenderer.material;
-            Repair();
+            Repair(true);
         }
 
         protected override void Update()
         {
             base.Update();
-            if (!_isRepaired)
-            {
-                _timer += Time.deltaTime;
-                _escalationBar.Progress = 1f - _timer / _timeUntilFailure;
-                if (_timer >= _timeUntilFailure)
-                {
-                    _timer = 0;
-                    Exploded?.Invoke();
-                }
-            }
+            // if (!_isRepaired)
+            // {
+            //     _timer += Time.deltaTime;
+            //     _escalationBar.Progress = 1f - _timer / _timeUntilFailure;
+            //     if (_timer >= _timeUntilFailure)
+            //     {
+            //         _timer = 0;
+            //         Exploded?.Invoke();
+            //     }
+            // }
         }
         
         [SerializeField] private bool _isRepaired;
@@ -68,7 +73,7 @@ namespace SpaceGame
         [SerializeField] private float _timeUntilFailure = 10f;
         [SerializeField] private int _damage = 1;
         [Header("Effects")]
-        [SerializeField] private Transform _effectOrigin;
+        //[SerializeField] private Transform _effectOrigin;
         [SerializeField] private GameObject _sparks;
         
         private float _timer;

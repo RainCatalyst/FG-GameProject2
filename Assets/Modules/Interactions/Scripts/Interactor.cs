@@ -13,10 +13,12 @@ namespace SpaceGame
         public bool CanInteract => _closestInteractable != null;
         public bool CanDropItem => _itemHolder.ItemId != null;
         public ItemHolder ItemHolder => _itemHolder;
+        public CharacterType CharacterType => _characterType;
 
-        public void Setup(ItemHolder itemHolder)
+        public void Setup(ItemHolder itemHolder, CharacterType characterType)
         {
             _itemHolder = itemHolder;
+            _characterType = characterType;
         }
 
         public void Interact()
@@ -95,11 +97,10 @@ namespace SpaceGame
             return closest;
         }
 
-        [SerializeField]
-        private ItemInteractable _itemPrefab;
-        [SerializeField]
-        private float _throwForce;
+        [SerializeField] private ItemInteractable _itemPrefab;
+        [SerializeField] private float _throwForce;
 
+        private CharacterType _characterType;
         private Interactable _currentInteractable;
         private Interactable _closestInteractable;
         private ItemHolder _itemHolder;
