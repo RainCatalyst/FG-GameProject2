@@ -27,6 +27,15 @@ namespace SpaceGame
                     _railgunChargedEvent.RaiseEvent();
                 }
             }
+
+            if (_readyToFire)
+            {
+                _launchBar.ProgressFill.color = Color.green;
+            }
+            else
+            {
+                _launchBar.ProgressFill.color = Color.yellow;
+            }
         }
 
         private IEnumerator CoFire()
