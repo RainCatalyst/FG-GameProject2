@@ -25,7 +25,7 @@ namespace SpaceGame
             _isRepaired = false;
             _meshRenderer.material = _defaultMaterial;
             // _escalationBar.gameObject.SetActive(true);
-            //ParticleManager.Instance.Spawn(ParticleType.Explosion, _effectOrigin.position);
+            ParticleManager.Instance.Spawn(ParticleType.Explosion, _effectOrigin.position);
             _sparks.SetActive(true);
             Damaged?.Invoke();
         }
@@ -73,7 +73,7 @@ namespace SpaceGame
         [SerializeField] private float _timeUntilFailure = 10f;
         [SerializeField] private int _damage = 1;
         [Header("Effects")]
-        //[SerializeField] private Transform _effectOrigin;
+        [SerializeField] private Transform _effectOrigin;
         [SerializeField] private GameObject _sparks;
         
         private float _timer;
