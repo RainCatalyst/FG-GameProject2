@@ -10,6 +10,7 @@ namespace SpaceGame
         
         protected override void Awake()
         {
+            LeanTween.init( 800 );
             // TODO: Make sure we properly dispose of events later
             _allyHealth.Setup();
             _enemyHealth.Setup();

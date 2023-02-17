@@ -33,7 +33,8 @@ namespace SpaceGame
         {
             _taskCooldownTimer = _currentTask.Data.Cooldown;
             _taskCooldownDuration = _currentTask.Data.Cooldown;
-            _taskIconParent.SetActive(false);
+            _taskIcon.sprite = _reloadIcon;
+            // _taskIconParent.SetActive(false);
             // _taskProgressBar.ColorOverProgress = _taskCooldownGradient;
             _currentTask = null;
         }
@@ -45,7 +46,7 @@ namespace SpaceGame
             var taskData = _availableTasks[(Random.value > _chance) ? Random.Range(1, _availableTasks.Count) : (0)];
             
             _taskIcon.sprite = taskData.Icon;
-            _taskIconParent.SetActive(true);
+            // _taskIconParent.SetActive(true);
             // _taskProgressBar.ColorOverProgress = _taskWaitGradient;
             _currentTask = new Task(taskData);
         }
@@ -96,6 +97,8 @@ namespace SpaceGame
         private Gradient _taskWaitGradient;
         [SerializeField]
         private Gradient _taskCooldownGradient;
+        [SerializeField]
+        private Sprite _reloadIcon;
         [SerializeField]
         private VoidEventChannel _taskCompleteEvent;
         [SerializeField]

@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _range: 2.75
-  _duration: 3
+  _duration: 0.5
   _bubble: {fileID: 8880709498304602265}
   _isDisabled: 0
   _interactSoundClip: {fileID: 11400000, guid: a2e4a888c2152284dba60de5af484ebc, type: 2}

@@ -8,11 +8,8 @@ namespace SpaceGame
     {
         public void Craft()
         {
+            _animator.Play("Craft");
             _resultItemHolder.SetItem(_resultItemId);
-            foreach (var itemHolder in _itemHolders)
-            {
-                itemHolder.SetItem(null);
-            }
             _items.Clear();
             _buttons.Disable();
         }
@@ -43,6 +40,11 @@ namespace SpaceGame
             {
                 _currentInteractor.ItemHolder.SetItem(_resultItemHolder.ItemId);
                 _resultItemHolder.SetItem(null);
+                _animator.Play("Idle");
+                foreach (var itemHolder in _itemHolders)
+                {
+                    itemHolder.SetItem(null);
+                }
             }
             else
             {
@@ -111,6 +113,8 @@ namespace SpaceGame
         [SerializeField] private bool _combineInSequence;
         [SerializeField]
         private CoopButtonInteractable _buttons;
+        [SerializeField]
+        private Animator _animator;
 
         private List<string> _items;
     }

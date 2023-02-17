@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: RedAmmo
   m_EditorClassIdentifier: 
   _timeToDeliver: 35
-  _cooldown: 0.1
+  _cooldown: 5
   _itemId: ammo_a
   _icon: {fileID: 21300000, guid: de34e24008a801143b69f132742aff2c, type: 3}
