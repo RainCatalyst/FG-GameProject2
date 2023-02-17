@@ -31,7 +31,7 @@ namespace SpaceGame
 
         private void StartTaskCooldown(bool failed)
         {
-            _taskCooldownTimer = _currentTask.Data.Cooldown;
+            _taskCooldownTimer = failed ? 1f : _currentTask.Data.Cooldown;
             _taskCooldownDuration = failed ? 1f : _currentTask.Data.Cooldown;
             _taskIcon.sprite = _reloadIcon;
             _recipeHint.SetRecipeSprite(null, _recipeIndex);
