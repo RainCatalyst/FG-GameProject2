@@ -4087,20 +4087,15 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4488823102652034998, guid: 90cf0f3335c9e6b47bfba925e1b2ddf8,
+    - target: {fileID: 1427686055025876756, guid: 90cf0f3335c9e6b47bfba925e1b2ddf8,
         type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.01
+      propertyPath: _throwForce
+      value: 3.75
       objectReference: {fileID: 0}
     - target: {fileID: 9156314876729220706, guid: 90cf0f3335c9e6b47bfba925e1b2ddf8,
         type: 3}
       propertyPath: m_Name
       value: PlayerHuman
-      objectReference: {fileID: 0}
-    - target: {fileID: 9156314876729220706, guid: 90cf0f3335c9e6b47bfba925e1b2ddf8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9156314876729220766, guid: 90cf0f3335c9e6b47bfba925e1b2ddf8,
         type: 3}
@@ -4634,7 +4629,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1426881726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4654,8 +4649,8 @@ MonoBehaviour:
   - {fileID: 729131354}
   _prefabToSpawn: {fileID: 6733075462847546978, guid: 8a9eec09b0aa7f74aad08a1fae5fd80c,
     type: 3}
-  _minDelay: 10
-  _maxDelay: 25
+  _minDelay: 1
+  _maxDelay: 2
 --- !u!4 &1426881727
 Transform:
   m_ObjectHideFlags: 0
@@ -5418,8 +5413,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _sparks
       value: 
-      objectReference: {fileID: 7653833183408998658, guid: 8a9eec09b0aa7f74aad08a1fae5fd80c,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 3713545352636435499, guid: ca60033aa2d9f644c801437213af8040,
         type: 3}
       propertyPath: _meshRenderer
@@ -5587,15 +5581,15 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1427686055025876756, guid: 6744255242fb8114f85cc0277cb3e7ff,
+        type: 3}
+      propertyPath: _throwForce
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9156314876729220706, guid: 6744255242fb8114f85cc0277cb3e7ff,
         type: 3}
       propertyPath: m_Name
       value: PlayerRobot
-      objectReference: {fileID: 0}
-    - target: {fileID: 9156314876729220706, guid: 6744255242fb8114f85cc0277cb3e7ff,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9156314876729220766, guid: 6744255242fb8114f85cc0277cb3e7ff,
         type: 3}

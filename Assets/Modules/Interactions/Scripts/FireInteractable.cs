@@ -7,7 +7,7 @@ namespace SpaceGame
     {
         public override bool CanInteract(Interactor interactor)
         {
-            return base.CanInteract(interactor) && interactor.ItemHolder.ItemId == "wrench";
+            return base.CanInteract(interactor) && interactor.CharacterType == CharacterType.Robot;
         }
 
         protected override void OnInteractionFinished()

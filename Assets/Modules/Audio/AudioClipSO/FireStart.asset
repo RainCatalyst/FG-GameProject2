@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47a08df00435c594d805c8c62fe26166, type: 3}
   m_Name: FireStart
   m_EditorClassIdentifier: 
-  _clip: {fileID: 8300000, guid: a9cdb6c535837b649b9423932cdb2569, type: 3}
-  _volume: 0.7
+  _clip: {fileID: 8300000, guid: adac777fba64f444a832e0a613068702, type: 3}
+  _volume: 0.3
