@@ -9,6 +9,7 @@ namespace SpaceGame
         public void Craft()
         {
             _animator.Play("Craft");
+            LeanTween.delayedCall(gameObject, 1f, () => _combineClip.Play());
             _resultItemHolder.SetItem(_resultItemId);
             _items.Clear();
             _buttons.Disable();
@@ -49,6 +50,7 @@ namespace SpaceGame
             else
             {
                 AddItem(_currentInteractor.ItemHolder.ItemId);
+                _dropClip.Play();
                 _currentInteractor.ItemHolder.SetItem(null);
                 if (GetResult() != null)
                 {
@@ -115,6 +117,10 @@ namespace SpaceGame
         private CoopButtonInteractable _buttons;
         [SerializeField]
         private Animator _animator;
+        [SerializeField]
+        private AudioClipSO _combineClip;
+        [SerializeField]
+        private AudioClipSO _dropClip;
 
         private List<string> _items;
     }

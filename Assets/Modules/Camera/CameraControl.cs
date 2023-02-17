@@ -62,7 +62,8 @@ public class CameraControl : MonoSingleton<CameraControl>
                 averagePos /= numTargets;
 
             averagePos.y = transform.position.y; // Dont change the y-position(Inherit camera rig y-position). Safety
-
+            // Don't move along Z axis
+            averagePos.z = transform.position.z;
             m_DesiredPosition = averagePos;
         }
         else
