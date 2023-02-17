@@ -652,8 +652,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 158dd7a579d84cfabb8c65c18e8ee1e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _allyHealthBar: {fileID: 0}
-  _enemyHealthBar: {fileID: 0}
   _gameOverMenu: {fileID: 7723491018489779134}
 --- !u!1 &7971967590669009250
 GameObject:
