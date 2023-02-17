@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: GreenAmmo
   m_EditorClassIdentifier: 
   _id: ammo_b
-  _gameObject: {fileID: 3119713189303186487, guid: 01dce7ec0c376e344b67e09c38fd0090,
+  _gameObject: {fileID: 3119713189303186487, guid: e18a31f3e0319ae44ac665754b2c41ed,
     type: 3}

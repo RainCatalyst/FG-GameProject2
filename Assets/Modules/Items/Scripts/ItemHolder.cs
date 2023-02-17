@@ -25,6 +25,8 @@ public class ItemHolder : MonoBehaviour
         if (_id != null)
         {
             _activeItem = Instantiate(Item.GameObject, _itemParent);
+            if (!_enableColliders)
+                _activeItem.GetComponent<Collider>().enabled = false;
             LeanTween.cancel(_itemParent.gameObject);
             _itemParent.localScale = Vector3.zero;
             LeanTween.scale(_itemParent.gameObject, _defaultScale, 0.21f).setEaseOutBack();
@@ -33,6 +35,8 @@ public class ItemHolder : MonoBehaviour
 
     [SerializeField]
     private Transform _itemParent;
+    [SerializeField]
+    private bool _enableColliders;
     private GameObject _activeItem;
     private Vector3 _defaultScale;
     private string _id;
