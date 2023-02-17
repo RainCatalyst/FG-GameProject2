@@ -15,7 +15,8 @@ namespace SpaceGame
             _isRepaired = true;
             _meshRenderer.material = _repairedMaterial;
             // _escalationBar.gameObject.SetActive(false);
-            _sparks.SetActive(false);
+            if (_sparks != null)
+                _sparks.SetActive(false);
             if (!ignoreEvents)
                 Repaired?.Invoke();
         }
@@ -26,7 +27,8 @@ namespace SpaceGame
             _meshRenderer.material = _defaultMaterial;
             // _escalationBar.gameObject.SetActive(true);
             //ParticleManager.Instance.Spawn(ParticleType.Explosion, _effectOrigin.position);
-            _sparks.SetActive(true);
+            if (_sparks != null)
+                _sparks.SetActive(true);
             Damaged?.Invoke();
             _breakSound.Play();
         }
