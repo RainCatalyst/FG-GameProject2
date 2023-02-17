@@ -406,6 +406,7 @@ MonoBehaviour:
   _duration: 3
   _bubble: {fileID: 2308755413757791841}
   _isDisabled: 0
+  _interactSoundClip: {fileID: 0}
   _isRepaired: 0
   _meshRenderer: {fileID: 678886355}
   _repairedMaterial: {fileID: 2100000, guid: 3d8c5f5b8c60c684b9a42ca3fe26a80d, type: 2}
@@ -413,6 +414,7 @@ MonoBehaviour:
   _timeUntilFailure: 10
   _damage: 1
   _sparks: {fileID: 5588439281095833196}
+  _breakSound: {fileID: 11400000, guid: 9cc4f66846942654c8c6304c798d896a, type: 2}
 --- !u!4 &3531708689295525288 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5861741825461680304, guid: 1e6c1fbf05601d541a415d84ea7d5a45,

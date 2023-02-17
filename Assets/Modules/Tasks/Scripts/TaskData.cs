@@ -8,7 +8,8 @@ namespace SpaceGame
         public float TimeToDeliver => _timeToDeliver;
         public float Cooldown => _cooldown;
         public string ItemId => _itemId;
-        public Sprite Icon => _icon;
+        public Sprite ResultIcon => _resultIcon;
+        public Sprite RecipeIcon => _recipeIcon;
         
         [SerializeField]
         private float _timeToDeliver;
@@ -17,6 +18,8 @@ namespace SpaceGame
         [SerializeField]
         private string _itemId;
         [SerializeField]
-        private Sprite _icon;
+        private Sprite _resultIcon;
+        [SerializeField]
+        private Sprite _recipeIcon;
     }
 }
