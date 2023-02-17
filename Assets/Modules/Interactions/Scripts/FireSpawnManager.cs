@@ -20,7 +20,8 @@ public class FireSpawnManager : MonoBehaviour
             }
         }
     }
-        public void SpawnFirePrefab()
+    
+    public void SpawnFirePrefab()
     {
         int randomIndex = Random.Range(0, _spawnLocation.Count);
         Transform spawnLocation = _spawnLocation[randomIndex];
