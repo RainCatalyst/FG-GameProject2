@@ -1047,6 +1047,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1349113780626422379, guid: c3c4e9a63b26d1a4f999928b5780822f,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1349113780626422379, guid: c3c4e9a63b26d1a4f999928b5780822f,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -1373,12 +1378,12 @@ PrefabInstance:
     - target: {fileID: 2625822780878988912, guid: c3c4e9a63b26d1a4f999928b5780822f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.45
+      value: -8.57
       objectReference: {fileID: 0}
     - target: {fileID: 2625822780878988912, guid: c3c4e9a63b26d1a4f999928b5780822f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.15
+      value: -6.57
       objectReference: {fileID: 0}
     - target: {fileID: 2625822780878988914, guid: c3c4e9a63b26d1a4f999928b5780822f,
         type: 3}
@@ -5815,6 +5820,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7940517155220890491, guid: 2df97eb0bcc84264ebec1c87534d2685,
+        type: 3}
+      propertyPath: _maxDelay
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7940517155220890491, guid: 2df97eb0bcc84264ebec1c87534d2685,
+        type: 3}
+      propertyPath: _minDelay
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
