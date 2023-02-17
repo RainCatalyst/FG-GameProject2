@@ -2,7 +2,6 @@ using System;
 using UnityEngine;
 
 namespace SpaceGame
-    //TODO: Drop current item, check if holding, spawning an iteminteractable
 {
     // This class will interact with interactables
     public class Interactor : MonoBehaviour
@@ -47,13 +46,18 @@ namespace SpaceGame
             var droppedItem = Instantiate(_itemPrefab, itemParent.position, itemParent.rotation);
             droppedItem.SetItem(itemId);
             
-            droppedItem.Throw((itemParent.forward - Vector3.up * 1f) * _throwForce);
+            droppedItem.Throw(_rb.velocity + (itemParent.forward + Vector3.up * 1f) * _throwForce);
         }
 
         public void FinishInteraction()
         {
             InteractionFinished?.Invoke();
             _currentInteractable = null;
+        }
+
+        private void Awake()
+        {
+            _rb = GetComponent<Rigidbody>();
         }
 
         private void Update()
@@ -104,5 +108,6 @@ namespace SpaceGame
         private Interactable _currentInteractable;
         private Interactable _closestInteractable;
         private ItemHolder _itemHolder;
+        private Rigidbody _rb;
     }
 }
