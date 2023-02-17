@@ -5,6 +5,8 @@ namespace SpaceGame
 {
     public class ItemInteractable : Interactable //Describes an item thats been dropped
     {
+        public string ItemId => _itemHolder.ItemId;
+        
         public void SetItem(string id)
         {
             _itemId = id;

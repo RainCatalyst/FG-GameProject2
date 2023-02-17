@@ -217,6 +217,8 @@ MonoBehaviour:
   _range: 2
   _duration: 1.5
   _bubble: {fileID: 8880709498304602265}
+  _isDisabled: 0
+  _interactSoundClip: {fileID: 0}
   _sourceItemId: empty_ammo
   _resultItemId: ammo_b
 --- !u!4 &7653833184466430800 stripped

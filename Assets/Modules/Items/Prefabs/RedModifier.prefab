@@ -226,6 +226,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireBgone
       objectReference: {fileID: 0}
+    - target: {fileID: 1369863815297873389, guid: cb1810990917c5e43a56e0dbc2d980a7,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1369863815297873389, guid: cb1810990917c5e43a56e0dbc2d980a7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: 50e242808c0552e4ab773f2aa454e692,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

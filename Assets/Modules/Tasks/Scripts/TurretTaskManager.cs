@@ -34,6 +34,7 @@ namespace SpaceGame
             _taskCooldownTimer = _currentTask.Data.Cooldown;
             _taskCooldownDuration = _currentTask.Data.Cooldown;
             _taskIcon.sprite = _reloadIcon;
+            _recipeHint.SetRecipeSprite(null, _recipeIndex);
             // _taskIconParent.SetActive(false);
             // _taskProgressBar.ColorOverProgress = _taskCooldownGradient;
             _currentTask = null;
@@ -43,9 +44,14 @@ namespace SpaceGame
         {
             //Seth edit
             //var taskData = _availableTasks[Random.Range(0, _availableTasks.Count)];
-            var taskData = _availableTasks[(Random.value > _chance) ? Random.Range(1, _availableTasks.Count) : (0)];
-            
-            _taskIcon.sprite = taskData.Icon;
+            bool isRareTask = Random.value > _chance;
+            var taskData = _availableTasks[isRareTask ? Random.Range(1, _availableTasks.Count) : 0];
+            if (isRareTask)
+            {
+                _recipeHint.SetRecipeSprite(taskData.RecipeIcon, _recipeIndex);
+            }
+
+            _taskIcon.sprite = taskData.ResultIcon;
             // _taskIconParent.SetActive(true);
             // _taskProgressBar.ColorOverProgress = _taskWaitGradient;
             _currentTask = new Task(taskData);
@@ -99,6 +105,10 @@ namespace SpaceGame
         private Gradient _taskCooldownGradient;
         [SerializeField]
         private Sprite _reloadIcon;
+        [SerializeField]
+        private RecipeHint _recipeHint;
+        [SerializeField]
+        private int _recipeIndex;
         [SerializeField]
         private VoidEventChannel _taskCompleteEvent;
         [SerializeField]
