@@ -226,6 +226,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireBgone
       objectReference: {fileID: 0}
+    - target: {fileID: 577102394174870584, guid: cb1810990917c5e43a56e0dbc2d980a7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1369863815297873389, guid: cb1810990917c5e43a56e0dbc2d980a7,
         type: 3}
       propertyPath: m_Materials.Array.size

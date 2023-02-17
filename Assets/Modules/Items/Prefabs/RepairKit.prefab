@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8881712046844148514}
   - component: {fileID: 6448715729644182178}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RepairKit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7008215166428434684}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 8f183ad03bf007640a8c11cf377c8686, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -77,6 +77,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wrench
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940717858186136907, guid: e0d46edaad293b348931440f48ed933a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6429587509074810865, guid: e0d46edaad293b348931440f48ed933a,
         type: 3}
