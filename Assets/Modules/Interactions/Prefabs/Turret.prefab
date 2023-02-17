@@ -721,7 +721,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _availableTasks:
   - {fileID: 11400000, guid: c4093450142840d4dba10612de057f41, type: 2}
-  - {fileID: 11400000, guid: c4093450142840d4dba10612de057f41, type: 2}
   - {fileID: 11400000, guid: 4de8a32402e314a4981c0ccfb9671dfa, type: 2}
   - {fileID: 11400000, guid: 30087f95fc0fab44cb89319c2d97449c, type: 2}
   _taskProgressBar: {fileID: 7481490891825704840}
@@ -788,6 +787,8 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   _reloadIcon: {fileID: 21300000, guid: 3f2151dbeb16586438c720e48d67fc9b, type: 3}
+  _recipeHint: {fileID: 0}
+  _recipeIndex: 0
   _taskCompleteEvent: {fileID: 11400000, guid: 6186530058e06e340b20d241c43ad928, type: 2}
   _taskFailEvent: {fileID: 11400000, guid: bf59cdb0a2eaf2843b46e126b6fa5b86, type: 2}
   _chance: 0.5
@@ -878,6 +879,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 70aac69df44d2c14b885caa8662d58ad,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 70aac69df44d2c14b885caa8662d58ad,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 99c3dcdad1543fe4aa0776a809918324, type: 2}
     - target: {fileID: 919132149155446097, guid: 70aac69df44d2c14b885caa8662d58ad,
         type: 3}
       propertyPath: m_Name

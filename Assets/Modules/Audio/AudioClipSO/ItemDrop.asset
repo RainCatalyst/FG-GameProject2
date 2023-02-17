@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ItemDrop
   m_EditorClassIdentifier: 
   _clip: {fileID: 8300000, guid: 74fb8011f001b664d9167f130e24c723, type: 3}
-  _volume: 0.7
+  _volume: 0.45

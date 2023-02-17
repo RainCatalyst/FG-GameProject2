@@ -1,18 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RecipeHint : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void SetRecipeSprite(Sprite sprite, int idx)
     {
-        
-    }
+        Recipes[idx].sprite = sprite;
 
-    // Update is called once per frame
-    void Update()
-    {
+        for (int i = 0; i < 2; i++)
+        {
+            Recipes[idx].gameObject.SetActive(Recipes[i].sprite != null);
+            
+        }
         
+        for (int i = 0; i < 2; i++)
+        {
+            if (Recipes[1 - idx].gameObject.activeSelf && Recipes[1 - idx].sprite == Recipes[idx].sprite)
+                Recipes[idx].gameObject.SetActive(false);
+        }
     }
+    
+    public Image[] Recipes;
 }

@@ -45,8 +45,15 @@ namespace SpaceGame
             var itemParent = _itemHolder.ItemParent;
             var droppedItem = Instantiate(_itemPrefab, itemParent.position, itemParent.rotation);
             droppedItem.SetItem(itemId);
-            
-            droppedItem.Throw(_rb.velocity + (itemParent.forward + Vector3.up * 1f) * _throwForce);
+
+            Vector3 velocity = (itemParent.forward + Vector3.up * 1f) * _throwForce;
+
+            if (_characterType == CharacterType.Human)
+            {
+                velocity += _rb.velocity;
+            }
+
+            droppedItem.Throw(velocity);
         }
 
         public void FinishInteraction()
