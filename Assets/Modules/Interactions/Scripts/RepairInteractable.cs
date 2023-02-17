@@ -28,6 +28,7 @@ namespace SpaceGame
             //ParticleManager.Instance.Spawn(ParticleType.Explosion, _effectOrigin.position);
             _sparks.SetActive(true);
             Damaged?.Invoke();
+            _breakSound.Play();
         }
         
         public override bool CanInteract(Interactor interactor)
@@ -75,6 +76,7 @@ namespace SpaceGame
         [Header("Effects")]
         //[SerializeField] private Transform _effectOrigin;
         [SerializeField] private GameObject _sparks;
+        [SerializeField] private AudioClipSO _breakSound;
         
         private float _timer;
         private Material _defaultMaterial;
