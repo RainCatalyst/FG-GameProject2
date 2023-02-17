@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,8 +19,9 @@ namespace SpaceGame
             _scoreEvent.RaiseEvent(_score);
             base.Awake();
             Time.timeScale = 1;
+            StartCoroutine(CoStartGame());
         }
-
+        
         private void OnEnable()
         {
             _taskCompleteEvent.EventRaised += OnTaskCompleted;
@@ -35,6 +38,20 @@ namespace SpaceGame
             _railgunFireEvent.EventRaised -= OnRailgunFired;
             _outOfOxygenEvent.EventRaised -= OnOutOfOxygen;
             _allyHealth.Died -= GameOver;
+        }
+
+        private IEnumerator CoStartGame()
+        {
+            ToggleGameplayPause(true);
+            if (!_skipControlsHint)
+            {
+                // Let players read the controls
+                _gameUI.ShowControls();
+                yield return new WaitForSecondsRealtime(5f);
+                _gameUI.FadeControls();
+            }
+            yield return new WaitForSecondsRealtime(3f);
+            ToggleGameplayPause(false);
         }
 
         public void ToggleGameplayPause(bool paused) => _isGameplayPaused = paused;
@@ -83,6 +100,7 @@ namespace SpaceGame
         private bool _isGameplayPaused;
 
         [SerializeField] private GameUI _gameUI;
+        [SerializeField] private bool _skipControlsHint;
         [Header("Health")]
         [SerializeField] private HealthData _allyHealth;
         [SerializeField] private HealthData _enemyHealth;
