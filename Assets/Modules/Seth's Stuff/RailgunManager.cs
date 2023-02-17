@@ -42,6 +42,7 @@ namespace SpaceGame
             GameManager.Instance.ToggleGameplayPause(true);
             yield return new WaitForSeconds(3.75f);
             CameraControl.Instance.OverrideTarget = null;
+            yield return new WaitForSeconds(3f);
             GameManager.Instance.ToggleGameplayPause(false);
         }
 

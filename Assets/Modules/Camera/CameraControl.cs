@@ -69,6 +69,7 @@ public class CameraControl : MonoSingleton<CameraControl>
         else
         {
             m_DesiredPosition = OverrideTarget.position;
+            m_DesiredPosition.z = transform.position.z;
         }
     }
 

@@ -20,19 +20,19 @@ namespace SpaceGame
         {
             // Update score etc
             _taskCompleteEvent.RaiseEvent();
-            StartTaskCooldown();
+            StartTaskCooldown(false);
         }
 
         private void OnTaskFailed()
         {
             _taskFailEvent.RaiseEvent();
-            StartTaskCooldown();
+            StartTaskCooldown(true);
         }
 
-        private void StartTaskCooldown()
+        private void StartTaskCooldown(bool failed)
         {
             _taskCooldownTimer = _currentTask.Data.Cooldown;
-            _taskCooldownDuration = _currentTask.Data.Cooldown;
+            _taskCooldownDuration = failed ? 1f : _currentTask.Data.Cooldown;
             _taskIcon.sprite = _reloadIcon;
             _recipeHint.SetRecipeSprite(null, _recipeIndex);
             // _taskIconParent.SetActive(false);
