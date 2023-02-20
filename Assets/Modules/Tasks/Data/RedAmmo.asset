@@ -15,7 +15,7 @@ MonoBehaviour:
   _timeToDeliver: 35
   _cooldown: 5
   _itemId: ammo_a
-  _resultIcon: {fileID: 21300000, guid: de34e24008a801143b69f132742aff2c, type: 3}
+  _resultIcon: {fileID: 21300000, guid: 6a3a6abb248f93c4ebdc68d145254251, type: 3}
   _recipeIcon: {fileID: 21300000, guid: 3f474eb0ca5fd734cb9b45b6bc7597bc, type: 3}
   _wallCount: 1
   _fireCount: 2
