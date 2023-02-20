@@ -81,7 +81,6 @@ namespace SpaceGame
             // Deal damage to the player's ship
             // _allyHealth.DealDamage(1);
             CameraControl.Instance.Shake();
-            RepairManager.Instance.BreakRandom();
         }
         
         private void OnRailgunFired()

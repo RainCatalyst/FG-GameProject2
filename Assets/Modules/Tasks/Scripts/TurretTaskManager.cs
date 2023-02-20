@@ -25,6 +25,11 @@ namespace SpaceGame
 
         private void OnTaskFailed()
         {
+            // Quick hack for now
+            for (int i = 0; i < _currentTask.Data.WallCount; i++)
+                RepairManager.Instance.BreakRandom();
+            for (int i = 0; i < _currentTask.Data.FireCount; i++)
+                FireSpawnManager.Instance.SpawnFirePrefab();
             _taskFailEvent.RaiseEvent();
             StartTaskCooldown(true);
         }
@@ -35,6 +40,8 @@ namespace SpaceGame
             _taskCooldownDuration = failed ? 1f : _currentTask.Data.Cooldown;
             _taskIcon.sprite = _reloadIcon;
             _recipeHint.SetRecipeSprite(null, _recipeIndex);
+            
+            _iconParent.SetActive(false);
             // _taskIconParent.SetActive(false);
             // _taskProgressBar.ColorOverProgress = _taskCooldownGradient;
             _currentTask = null;
@@ -51,6 +58,8 @@ namespace SpaceGame
                 _recipeHint.SetRecipeSprite(taskData.RecipeIcon, _recipeIndex);
             }
 
+            _iconParent.SetActive(true);
+            _iconImage.sprite = taskData.ResultIcon;
             _taskIcon.sprite = taskData.ResultIcon;
             // _taskIconParent.SetActive(true);
             // _taskProgressBar.ColorOverProgress = _taskWaitGradient;
@@ -113,6 +122,8 @@ namespace SpaceGame
         private VoidEventChannel _taskCompleteEvent;
         [SerializeField]
         private VoidEventChannel _taskFailEvent;
+        [SerializeField] private Image _iconImage;
+        [SerializeField] private GameObject _iconParent;
 
         private Task _currentTask;
         private float _taskCooldownTimer;
