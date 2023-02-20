@@ -7401,12 +7401,12 @@ PrefabInstance:
     - target: {fileID: 7940517155220890491, guid: 2df97eb0bcc84264ebec1c87534d2685,
         type: 3}
       propertyPath: _maxDelay
-      value: 15
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7940517155220890491, guid: 2df97eb0bcc84264ebec1c87534d2685,
         type: 3}
       propertyPath: _minDelay
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7940517155220890491, guid: 2df97eb0bcc84264ebec1c87534d2685,
         type: 3}

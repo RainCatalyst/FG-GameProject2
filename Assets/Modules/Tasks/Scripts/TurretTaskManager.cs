@@ -25,6 +25,11 @@ namespace SpaceGame
 
         private void OnTaskFailed()
         {
+            // Quick hack for now
+            for (int i = 0; i < _currentTask.Data.WallCount; i++)
+                RepairManager.Instance.BreakRandom();
+            for (int i = 0; i < _currentTask.Data.FireCount; i++)
+                FireSpawnManager.Instance.SpawnFirePrefab();
             _taskFailEvent.RaiseEvent();
             StartTaskCooldown(true);
         }

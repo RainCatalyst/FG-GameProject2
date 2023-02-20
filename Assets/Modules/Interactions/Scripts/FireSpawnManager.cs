@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections;
 using SpaceGame;
 
-public class FireSpawnManager : MonoBehaviour
+public class FireSpawnManager : MonoSingleton<FireSpawnManager>
 {
     private void Update()
     {

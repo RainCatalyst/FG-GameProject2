@@ -35,7 +35,6 @@ namespace SpaceGame
             }
 
             _batteryBar.Progress = _batteryLevel / 100f;
-
             _characterMovement.Speed = _batteryLevel > 0 ? _normalSpeed : _normalSpeed * _slowModifier;
         }
 
