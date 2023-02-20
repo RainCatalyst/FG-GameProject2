@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace SpaceGame
 {
@@ -38,7 +39,7 @@ namespace SpaceGame
                 _currentDirection = GetWallSteerDirection(_currentDirection);
             }
             
-            _rb.velocity = new Vector3(_currentDirection.x, 0, _currentDirection.y) * _speed;
+            _rb.velocity = new Vector3(_currentDirection.x, 0, _currentDirection.y) * Speed;
             
             // Handle rotation
             if (_targetDirection != Vector2.zero)
@@ -73,7 +74,7 @@ namespace SpaceGame
             return Vector2.Lerp(current, steerDirection, 0.8f);
         }
 
-        [SerializeField] private float _speed = 4f;
+        [FormerlySerializedAs("_speed")] public float Speed = 4f;
         [SerializeField] private float _smooth = 24f;
         [SerializeField] private float _rotationSmooth = 16f;
         [SerializeField] private LayerMask _wallMask;
