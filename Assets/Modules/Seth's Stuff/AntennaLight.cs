@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using SpaceGame;
 using UnityEngine;
+using UnityEngine.Timeline;
 
 public class AntennaLight : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class AntennaLight : MonoBehaviour
     void Update()
     {
         _level = _robotInteractable._batteryLevel / 100f;
+        _particle.startColor = _gradient.Evaluate(_level);
         _light.color = _gradient.Evaluate(_level);
 
         if (_level == 0)
@@ -35,6 +37,7 @@ public class AntennaLight : MonoBehaviour
 
         if (_blinkTimer <= 0)
         {
+           // _particle.enableEmission = !_particle.enableEmission;
             _light.enabled = !_light.enabled;
             _blinkTimer = 0.5f;
         }
@@ -45,4 +48,5 @@ public class AntennaLight : MonoBehaviour
     [SerializeField] private float _level;
     [SerializeField] private RobotInteractable _robotInteractable;
     [SerializeField] private float _blinkTimer;
+    [SerializeField] private ParticleSystem _particle;
 }
