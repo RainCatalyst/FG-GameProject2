@@ -36,10 +36,11 @@ namespace SpaceGame
 
         private void StartTaskCooldown(bool failed)
         {
+            _turretLaser.Play();
             _taskCooldownTimer = failed ? 1f : _currentTask.Data.Cooldown;
             _taskCooldownDuration = failed ? 1f : _currentTask.Data.Cooldown;
             _taskIcon.sprite = _reloadIcon;
-            _recipeHint.SetRecipeSprite(null, _recipeIndex);
+            _recipeHint.SetRecipe(null, _recipeIndex);
             
             _iconParent.SetActive(false);
             // _taskIconParent.SetActive(false);
@@ -55,7 +56,7 @@ namespace SpaceGame
             var taskData = _availableTasks[isRareTask ? Random.Range(1, _availableTasks.Count) : 0];
             if (isRareTask)
             {
-                _recipeHint.SetRecipeSprite(taskData.RecipeIcon, _recipeIndex);
+                _recipeHint.SetRecipe(taskData, _recipeIndex);
             }
 
             _iconParent.SetActive(true);
@@ -124,7 +125,8 @@ namespace SpaceGame
         private VoidEventChannel _taskFailEvent;
         [SerializeField] private Image _iconImage;
         [SerializeField] private GameObject _iconParent;
-
+        [SerializeField] private LaserShoot _particles;
+        
         private Task _currentTask;
         private float _taskCooldownTimer;
         private float _taskCooldownDuration;

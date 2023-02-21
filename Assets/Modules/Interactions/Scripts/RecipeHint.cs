@@ -1,25 +1,32 @@
+using System;
+using SpaceGame;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class RecipeHint : MonoBehaviour
 {
-    public void SetRecipeSprite(Sprite sprite, int idx)
+    public void SetRecipe(TaskData data, int idx)
     {
-        Recipes[idx].sprite = sprite;
-        Recipes[idx].gameObject.SetActive(sprite != null);
-
-        // for (int i = 0; i < 2; i++)
-        // {
-        //     Recipes[idx].gameObject.SetActive(Recipes[i].sprite != null);
-        //     
-        // }
-        //
-        // for (int i = 0; i < 2; i++)
-        // {
-        //     if (Recipes[1 - idx].gameObject.activeSelf && Recipes[1 - idx].sprite == Recipes[idx].sprite)
-        //         Recipes[idx].gameObject.SetActive(false);
-        // }
+        if (data == null)
+        {
+            Recipes[idx].Parent.SetActive(false);
+        }
+        else
+        {
+            Recipes[idx].ModifierImage.sprite = data.ModifierIcon;
+            Recipes[idx].ResultImage.sprite = data.ResultIcon;
+            Recipes[idx].Parent.SetActive(true);
+        }
+        // TODO: Hide duplicate recipes maybe?
     }
-    
-    public Image[] Recipes;
+
+    [Serializable]
+    public struct RecipeItem
+    {
+        public GameObject Parent;
+        public Image ModifierImage;
+        public Image ResultImage;
+    }
+
+    public RecipeItem[] Recipes;
 }

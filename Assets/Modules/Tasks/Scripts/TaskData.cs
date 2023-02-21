@@ -10,6 +10,7 @@ namespace SpaceGame
         public string ItemId => _itemId;
         public Sprite ResultIcon => _resultIcon;
         public Sprite RecipeIcon => _recipeIcon;
+        public Sprite ModifierIcon => _modifierIcon;
         public int WallCount => _wallCount;
         public int FireCount => _fireCount;
         
@@ -23,7 +24,11 @@ namespace SpaceGame
         private Sprite _resultIcon;
         [SerializeField]
         private Sprite _recipeIcon;
-        [SerializeField] private int _wallCount;
-        [SerializeField] private int _fireCount;
+        [SerializeField]
+        private Sprite _modifierIcon;
+        [SerializeField]
+        private int _wallCount;
+        [SerializeField]
+        private int _fireCount;
     }
 }
