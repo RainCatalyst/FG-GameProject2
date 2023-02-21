@@ -36,6 +36,7 @@ namespace SpaceGame
 
         private void StartTaskCooldown(bool failed)
         {
+            _turretLaser.Play();
             _taskCooldownTimer = failed ? 1f : _currentTask.Data.Cooldown;
             _taskCooldownDuration = failed ? 1f : _currentTask.Data.Cooldown;
             _taskIcon.sprite = _reloadIcon;
@@ -124,7 +125,8 @@ namespace SpaceGame
         private VoidEventChannel _taskFailEvent;
         [SerializeField] private Image _iconImage;
         [SerializeField] private GameObject _iconParent;
-
+        [SerializeField] private LaserShoot _particles;
+        
         private Task _currentTask;
         private float _taskCooldownTimer;
         private float _taskCooldownDuration;

@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserShoot : MonoBehaviour
+namespace SpaceGame
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public class LaserShoot : MonoBehaviour
     {
-        
+        public void PlayParticle()
+        { 
+            ParticleSystem[] subParticles = GetComponentsInChildren<ParticleSystem>();
+
+            foreach (ParticleSystem subParticle in subParticles)
+            {
+                subParticle.Play();
+            }
+        }
+
+
+    [SerializeField] private ParticleSystem _turretLaser;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
