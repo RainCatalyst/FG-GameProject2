@@ -14532,6 +14532,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092f2308a4274cb4c93fd276c3253f2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lineRendered: {fileID: 8569057977673717232}
+  _sparkParticle: {fileID: 3257744023216670281}
+  _glowParticle: {fileID: 3257744022202547185}
+  _ovalParticle: {fileID: 2962284785878587191}
 --- !u!1 &8569057977673717234
 GameObject:
   m_ObjectHideFlags: 0

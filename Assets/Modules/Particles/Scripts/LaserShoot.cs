@@ -8,17 +8,23 @@ namespace SpaceGame
     public class LaserShoot : MonoBehaviour
     {
         public void PlayParticle()
-        { 
-            ParticleSystem[] subParticles = GetComponentsInChildren<ParticleSystem>();
-
-            foreach (ParticleSystem subParticle in subParticles)
-            {
-                subParticle.Play();
-            }
+        {
+            _lineRendered.enabled = true;
+            _sparkParticle.Play();
+            _glowParticle.Play();
+            _ovalParticle.Play();
         }
-
-
-    [SerializeField] private ParticleSystem _turretLaser;
+        public void StopParticle()
+        {
+            _lineRendered.enabled = false;
+            _sparkParticle.Stop();
+            _glowParticle.Stop();
+            _ovalParticle.Stop();
+        }
+        [SerializeField] private LineRenderer _lineRendered;
+        [SerializeField] private ParticleSystem _sparkParticle;
+        [SerializeField] private ParticleSystem _glowParticle;
+        [SerializeField] private ParticleSystem _ovalParticle;
     }
 
 }

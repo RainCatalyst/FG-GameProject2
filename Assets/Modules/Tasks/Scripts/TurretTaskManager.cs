@@ -21,6 +21,7 @@ namespace SpaceGame
             // Update score etc
             _taskCompleteEvent.RaiseEvent();
             StartTaskCooldown(false);
+            _particles.PlayParticle();
         }
 
         private void OnTaskFailed()
@@ -36,7 +37,6 @@ namespace SpaceGame
 
         private void StartTaskCooldown(bool failed)
         {
-            //_turretLaser.Play();
             _taskCooldownTimer = failed ? 1f : _currentTask.Data.Cooldown;
             _taskCooldownDuration = failed ? 1f : _currentTask.Data.Cooldown;
             _taskIcon.sprite = _reloadIcon;
