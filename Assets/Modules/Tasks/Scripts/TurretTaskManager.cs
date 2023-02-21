@@ -39,7 +39,7 @@ namespace SpaceGame
             _taskCooldownTimer = failed ? 1f : _currentTask.Data.Cooldown;
             _taskCooldownDuration = failed ? 1f : _currentTask.Data.Cooldown;
             _taskIcon.sprite = _reloadIcon;
-            _recipeHint.SetRecipeSprite(null, _recipeIndex);
+            _recipeHint.SetRecipe(null, _recipeIndex);
             
             _iconParent.SetActive(false);
             // _taskIconParent.SetActive(false);
@@ -55,7 +55,7 @@ namespace SpaceGame
             var taskData = _availableTasks[isRareTask ? Random.Range(1, _availableTasks.Count) : 0];
             if (isRareTask)
             {
-                _recipeHint.SetRecipeSprite(taskData.RecipeIcon, _recipeIndex);
+                _recipeHint.SetRecipe(taskData, _recipeIndex);
             }
 
             _iconParent.SetActive(true);

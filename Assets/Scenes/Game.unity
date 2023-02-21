@@ -476,7 +476,7 @@ PrefabInstance:
     - target: {fileID: 6054482764669416111, guid: 42ac96c659a421e49b6c3aa0f0954a58,
         type: 3}
       propertyPath: _skipControlsHint
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7112835758511591150, guid: 42ac96c659a421e49b6c3aa0f0954a58,
         type: 3}
@@ -2959,6 +2959,26 @@ PrefabInstance:
     - target: {fileID: 7904358999070423573, guid: c3c4e9a63b26d1a4f999928b5780822f,
         type: 3}
       propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929615050134798559, guid: c3c4e9a63b26d1a4f999928b5780822f,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929615050134798559, guid: c3c4e9a63b26d1a4f999928b5780822f,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929615050134798559, guid: c3c4e9a63b26d1a4f999928b5780822f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929615050134798559, guid: c3c4e9a63b26d1a4f999928b5780822f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7981199785300300915, guid: c3c4e9a63b26d1a4f999928b5780822f,
