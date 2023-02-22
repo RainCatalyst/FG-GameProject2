@@ -439,6 +439,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Station_oxygen_frame
       objectReference: {fileID: 0}
+    - target: {fileID: 1272578625220284917, guid: 5a55864932acdcf4481188fc2837d67c,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1272578625220284917, guid: 5a55864932acdcf4481188fc2837d67c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: 50e242808c0552e4ab773f2aa454e692,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
