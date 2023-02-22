@@ -14,6 +14,7 @@ namespace SpaceGame
         public void DeliverTaskItem()
         {
             OnTaskCompleted();
+            _particles.PlayParticle();
         }
         
         private void OnTaskCompleted()
@@ -21,6 +22,7 @@ namespace SpaceGame
             // Update score etc
             _taskCompleteEvent.RaiseEvent();
             StartTaskCooldown(false);
+            
         }
 
         private void OnTaskFailed()
@@ -32,10 +34,12 @@ namespace SpaceGame
                 FireSpawnManager.Instance.SpawnFire();
             _taskFailEvent.RaiseEvent();
             StartTaskCooldown(true);
+            _particles.StopParticle();
         }
 
         private void StartTaskCooldown(bool failed)
         {
+            _particles.PlayParticle();
             _taskCooldownTimer = failed ? 1f : _currentTask.Data.Cooldown;
             _taskCooldownDuration = failed ? 1f : _currentTask.Data.Cooldown;
             _taskIcon.sprite = _reloadIcon;
@@ -96,6 +100,7 @@ namespace SpaceGame
                 if (_taskCooldownTimer <= 0f)
                 {
                     GetNewTask();
+                    _particles.StopParticle();
                 }
             }
         }
@@ -124,7 +129,8 @@ namespace SpaceGame
         private VoidEventChannel _taskFailEvent;
         [SerializeField] private Image _iconImage;
         [SerializeField] private GameObject _iconParent;
-
+        [SerializeField] private LaserShoot _particles;
+        
         private Task _currentTask;
         private float _taskCooldownTimer;
         private float _taskCooldownDuration;

@@ -2,17 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserShoot : MonoBehaviour
+namespace SpaceGame
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public class LaserShoot : MonoBehaviour
     {
-        
+        private void Awake()
+        {
+            _lineRendered.enabled = false;
+            _sparkParticle.Stop();
+            _glowParticle.Stop();
+            _ovalParticle.Stop();
+        }
+        public void PlayParticle()
+        {
+            _lineRendered.enabled = true;
+            _sparkParticle.Play();
+            _glowParticle.Play();
+            _ovalParticle.Play();
+        }
+        public void StopParticle()
+        {
+            _lineRendered.enabled = false;
+            _sparkParticle.Stop();
+            _glowParticle.Stop();
+            _ovalParticle.Stop();
+        }
+        [SerializeField] private LineRenderer _lineRendered;
+        [SerializeField] private ParticleSystem _sparkParticle;
+        [SerializeField] private ParticleSystem _glowParticle;
+        [SerializeField] private ParticleSystem _ovalParticle;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
