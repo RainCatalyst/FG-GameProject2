@@ -44,7 +44,7 @@ namespace SpaceGame
         [SerializeField] private ProgressBar _batteryBar;
         
         private CharacterMovement _characterMovement;
-        private float _batteryLevel;
+        public float _batteryLevel;
         private float _normalSpeed;
     }
 }

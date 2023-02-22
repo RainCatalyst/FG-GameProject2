@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Battery
   m_EditorClassIdentifier: 
   _id: battery
-  _gameObject: {fileID: 5785796073761188222, guid: 4980a3fea33d05a489d31f3728adc615,
+  _gameObject: {fileID: 3076700380748756836, guid: fc9de29040a88cf4893ded0f1e0c1a25,
     type: 3}
