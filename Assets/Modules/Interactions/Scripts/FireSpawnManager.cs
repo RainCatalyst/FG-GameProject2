@@ -5,43 +5,54 @@ using SpaceGame;
 
 public class FireSpawnManager : MonoSingleton<FireSpawnManager>
 {
+    protected override void Awake()
+    {
+        base.Awake();
+        _availableLocations = new List<Transform>(_spawnLocation);
+    }
+
     private void Update()
     {
         if (GameManager.Instance.IsGameplayPaused)
             return;
-        if (_activePrefabs.Count < _spawnLocation.Count)
+        _timer += Time.deltaTime;
+        if (_timer >= _randomTimer)
         {
-            _timer += Time.deltaTime;
-            if (_timer >= _randomTimer)
-            {
-                SpawnFirePrefab();
-                _randomTimer = Random.Range(_minDelay, _maxDelay);
-                _timer = 0f;
-            }
+            SpawnFire();
+            _randomTimer = Random.Range(_minDelay, _maxDelay);
+            _timer = 0f;
         }
     }
     
-    public void SpawnFirePrefab()
+    public void SpawnFire()
     {
-        int randomIndex = Random.Range(0, _spawnLocation.Count);
-        Transform spawnLocation = _spawnLocation[randomIndex];
-        DestroyFire newPrefab = Instantiate(_prefabToSpawn, spawnLocation.position, spawnLocation.rotation);
-        _activePrefabs.Add(newPrefab);
-        newPrefab.Destroyed += OnDestroyedPrefab;
+        if (_availableLocations.Count == 0)
+        {
+            Debug.LogWarning("Can't spawn more fires!");
+            return;
+        }
+        int locationIndex = Random.Range(0, _availableLocations.Count);
+        Transform spawnLocation = _availableLocations[locationIndex];
+        DestroyFire fireInstance = Instantiate(_prefabToSpawn, spawnLocation);
+        _availableLocations.RemoveAt(locationIndex);
+        fireInstance.Destroyed += OnFireDestroyed;
+        _spawnClip.Play();
     }
         
-    public void OnDestroyedPrefab(DestroyFire prefab)
+    private void OnFireDestroyed(DestroyFire prefab)
     {
-        _activePrefabs.Remove(prefab);
-        prefab.Destroyed -= OnDestroyedPrefab;
+        _availableLocations.Add(prefab.transform.parent);
+        prefab.Destroyed -= OnFireDestroyed;
     }
 
     [SerializeField]
     private List<Transform> _spawnLocation;
-    private List<DestroyFire> _activePrefabs = new List<DestroyFire>();
+    private List<Transform> _availableLocations;
 
     [SerializeField]
     private DestroyFire _prefabToSpawn;
+    [SerializeField]
+    private AudioClipSO _spawnClip;
 
     private float _randomTimer = 5f;
     [Header("Timer for fire prefab")]
@@ -49,6 +60,6 @@ public class FireSpawnManager : MonoSingleton<FireSpawnManager>
     private float _minDelay = 1f;
     [SerializeField]
     private float _maxDelay = 5f;
-    private float _timer = 0f;
-    
+    private float _timer;
+
 }

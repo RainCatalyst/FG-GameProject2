@@ -29,7 +29,7 @@ namespace SpaceGame
             for (int i = 0; i < _currentTask.Data.WallCount; i++)
                 RepairManager.Instance.BreakRandom();
             for (int i = 0; i < _currentTask.Data.FireCount; i++)
-                FireSpawnManager.Instance.SpawnFirePrefab();
+                FireSpawnManager.Instance.SpawnFire();
             _taskFailEvent.RaiseEvent();
             StartTaskCooldown(true);
         }
