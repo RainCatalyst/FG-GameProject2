@@ -7,6 +7,13 @@ namespace SpaceGame
 
     public class LaserShoot : MonoBehaviour
     {
+        private void Awake()
+        {
+            _lineRendered.enabled = false;
+            _sparkParticle.Stop();
+            _glowParticle.Stop();
+            _ovalParticle.Stop();
+        }
         public void PlayParticle()
         {
             _lineRendered.enabled = true;
