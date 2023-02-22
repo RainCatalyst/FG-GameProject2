@@ -29,6 +29,14 @@ namespace SpaceGame
 
          _oxygenLevel = Mathf.Clamp(_oxygenLevel, 0, 100);
          _oxygenBar.Progress = _oxygenLevel / 100f;
+         
+         ShakeBar(Mathf.InverseLerp(30, 5, _oxygenLevel));
+      }
+
+      private void ShakeBar(float strength)
+      {
+         float offset = Mathf.Sin(Time.time * 35f) * strength;
+         _oxygenBar.transform.localRotation = Quaternion.Euler(0, 0, offset);
       }
       
       [SerializeField]
