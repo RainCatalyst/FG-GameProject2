@@ -288,7 +288,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 0.02
-      minScalar: 0.01
+      minScalar: 0.1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -9684,7 +9684,7 @@ Transform:
   m_LocalRotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -0.056999996, y: 0, z: -0.091000006}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8569057977169197550}
   m_RootOrder: -1
@@ -9944,7 +9944,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 0.03
-      minScalar: 0.015
+      minScalar: 0.39
       maxCurve:
         serializedVersion: 2
         m_Curve:
