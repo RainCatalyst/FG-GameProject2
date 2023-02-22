@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5581796730372044395}
   - component: {fileID: 1137225815624980906}
   m_Layer: 0
-  m_Name: GreenModifierFlower
+  m_Name: RedModifierFlower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
