@@ -34,11 +34,12 @@ namespace SpaceGame
                 FireSpawnManager.Instance.SpawnFirePrefab();
             _taskFailEvent.RaiseEvent();
             StartTaskCooldown(true);
+            _particles.StopParticle();
         }
 
         private void StartTaskCooldown(bool failed)
         {
-            _particles.StopParticle();
+            _particles.PlayParticle();
             _taskCooldownTimer = failed ? 1f : _currentTask.Data.Cooldown;
             _taskCooldownDuration = failed ? 1f : _currentTask.Data.Cooldown;
             _taskIcon.sprite = _reloadIcon;
@@ -99,6 +100,7 @@ namespace SpaceGame
                 if (_taskCooldownTimer <= 0f)
                 {
                     GetNewTask();
+                    _particles.StopParticle();
                 }
             }
         }
