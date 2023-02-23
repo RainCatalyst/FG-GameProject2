@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.00021953168, g: 0.00022040517, b: 0.00021949061,
+  m_IndirectSpecularColor: {r: 0.00022102249, g: 0.00022529667, b: 0.00022098895,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -4888,18 +4888,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.81364197, y: 2.0000002, z: 0.5994619}
   m_Center: {x: 0, y: 0.9999998, z: -0.000000074505806}
---- !u!114 &593626828 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7112835758511591150, guid: 42ac96c659a421e49b6c3aa0f0954a58,
-    type: 3}
-  m_PrefabInstance: {fileID: 208890863}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 158dd7a579d84cfabb8c65c18e8ee1e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &613711438
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13342,12 +13330,29 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 593626828}
+      objectReference: {fileID: 3791556976761068015}
+    - target: {fileID: 3791556977188310199, guid: 847b8ab55921c1d47994445772169112,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Restart
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 847b8ab55921c1d47994445772169112, type: 3}
+--- !u!114 &3791556976761068015 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3791556977164302959, guid: 847b8ab55921c1d47994445772169112,
+    type: 3}
+  m_PrefabInstance: {fileID: 3791556976761068014}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 661e194fd6b04cc46bfdb9c4bdcbf119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6341852099516342689
 PrefabInstance:
   m_ObjectHideFlags: 0
