@@ -35,7 +35,7 @@ namespace SpaceGame
         private void OnRailgunFired()
         {
             _enemyHp--;
-            _enemyHealthBar.Progress = (float)_enemyHp / CurrentEncounter.EnemyHp;
+            _target = (float)_enemyHp / CurrentEncounter.EnemyHp;
             if (_enemyHp <= 0)
             {
                 _encounterIndex = Mathf.Clamp(_encounterIndex + 1, 0, _encounters.Length - 1);
@@ -53,6 +53,12 @@ namespace SpaceGame
             EncounterChanged?.Invoke();
         }
 
+        private void Update()
+        {
+            _enemyHealthBar.Progress =
+                Mathf.MoveTowards(_enemyHealthBar.Progress, _target, _reduceSpeed * Time.deltaTime);
+        }
+
         // Manage enemy hp, track current encounter
         [SerializeField]
         private EncounterData[] _encounters; // sequence of all encounters in the game
@@ -60,6 +66,8 @@ namespace SpaceGame
         private ProgressBar _enemyHealthBar;
         private int _encounterIndex; // index of current encounter?
         private int _enemyHp;
+        private float _target = 1f;
+        [SerializeField] private float _reduceSpeed = 0.5f;
         [Header("Events")]
         [SerializeField] private VoidEventChannel _railgunFireEvent;
     }
