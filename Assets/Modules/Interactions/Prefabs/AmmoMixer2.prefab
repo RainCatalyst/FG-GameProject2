@@ -6668,7 +6668,7 @@ Transform:
   - {fileID: 4840276561057272831}
   - {fileID: 8168418056181481389}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3558625061254778544
 MonoBehaviour:
@@ -6690,13 +6690,13 @@ MonoBehaviour:
   _recipes:
   - {fileID: 11400000, guid: 124498d0a52be594d81475a92df873c8, type: 2}
   - {fileID: 11400000, guid: a0c0e5a50c2b63f46b5f3518611681f1, type: 2}
-  _resultItemHolder: {fileID: 0}
+  _resultItemHolder: {fileID: 4286571580462216689}
   _itemHolders:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 4286571580515171552}
+  - {fileID: 4286571580541068372}
   _combineInSequence: 0
   _buttons: {fileID: 1378088875642526034}
-  _animator: {fileID: 0}
+  _animator: {fileID: 4286571580487594026}
   _combineClip: {fileID: 11400000, guid: 5d63f2054dd434343a31e4c75bed2382, type: 2}
   _dropClip: {fileID: 11400000, guid: e895160e944fa7841be6cfbc2add39c7, type: 2}
 --- !u!114 &1378088875642526034

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: RedModifier
   m_EditorClassIdentifier: 
   _id: modifier_a
-  _gameObject: {fileID: 3119713189303186487, guid: 93aeb78bc3bfa2746895b2687188e10c,
+  _gameObject: {fileID: 3119713189303186487, guid: 499b1a136b08afd45ac2c268adceb7d1,
     type: 3}

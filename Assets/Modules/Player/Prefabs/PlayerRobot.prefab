@@ -565,6 +565,26 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 6988420726437049937, guid: b6ae0a018d78dce4cbe3ae5f623d9769,
+        type: 3}
+      propertyPath: TrailModule.colorOverLifetime.maxColor.b
+      value: 0.85882354
+      objectReference: {fileID: 0}
+    - target: {fileID: 6988420726437049937, guid: b6ae0a018d78dce4cbe3ae5f623d9769,
+        type: 3}
+      propertyPath: TrailModule.colorOverLifetime.maxColor.g
+      value: 0.6475916
+      objectReference: {fileID: 0}
+    - target: {fileID: 6988420726437049937, guid: b6ae0a018d78dce4cbe3ae5f623d9769,
+        type: 3}
+      propertyPath: TrailModule.colorOverLifetime.maxColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6988420726437049937, guid: b6ae0a018d78dce4cbe3ae5f623d9769,
+        type: 3}
+      propertyPath: TrailModule.colorOverLifetime.minColor.g
+      value: 0.41567612
+      objectReference: {fileID: 0}
     - target: {fileID: 8170185456174752625, guid: b6ae0a018d78dce4cbe3ae5f623d9769,
         type: 3}
       propertyPath: m_RootOrder
