@@ -1,3 +1,4 @@
+using SpaceGame;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -15,14 +16,10 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (GameIsPaused)
-            {
-                Resume();
-             
-
-            }else
+            if (GameIsPaused == false)
             {
                 Pause();
+
             }
         }
     }
@@ -47,6 +44,7 @@ public class PauseMenu : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         Time.timeScale = 1f;
+        GameIsPaused = false;
     }
 
     public void Quit()
@@ -59,6 +57,13 @@ public class PauseMenu : MonoBehaviour
     public void Play()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+
+    }
+
+    public void Restart()
+    {
+        GameManager.Instance.Restart();
+        GameIsPaused=false;
     }
 
 }
