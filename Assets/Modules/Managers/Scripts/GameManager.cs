@@ -69,11 +69,15 @@ namespace SpaceGame
             Time.timeScale = 0f;
         }
 
+        public void AddScore(int value = 1)
+        {
+            _score += value;
+            _scoreEvent.RaiseEvent(_score);
+        }
+
         private void OnTaskCompleted()
         {
-            // Do nothing for now
-            _score += 1;
-            _scoreEvent.RaiseEvent(_score);
+            AddScore(1);
         }
         
         private void OnTaskFailed()
@@ -85,8 +89,6 @@ namespace SpaceGame
         
         private void OnRailgunFired()
         {
-            _score++;
-            _scoreEvent.RaiseEvent(_score);
             // _enemyHealth.DealDamage(1);
         }
 

@@ -40,8 +40,9 @@ namespace SpaceGame
         private void StartTaskCooldown(bool failed)
         {
             _particles.PlayParticle();
-            _taskCooldownTimer = failed ? 1f : _currentTask.Data.Cooldown;
-            _taskCooldownDuration = failed ? 1f : _currentTask.Data.Cooldown;
+            float multiplier = EncounterManager.CurrentEncounter.CooldownMultiplier;
+            _taskCooldownTimer = failed ? 1f : _currentTask.Data.Cooldown * multiplier;
+            _taskCooldownDuration = failed ? 1f : _currentTask.Data.Cooldown * multiplier;
             _taskIcon.sprite = _reloadIcon;
             _recipeHint.SetRecipe(null, _recipeIndex);
             
@@ -55,8 +56,9 @@ namespace SpaceGame
         {
             //Seth edit
             //var taskData = _availableTasks[Random.Range(0, _availableTasks.Count)];
-            bool isRareTask = Random.value > _chance;
-            var taskData = _availableTasks[isRareTask ? Random.Range(1, _availableTasks.Count) : 0];
+            var availableTasks = EncounterManager.CurrentEncounter.AvailableTasks;
+            var taskData = availableTasks[Random.Range(0, availableTasks.Count)];
+            bool isRareTask = ItemDatabase.Get(taskData.ItemId).IsSpecialAmmo;
             if (isRareTask)
             {
                 _recipeHint.SetRecipe(taskData, _recipeIndex);
