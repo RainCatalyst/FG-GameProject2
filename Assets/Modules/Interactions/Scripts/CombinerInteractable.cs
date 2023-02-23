@@ -6,6 +6,17 @@ namespace SpaceGame
 {
     public class CombinerInteractable : Interactable
     {
+        private void Start()
+        {
+            EncounterManager.Instance.EncounterChanged += OnEncounterChanged;
+        }
+
+        private void OnEncounterChanged()
+        {
+            // Disable crafting if we can't get special ammo
+            IsDisabled = !EncounterManager.CurrentEncounter.AllowSpecialAmmo;
+        }
+        
         public void Craft()
         {
             _animator.Play("Craft");

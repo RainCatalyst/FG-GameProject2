@@ -11,13 +11,18 @@ namespace SpaceGame
         public Task(TaskData data) 
         {
             _data = data;
-            _timer = data.TimeToDeliver;
+            bool isSpecialTask = ItemDatabase.Get(data.ItemId).IsSpecialAmmo;
+            float modifier = isSpecialTask
+                ? EncounterManager.CurrentEncounter.SpecialTaskMultiplier
+                : EncounterManager.CurrentEncounter.NormalTaskMultiplier;
+            _duration = data.TimeToDeliver * modifier;
+            _timer = _duration;
         }
 
         // Gives us a progress value from 0 (just started) to 1 (task failed). Dividing time elapsed by duration of the task.
         public float GetProgress()
         {
-            return _timer / _data.TimeToDeliver;
+            return _timer / _duration;
         }
 
         public void Update()
@@ -33,6 +38,7 @@ namespace SpaceGame
         
         private TaskData _data;
         private float _timer;
+        private float _duration;
         private bool _isFailed; // did the timer run out
     }
 }

@@ -15,3 +15,4 @@ MonoBehaviour:
   _id: ammo_a
   _gameObject: {fileID: 3119713189303186487, guid: bd12763c4d075f74f8baeb4a00e7be4a,
     type: 3}
+  _isSpecialAmmo: 1

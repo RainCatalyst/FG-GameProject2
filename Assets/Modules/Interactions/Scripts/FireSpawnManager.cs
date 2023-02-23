@@ -26,6 +26,8 @@ public class FireSpawnManager : MonoSingleton<FireSpawnManager>
     
     public void SpawnFire()
     {
+        if (!EncounterManager.CurrentEncounter.AllowFires)
+            return;
         if (_availableLocations.Count == 0)
         {
             Debug.LogWarning("Can't spawn more fires!");
