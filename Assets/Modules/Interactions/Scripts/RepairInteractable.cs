@@ -13,10 +13,12 @@ namespace SpaceGame
         public void Repair(bool ignoreEvents = false)
         {
             _isRepaired = true;
-            _meshRenderer.material = _repairedMaterial;
+            _brokenWall.SetActive(false);
+            _wall.SetActive(true);
+            //_meshRenderer.material = _repairedMaterial;
             // _escalationBar.gameObject.SetActive(false);
-            if (_sparks != null)
-                _sparks.SetActive(false);
+            //if (_sparks != null)
+            //    _sparks.SetActive(false);
             if (!ignoreEvents)
                 Repaired?.Invoke();
         }
@@ -24,10 +26,12 @@ namespace SpaceGame
         public void Break()
         {
             _isRepaired = false;
-            _meshRenderer.material = _defaultMaterial;
+            _wall.SetActive(false);
+            _brokenWall.SetActive(true);
+            //_meshRenderer.material = _defaultMaterial;
             ParticleManager.Instance.Spawn(ParticleType.Explosion, _effectOrigin.position);
-            if (_sparks != null)
-                _sparks.SetActive(true);
+            //if (_sparks != null)
+            //    _sparks.SetActive(true);
             Damaged?.Invoke();
             _breakSound.Play();
         }
@@ -48,7 +52,7 @@ namespace SpaceGame
 
         private void Awake()
         {
-            _defaultMaterial = _meshRenderer.material;
+           // _defaultMaterial = _meshRenderer.material;
             Repair(true);
         }
 
@@ -68,7 +72,9 @@ namespace SpaceGame
         }
         
         [SerializeField] private bool _isRepaired;
-        [SerializeField] private MeshRenderer _meshRenderer;
+        //[SerializeField] private MeshRenderer _meshRenderer;
+        [SerializeField] private GameObject _wall;
+        [SerializeField] private GameObject _brokenWall;
         [SerializeField] private Material _repairedMaterial;
         [SerializeField] private ProgressBar _escalationBar;
         [Header("Escalation")]
@@ -76,7 +82,7 @@ namespace SpaceGame
         [SerializeField] private int _damage = 1;
         [Header("Effects")]
         [SerializeField] private Transform _effectOrigin;
-        [SerializeField] private GameObject _sparks;
+        //[SerializeField] private GameObject _sparks;
         [SerializeField] private AudioClipSO _breakSound;
         
         private float _timer;
