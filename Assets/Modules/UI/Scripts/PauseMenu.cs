@@ -47,19 +47,6 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = false;
     }
 
-    public void Quit()
-    {
-        Application.Quit();
-        Debug.Log("You have quit");
-
-    }
-
-    public void Play()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-
-    }
-
     public void Restart()
     {
         GameManager.Instance.Restart();
