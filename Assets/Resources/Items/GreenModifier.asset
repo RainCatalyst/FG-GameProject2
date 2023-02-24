@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: GreenModifier
   m_EditorClassIdentifier: 
   _id: modifier_b
-  _gameObject: {fileID: 3119713189303186487, guid: 7ed9b78b36fe0f54295d3186622f29ed,
+  _gameObject: {fileID: 6129741373880663169, guid: 18388e838d7714542bb95da3b66da48c,
     type: 3}
   _isSpecialAmmo: 1
