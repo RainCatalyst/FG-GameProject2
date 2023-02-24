@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 520ecfbe316e480e89b8dd158a2f5c04, type: 3}
   m_Name: Tutorial
   m_EditorClassIdentifier: 
+  _scoreMultiplier: 1
   _enemyHp: 2
   _normalTaskMultiplier: 1
   _specialTaskMultiplier: 1
+  _cooldownMultiplier: 1
   _availableTasks:
-  - {fileID: 11400000, guid: c4093450142840d4dba10612de057f41, type: 2}
+  - {fileID: 11400000, guid: 9d874908fbb283546b34c76189c0cf73, type: 2}
   _allowSpecialAmmo: 0
-  _allowRailgun: 1
   _allowFires: 0

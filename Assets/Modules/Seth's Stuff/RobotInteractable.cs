@@ -14,6 +14,8 @@ namespace SpaceGame
         {
             _currentInteractor.ItemHolder.SetItem(null);
             _batteryLevel = 100f;
+            if (_icon.Active)
+                _icon.SetActive(false);
             base.OnInteractionFinished();
         }
 
@@ -32,6 +34,11 @@ namespace SpaceGame
             if (_batteryLevel > 0f)
             {
                 _batteryLevel -= Time.deltaTime * _batteryDrain;
+            }
+            else
+            {
+                if (!_icon.Active)
+                    _icon.SetActive(true);
             }
 
             _batteryBar.Progress = _batteryLevel / 100f;

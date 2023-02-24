@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -93,6 +94,12 @@ namespace SpaceGame
             {
                 _bubble.SetActive(false);
             }
+        }
+
+        private void Awake()
+        {
+            if (_icon != null && IsDisabled)
+                _icon.SetActive(false);
         }
 
         private void OnEnable() => Interactables.Add(this);

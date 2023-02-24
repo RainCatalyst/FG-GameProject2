@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace SpaceGame
 {
@@ -20,15 +22,19 @@ namespace SpaceGame
             }
         }
 
-        public void Ping()
+        public bool Active => _active;
+
+        public void SetColor(Color color) => _image.color = color;
+
+        private void Update()
         {
-            LeanTween.cancel(gameObject);
-            transform.localScale = Vector3.one;
-            LeanTween.color(_image, Color.green, 0.25f).setLoopPingPong(1).setEaseInQuad(); 
+            _image.color = Color.Lerp(_image.color, Color.white, 8 * Time.deltaTime);
         }
 
+
+
         [SerializeField]
-        private RectTransform _image;
+        private Image _image;
         private bool _active;
     }
 }

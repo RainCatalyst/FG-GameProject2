@@ -138,7 +138,7 @@ Transform:
   - {fileID: 3427810537584249807}
   - {fileID: 3449638301317713804}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2407266631720769955
 MonoBehaviour:
@@ -344,7 +344,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 13fa6524b9998b74593641f276a87143,
+      objectReference: {fileID: 21300000, guid: 350af7f7c1e451942ad0b1368c3a2ac8,
         type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

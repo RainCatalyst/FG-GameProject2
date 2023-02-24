@@ -866,6 +866,8 @@ MonoBehaviour:
   _isDisabled: 0
   _interactSoundClip: {fileID: 11400000, guid: d589ff7403a26e343acd268230d9daa2, type: 2}
   _icon: {fileID: 5514021986774580267}
+  _goodColor: {r: 0.7028302, g: 1, b: 0.8015076, a: 1}
+  _badColor: {r: 1, g: 0.6774347, b: 0.6084906, a: 1}
 --- !u!114 &208261275963417498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -887,7 +889,7 @@ MonoBehaviour:
   _taskIconParent: {fileID: 886682268807792723}
   _taskWaitGradient:
     serializedVersion: 2
-    key0: {r: 1, g: 0, b: 0, a: 1}
+    key0: {r: 0.7688679, g: 1, b: 0.98066974, a: 1}
     key1: {r: 0.06587124, g: 1, b: 0, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
@@ -917,7 +919,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   _taskCooldownGradient:
     serializedVersion: 2
-    key0: {r: 0.74597883, g: 0, b: 1, a: 1}
+    key0: {r: 0, g: 0.5968418, b: 1, a: 1}
     key1: {r: 0, g: 0.5078261, b: 1, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
@@ -945,7 +947,7 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  _reloadIcon: {fileID: 21300000, guid: 3f2151dbeb16586438c720e48d67fc9b, type: 3}
+  _reloadIcon: {fileID: 21300000, guid: ace0346e46828cf4b9e51ba2758c37b5, type: 3}
   _recipeHint: {fileID: 0}
   _recipeIndex: 0
   _taskCompleteEvent: {fileID: 11400000, guid: 6186530058e06e340b20d241c43ad928, type: 2}
