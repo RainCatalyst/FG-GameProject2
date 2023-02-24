@@ -14,11 +14,7 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-
-    private void Update()
-    {
-        print(EventSystem.current.currentSelectedGameObject);
+        LeanTween.cancelAll();
+        SceneManager.LoadScene("Game");
     }
 }
