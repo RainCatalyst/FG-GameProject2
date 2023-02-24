@@ -2851,6 +2851,11 @@ PrefabInstance:
       propertyPath: m_HorizontalAlignment
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3459785402863313721, guid: 3d337d3377d4edb43bd1f91afce0b4da,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 600
+      objectReference: {fileID: 0}
     - target: {fileID: 3940660191033983657, guid: 3d337d3377d4edb43bd1f91afce0b4da,
         type: 3}
       propertyPath: _controlHint
@@ -2871,6 +2876,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4588779756138977943, guid: 3d337d3377d4edb43bd1f91afce0b4da,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 4913188437246897923, guid: 3d337d3377d4edb43bd1f91afce0b4da,
         type: 3}
@@ -2896,6 +2906,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268165457134844040, guid: 3d337d3377d4edb43bd1f91afce0b4da,
+        type: 3}
+      propertyPath: m_text
+      value: 'Score: 0'
       objectReference: {fileID: 0}
     - target: {fileID: 6346045379147141985, guid: 3d337d3377d4edb43bd1f91afce0b4da,
         type: 3}
@@ -2950,7 +2965,7 @@ PrefabInstance:
     - target: {fileID: 7723491018489779134, guid: 3d337d3377d4edb43bd1f91afce0b4da,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7949511799633886123, guid: 3d337d3377d4edb43bd1f91afce0b4da,
         type: 3}
@@ -3064,6 +3079,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7252248083405641691, guid: 3d337d3377d4edb43bd1f91afce0b4da, type: 3}
+    - {fileID: 8721031315696166367, guid: 3d337d3377d4edb43bd1f91afce0b4da, type: 3}
+    - {fileID: 6754604587364536522, guid: 3d337d3377d4edb43bd1f91afce0b4da, type: 3}
     m_RemovedGameObjects:
     - {fileID: 144483397232246562, guid: 3d337d3377d4edb43bd1f91afce0b4da, type: 3}
     m_AddedGameObjects:
