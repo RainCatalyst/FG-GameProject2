@@ -28,7 +28,7 @@ public class LaserImpact : MonoBehaviour
         LeanTween.value(gameObject, f =>
         {
             Laser.widthMultiplier = f;
-        }, 0f, 0.25f, 0.15f).setEaseInQuad();//.setOnComplete(() => Laser.gameObject.SetActive(false));
+        }, 0f, 0.2f, 0.15f).setEaseInQuad();//.setOnComplete(() => Laser.gameObject.SetActive(false));
         LeanTween.delayedCall(0.175f, () => Fire.SetActive(true));
     }
 }

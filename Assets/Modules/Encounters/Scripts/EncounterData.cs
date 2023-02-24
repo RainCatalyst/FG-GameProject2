@@ -14,7 +14,10 @@ namespace SpaceGame
         public bool AllowSpecialAmmo => _allowSpecialAmmo;
         public bool AllowFires => _allowFires;
         public int EnemyHp => _enemyHp;
+        public int ScoreMultiplier => _scoreMultiplier;
 
+        [SerializeField]
+        private int _scoreMultiplier = 1;
         [SerializeField]
         private int _enemyHp = 2;
         [SerializeField]

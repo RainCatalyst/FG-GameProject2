@@ -13,6 +13,7 @@ namespace SpaceGame
         public Sprite ModifierIcon => _modifierIcon;
         public int WallCount => _wallCount;
         public int FireCount => _fireCount;
+        public int ScoreReward => _scoreReward;
         
         [SerializeField]
         private float _timeToDeliver;
@@ -30,5 +31,7 @@ namespace SpaceGame
         private int _wallCount;
         [SerializeField]
         private int _fireCount;
+        [SerializeField]
+        private int _scoreReward = 1;
     }
 }

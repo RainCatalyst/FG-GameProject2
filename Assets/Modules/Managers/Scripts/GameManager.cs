@@ -69,15 +69,17 @@ namespace SpaceGame
             Time.timeScale = 0f;
         }
 
-        public void AddScore(int value = 1)
+        public void AddScore(int value, Vector3 position)
         {
-            _score += value;
+            int score = value * EncounterManager.CurrentEncounter.ScoreMultiplier;
+            _score += score;
+            ParticleManager.Instance.SpawnScorePopup(score, position);
             _scoreEvent.RaiseEvent(_score);
         }
 
         private void OnTaskCompleted()
         {
-            AddScore(1);
+            //
         }
         
         private void OnTaskFailed()

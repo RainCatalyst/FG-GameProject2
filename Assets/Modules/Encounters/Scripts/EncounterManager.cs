@@ -40,7 +40,7 @@ namespace SpaceGame
             {
                 _encounterIndex = Mathf.Clamp(_encounterIndex + 1, 0, _encounters.Length - 1);
                 CameraControl.Instance.Shake();
-                GameManager.Instance.AddScore(10);
+                GameManager.Instance.AddScore(10, Vector3.zero);
                 UpdateEncounter();
             }
         }

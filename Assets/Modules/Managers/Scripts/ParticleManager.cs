@@ -19,6 +19,12 @@ namespace SpaceGame
             if (prefab)
                 Instantiate(prefab, position, Quaternion.identity, overrideParent);
         }
+
+        public void SpawnScorePopup(int score, Vector3 position)
+        {
+            var popup = Instantiate(_scorePopup, position, Quaternion.identity);
+            popup.Show(score);
+        }
         
         private GameObject GetParticleObject(ParticleType type) => type switch
         {
@@ -36,5 +42,7 @@ namespace SpaceGame
         private GameObject _smack;
         [SerializeField]
         private GameObject _bonk;
+        [SerializeField]
+        private ScorePopup _scorePopup;
     }
 }

@@ -21,8 +21,8 @@ namespace SpaceGame
         {
             // Update score etc
             _taskCompleteEvent.RaiseEvent();
+            GameManager.Instance.AddScore(_currentTask.Data.ScoreReward, transform.position + Vector3.up * 1.5f);
             StartTaskCooldown(false);
-            
         }
 
         private void OnTaskFailed()
@@ -132,7 +132,7 @@ namespace SpaceGame
         [SerializeField] private Image _iconImage;
         [SerializeField] private GameObject _iconParent;
         [SerializeField] private LaserShoot _particles;
-        
+
         private Task _currentTask;
         private float _taskCooldownTimer;
         private float _taskCooldownDuration;

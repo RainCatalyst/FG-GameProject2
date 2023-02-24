@@ -625,6 +625,7 @@ MonoBehaviour:
   _railgunFireEvent: {fileID: 11400000, guid: b43612a88b8120b4b924b6e24129627d, type: 2}
   _railgunChargedEvent: {fileID: 11400000, guid: 39578e777b1988049a156056e9517f87,
     type: 2}
+  _scoreReward: 0
 --- !u!1 &194657603 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a89ef0480d3c1834db309932f2143403,
@@ -692,6 +693,12 @@ PrefabInstance:
       propertyPath: _railgunManager
       value: 
       objectReference: {fileID: 174781729}
+    - target: {fileID: 4741596389203942257, guid: 42ac96c659a421e49b6c3aa0f0954a58,
+        type: 3}
+      propertyPath: _scorePopup
+      value: 
+      objectReference: {fileID: 7888963187199265009, guid: 8588adc7f3b73b74fbcd11e467cb9159,
+        type: 3}
     - target: {fileID: 6054482764669416105, guid: 42ac96c659a421e49b6c3aa0f0954a58,
         type: 3}
       propertyPath: m_RootOrder
@@ -13018,13 +13025,13 @@ PrefabInstance:
         type: 3}
       propertyPath: _encounters.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 539491953b74d12439cbf27891c6fc73,
+      objectReference: {fileID: 11400000, guid: 2804d336cb38d5740b77a9facc27a81e,
         type: 2}
     - target: {fileID: 3645417179729295922, guid: b1dd06eb2248dd2489ca8ad28c6fab40,
         type: 3}
       propertyPath: _encounters.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 2804d336cb38d5740b77a9facc27a81e,
+      objectReference: {fileID: 11400000, guid: 539491953b74d12439cbf27891c6fc73,
         type: 2}
     - target: {fileID: 3645417179729295923, guid: b1dd06eb2248dd2489ca8ad28c6fab40,
         type: 3}
