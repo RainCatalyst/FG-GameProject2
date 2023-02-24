@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 520ecfbe316e480e89b8dd158a2f5c04, type: 3}
   m_Name: Easy
   m_EditorClassIdentifier: 
+  _scoreMultiplier: 2
   _enemyHp: 2
   _normalTaskMultiplier: 1.25
   _specialTaskMultiplier: 1.25
