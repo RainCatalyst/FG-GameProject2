@@ -2833,9 +2833,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3181608976205474092, guid: 3d337d3377d4edb43bd1f91afce0b4da,
         type: 3}
+      propertyPath: m_margin.x
+      value: 22.870789
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181608976205474092, guid: 3d337d3377d4edb43bd1f91afce0b4da,
+        type: 3}
+      propertyPath: m_margin.z
+      value: -221.52707
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181608976205474092, guid: 3d337d3377d4edb43bd1f91afce0b4da,
+        type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
+    - target: {fileID: 3181608976205474092, guid: 3d337d3377d4edb43bd1f91afce0b4da,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3940660191033983657, guid: 3d337d3377d4edb43bd1f91afce0b4da,
         type: 3}
       propertyPath: _controlHint
