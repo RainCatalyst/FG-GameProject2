@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1778061012656004864}
   - component: {fileID: 3387598105336221861}
   - component: {fileID: 641725351512958063}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Fuel_Rod_Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 7635075213793995166}
   - component: {fileID: 5625500875461254484}
   - component: {fileID: 296119852832101631}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Fuel_rod
   m_TagString: Untagged
   m_Icon: {fileID: 0}
