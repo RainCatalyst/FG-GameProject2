@@ -59,6 +59,7 @@ namespace SpaceGame
         {
             _enemyHp = CurrentEncounter.EnemyHp;
             _enemyHealthBar.Progress = 1;
+            _target = 1f;
             // Notify others
             EncounterChanged?.Invoke();
         }
