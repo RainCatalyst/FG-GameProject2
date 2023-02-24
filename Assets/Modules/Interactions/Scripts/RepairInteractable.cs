@@ -36,10 +36,14 @@ namespace SpaceGame
             LeanTween.moveLocalZ(_missle, 0, 0.5f).setEaseInQuad();
             LeanTween.delayedCall(0.4875f, () =>
             {
-                _wall.SetActive(false);
-                _brokenWall.SetActive(true);
-                _missle.SetActive(false);
-                ParticleManager.Instance.Spawn(ParticleType.Explosion, _effectOrigin.position);
+                if (_wall != null)
+                {
+                    _wall.SetActive(false);
+                    _brokenWall.SetActive(true);
+                    _missle.SetActive(false);
+                }
+
+            ParticleManager.Instance.Spawn(ParticleType.Explosion, _effectOrigin.position);
             });
             //_meshRenderer.material = _defaultMaterial;
             
@@ -48,7 +52,7 @@ namespace SpaceGame
             Damaged?.Invoke();
             _breakSound.Play();
         }
-        
+
         public override bool CanInteract(Interactor interactor)
         {
             //Seth edit

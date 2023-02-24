@@ -9,6 +9,8 @@ namespace SpaceGame
     public class GameManager : MonoSingleton<GameManager>
     {
         public bool IsGameplayPaused => _isGameplayPaused;
+        public int Score => _score;
+        public int Highscore => _highscore;
         
         protected override void Awake()
         {
@@ -20,6 +22,8 @@ namespace SpaceGame
             base.Awake();
             Time.timeScale = 1;
             StartCoroutine(CoStartGame());
+
+            _highscore = PlayerPrefs.GetInt("highscore", 0);
         }
         
         private void OnEnable()
@@ -64,6 +68,7 @@ namespace SpaceGame
 
         public void Restart()
         {
+            LeanTween.cancelAll();
             Time.timeScale = 1;
             SceneManager.LoadScene("Game");
         }
@@ -81,6 +86,12 @@ namespace SpaceGame
             _score += score;
             ParticleManager.Instance.SpawnScorePopup(score, position);
             _scoreEvent.RaiseEvent(_score);
+
+            if (_score > _highscore)
+            {
+                _highscore = _score;
+                PlayerPrefs.SetInt("highscore", _highscore);
+            }
         }
 
         private void OnTaskCompleted()
@@ -105,7 +116,8 @@ namespace SpaceGame
             GameOver();
         }
 
-        private int _score = 0;
+        private int _score;
+        private int _highscore;
         private bool _isGameplayPaused;
 
         [SerializeField] private GameUI _gameUI;

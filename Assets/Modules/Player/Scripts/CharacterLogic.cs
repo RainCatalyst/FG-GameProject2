@@ -5,6 +5,13 @@ namespace SpaceGame
 {
     public class CharacterLogic : MonoBehaviour
     {
+        public CharacterType CharacterType => _characterType;
+
+        public void SetAnimBool(string name, bool value)
+        {
+            _animator.SetBool(name, value);
+        }
+        
         private void Awake()
         {
             _movement = GetComponent<CharacterMovement>();
@@ -12,7 +19,7 @@ namespace SpaceGame
             _interactor = GetComponent<Interactor>();
             _itemHolder = GetComponent<ItemHolder>();
             
-            _interactor.Setup(_itemHolder, _characterType);
+            _interactor.Setup(_itemHolder, this);
 
             _interactor.InteractionStarted += OnInteractionStarted;
             _interactor.InteractionFinished += OnInteractionFinished;
