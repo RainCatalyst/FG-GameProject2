@@ -15,6 +15,7 @@ namespace SpaceGame
             _isRepaired = true;
             _brokenWall.SetActive(false);
             _wall.SetActive(true);
+            IsDisabled = true;
             //_meshRenderer.material = _repairedMaterial;
             // _escalationBar.gameObject.SetActive(false);
             //if (_sparks != null)
@@ -28,6 +29,7 @@ namespace SpaceGame
             _isRepaired = false;
             _wall.SetActive(false);
             _brokenWall.SetActive(true);
+            IsDisabled = false;
             //_meshRenderer.material = _defaultMaterial;
             ParticleManager.Instance.Spawn(ParticleType.Explosion, _effectOrigin.position);
             //if (_sparks != null)
@@ -39,7 +41,7 @@ namespace SpaceGame
         public override bool CanInteract(Interactor interactor)
         {
             //Seth edit
-            return base.CanInteract(interactor) && !_isRepaired && interactor.ItemHolder.ItemId == "wrench";
+            return base.CanInteract(interactor) && interactor.ItemHolder.ItemId == "wrench";
         }
 
         protected override void OnInteractionFinished()

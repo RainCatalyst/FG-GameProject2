@@ -14,7 +14,7 @@ namespace SpaceGame
             {
                 // Hide icon when disabling
                 if (_icon != null)
-                    _icon.gameObject.SetActive(!value);
+                    _icon.SetActive(!value);
                 _isDisabled = value;
             }
         }
@@ -117,7 +117,7 @@ namespace SpaceGame
         [SerializeField] private InteractableBubble _bubble;
         [SerializeField] private bool _isDisabled;
         [SerializeField] private AudioClipSO _interactSoundClip;
-        [SerializeField] private GameObject _icon;
+        [SerializeField] protected InteractableIcon _icon;
 
         protected Interactor _currentInteractor;
         private int _availableInteractorsCount;
