@@ -18,6 +18,16 @@ namespace SpaceGame
         private IEnumerator Start()
         {
             yield return null;
+            int skipFirst = PlayerPrefs.GetInt("first", 0);
+            if (skipFirst != 0)
+            {
+                _encounterIndex = 1;
+            }
+            else
+            {
+                PlayerPrefs.SetInt("first", 1);
+            }
+            
             UpdateEncounter();
         }
         
