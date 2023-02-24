@@ -27,11 +27,22 @@ namespace SpaceGame
         public void Break()
         {
             _isRepaired = false;
-            _wall.SetActive(false);
-            _brokenWall.SetActive(true);
             IsDisabled = false;
+
+            _missle.SetActive(true);
+            var pos = _missle.transform.localPosition;
+            pos.z = -15f;
+            _missle.transform.localPosition = pos;
+            LeanTween.moveLocalZ(_missle, 0, 0.5f).setEaseInQuad();
+            LeanTween.delayedCall(0.4875f, () =>
+            {
+                _wall.SetActive(false);
+                _brokenWall.SetActive(true);
+                _missle.SetActive(false);
+                ParticleManager.Instance.Spawn(ParticleType.Explosion, _effectOrigin.position);
+            });
             //_meshRenderer.material = _defaultMaterial;
-            ParticleManager.Instance.Spawn(ParticleType.Explosion, _effectOrigin.position);
+            
             //if (_sparks != null)
             //    _sparks.SetActive(true);
             Damaged?.Invoke();
@@ -86,6 +97,7 @@ namespace SpaceGame
         [SerializeField] private Transform _effectOrigin;
         //[SerializeField] private GameObject _sparks;
         [SerializeField] private AudioClipSO _breakSound;
+        [SerializeField] private GameObject _missle;
         
         private float _timer;
         private Material _defaultMaterial;

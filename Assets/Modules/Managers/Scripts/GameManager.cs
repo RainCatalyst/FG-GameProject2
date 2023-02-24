@@ -54,6 +54,12 @@ namespace SpaceGame
             ToggleGameplayPause(false);
         }
 
+        private void Update()
+        {
+            if (Input.GetMouseButtonDown(0))
+                RepairManager.Instance.BreakRandom();
+        }
+
         public void ToggleGameplayPause(bool paused) => _isGameplayPaused = paused;
 
         public void Restart()
