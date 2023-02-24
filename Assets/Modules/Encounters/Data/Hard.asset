@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 520ecfbe316e480e89b8dd158a2f5c04, type: 3}
   m_Name: Hard
   m_EditorClassIdentifier: 
-  _enemyHp: 3
+  _scoreMultiplier: 4
+  _enemyHp: 4
   _normalTaskMultiplier: 0.75
   _specialTaskMultiplier: 0.75
   _cooldownMultiplier: 0.75

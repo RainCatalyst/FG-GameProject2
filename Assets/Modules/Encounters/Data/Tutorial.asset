@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Tutorial
   m_EditorClassIdentifier: 
   _scoreMultiplier: 1
-  _enemyHp: 2
+  _enemyHp: 1
   _normalTaskMultiplier: 1
   _specialTaskMultiplier: 1
   _cooldownMultiplier: 1
