@@ -33,6 +33,11 @@ namespace SpaceGame
 
         private IEnumerator CoFire()
         {
+            foreach (var player in FindObjectsOfType<CharacterLogic>())
+            {
+                GameManager.Instance.AddScore(_scoreReward, player.transform.position + Vector3.up * 1f);
+            }
+            
             _railgunFireEvent.RaiseEvent();
             _readyToFire = false;
             _timer = 0;
@@ -60,5 +65,7 @@ namespace SpaceGame
         private VoidEventChannel _railgunFireEvent;
         [SerializeField]
         private VoidEventChannel _railgunChargedEvent;
+        [SerializeField]
+        private int _scoreReward;
     }
 }

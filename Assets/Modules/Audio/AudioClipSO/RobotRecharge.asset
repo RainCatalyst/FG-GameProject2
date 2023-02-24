@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: RobotRecharge
   m_EditorClassIdentifier: 
   _clip: {fileID: 8300000, guid: 774964dc8dd3bad42982e09c559410df, type: 3}
-  _volume: 0.7
+  _volume: 0.3

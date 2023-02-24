@@ -12,12 +12,12 @@ namespace SpaceGame
         public bool CanInteract => _closestInteractable != null;
         public bool CanDropItem => _itemHolder.ItemId != null;
         public ItemHolder ItemHolder => _itemHolder;
-        public CharacterType CharacterType => _characterType;
+        public CharacterType CharacterType => _character.CharacterType;
 
-        public void Setup(ItemHolder itemHolder, CharacterType characterType)
+        public void Setup(ItemHolder itemHolder, CharacterLogic character)
         {
             _itemHolder = itemHolder;
-            _characterType = characterType;
+            _character = character;
         }
 
         public void Interact()
@@ -48,7 +48,7 @@ namespace SpaceGame
 
             Vector3 velocity = (itemParent.forward + Vector3.up * 1f) * _throwForce;
 
-            if (_characterType == CharacterType.Human)
+            if (CharacterType == CharacterType.Human)
             {
                 velocity += _rb.velocity;
             }
@@ -60,6 +60,11 @@ namespace SpaceGame
         {
             InteractionFinished?.Invoke();
             _currentInteractable = null;
+        }
+
+        public void SetAnimBool(string name, bool value)
+        {
+            _character.SetAnimBool(name, value);
         }
 
         private void Awake()
@@ -111,7 +116,7 @@ namespace SpaceGame
         [SerializeField] private ItemInteractable _itemPrefab;
         [SerializeField] private float _throwForce;
 
-        private CharacterType _characterType;
+        private CharacterLogic _character;
         private Interactable _currentInteractable;
         private Interactable _closestInteractable;
         private ItemHolder _itemHolder;

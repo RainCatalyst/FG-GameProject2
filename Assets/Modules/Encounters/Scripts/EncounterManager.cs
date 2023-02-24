@@ -18,6 +18,16 @@ namespace SpaceGame
         private IEnumerator Start()
         {
             yield return null;
+            int skipFirst = PlayerPrefs.GetInt("first", 0);
+            if (skipFirst != 0)
+            {
+                _encounterIndex = 1;
+            }
+            else
+            {
+                PlayerPrefs.SetInt("first", 1);
+            }
+            
             UpdateEncounter();
         }
         
@@ -40,7 +50,7 @@ namespace SpaceGame
             {
                 _encounterIndex = Mathf.Clamp(_encounterIndex + 1, 0, _encounters.Length - 1);
                 CameraControl.Instance.Shake();
-                GameManager.Instance.AddScore(10);
+                GameManager.Instance.AddScore(10, Vector3.zero);
                 UpdateEncounter();
             }
         }

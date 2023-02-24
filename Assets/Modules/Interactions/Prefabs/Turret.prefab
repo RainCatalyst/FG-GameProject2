@@ -653,7 +653,7 @@ PrefabInstance:
     - target: {fileID: 5861741826518964960, guid: 1e6c1fbf05601d541a415d84ea7d5a45,
         type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5861741826518964960, guid: 1e6c1fbf05601d541a415d84ea7d5a45,
         type: 3}
@@ -824,6 +824,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5514021986774580267 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8641082020331712459, guid: 1e6c1fbf05601d541a415d84ea7d5a45,
+    type: 3}
+  m_PrefabInstance: {fileID: 4282632531733812192}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182053379371469264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcef70558ef8c6049884be40ce368aff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7653833183408998656 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5861741826518964960, guid: 1e6c1fbf05601d541a415d84ea7d5a45,
@@ -853,7 +865,9 @@ MonoBehaviour:
   _bubble: {fileID: 8880709498304602265}
   _isDisabled: 0
   _interactSoundClip: {fileID: 11400000, guid: d589ff7403a26e343acd268230d9daa2, type: 2}
-  _icon: {fileID: 0}
+  _icon: {fileID: 5514021986774580267}
+  _goodColor: {r: 0.7028302, g: 1, b: 0.8015076, a: 1}
+  _badColor: {r: 1, g: 0.6774347, b: 0.6084906, a: 1}
 --- !u!114 &208261275963417498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -875,7 +889,7 @@ MonoBehaviour:
   _taskIconParent: {fileID: 886682268807792723}
   _taskWaitGradient:
     serializedVersion: 2
-    key0: {r: 1, g: 0, b: 0, a: 1}
+    key0: {r: 0.7688679, g: 1, b: 0.98066974, a: 1}
     key1: {r: 0.06587124, g: 1, b: 0, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
@@ -905,7 +919,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   _taskCooldownGradient:
     serializedVersion: 2
-    key0: {r: 0.74597883, g: 0, b: 1, a: 1}
+    key0: {r: 0, g: 0.5968418, b: 1, a: 1}
     key1: {r: 0, g: 0.5078261, b: 1, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
@@ -933,7 +947,7 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  _reloadIcon: {fileID: 21300000, guid: 3f2151dbeb16586438c720e48d67fc9b, type: 3}
+  _reloadIcon: {fileID: 21300000, guid: ace0346e46828cf4b9e51ba2758c37b5, type: 3}
   _recipeHint: {fileID: 0}
   _recipeIndex: 0
   _taskCompleteEvent: {fileID: 11400000, guid: 6186530058e06e340b20d241c43ad928, type: 2}

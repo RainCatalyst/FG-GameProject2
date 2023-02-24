@@ -21,8 +21,8 @@ namespace SpaceGame
         {
             // Update score etc
             _taskCompleteEvent.RaiseEvent();
+            GameManager.Instance.AddScore(_currentTask.Data.ScoreReward, transform.position + Vector3.up * 1.5f);
             StartTaskCooldown(false);
-            
         }
 
         private void OnTaskFailed()
@@ -87,7 +87,7 @@ namespace SpaceGame
                 float progress = _currentTask.GetProgress();
                 // Update progress bar
                 _taskProgressBar.Progress = progress;
-                _taskProgressBar.Color = _taskWaitGradient.Evaluate(_taskProgressBar.Progress);
+                _taskProgressBar.Color = _taskWaitGradient.Evaluate(0f);
 
                 if (_currentTask.IsFailed)
                 {
@@ -98,7 +98,7 @@ namespace SpaceGame
             {
                 _taskCooldownTimer -= Time.deltaTime;
                 _taskProgressBar.Progress = 1f - _taskCooldownTimer / _taskCooldownDuration;
-                _taskProgressBar.Color = _taskCooldownGradient.Evaluate(_taskProgressBar.Progress);
+                _taskProgressBar.Color = _taskCooldownGradient.Evaluate(0f);
                 if (_taskCooldownTimer <= 0f)
                 {
                     GetNewTask();
@@ -132,7 +132,7 @@ namespace SpaceGame
         [SerializeField] private Image _iconImage;
         [SerializeField] private GameObject _iconParent;
         [SerializeField] private LaserShoot _particles;
-        
+
         private Task _currentTask;
         private float _taskCooldownTimer;
         private float _taskCooldownDuration;

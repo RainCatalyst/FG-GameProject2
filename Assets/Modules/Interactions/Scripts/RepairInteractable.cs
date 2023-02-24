@@ -15,6 +15,7 @@ namespace SpaceGame
             _isRepaired = true;
             _brokenWall.SetActive(false);
             _wall.SetActive(true);
+            IsDisabled = true;
             //_meshRenderer.material = _repairedMaterial;
             // _escalationBar.gameObject.SetActive(false);
             //if (_sparks != null)
@@ -26,20 +27,36 @@ namespace SpaceGame
         public void Break()
         {
             _isRepaired = false;
-            _wall.SetActive(false);
-            _brokenWall.SetActive(true);
+            IsDisabled = false;
+
+            _missle.SetActive(true);
+            var pos = _missle.transform.localPosition;
+            pos.z = -15f;
+            _missle.transform.localPosition = pos;
+            LeanTween.moveLocalZ(_missle, 0, 0.5f).setEaseInQuad();
+            LeanTween.delayedCall(0.4875f, () =>
+            {
+                if (_wall != null)
+                {
+                    _wall.SetActive(false);
+                    _brokenWall.SetActive(true);
+                    _missle.SetActive(false);
+                }
+
+                ParticleManager.Instance.Spawn(ParticleType.Explosion, _effectOrigin.position);
+            });
             //_meshRenderer.material = _defaultMaterial;
-            ParticleManager.Instance.Spawn(ParticleType.Explosion, _effectOrigin.position);
+            
             //if (_sparks != null)
             //    _sparks.SetActive(true);
             Damaged?.Invoke();
             _breakSound.Play();
         }
-        
+
         public override bool CanInteract(Interactor interactor)
         {
             //Seth edit
-            return base.CanInteract(interactor) && !_isRepaired && interactor.ItemHolder.ItemId == "wrench";
+            return base.CanInteract(interactor) && interactor.ItemHolder.ItemId == "wrench";
         }
 
         protected override void OnInteractionFinished()
@@ -84,6 +101,7 @@ namespace SpaceGame
         [SerializeField] private Transform _effectOrigin;
         //[SerializeField] private GameObject _sparks;
         [SerializeField] private AudioClipSO _breakSound;
+        [SerializeField] private GameObject _missle;
         
         private float _timer;
         private Material _defaultMaterial;

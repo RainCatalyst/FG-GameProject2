@@ -16,9 +16,9 @@ namespace SpaceGame
         private void OnDisable() => _eventChannel.EventRaised -= UpdateText;
         private void UpdateText(int value)
         {
-            transform.localScale = Vector3.one * 1.2f;
+            transform.localScale = Vector3.one * 1.5f;
             LeanTween.cancel(_rect);
-            LeanTween.scale(_rect, Vector3.one, 0.2f).setEaseOutBack();
+            LeanTween.scale(_rect, Vector3.one, 0.25f).setEaseOutBack();
             _textMesh.text = $"{_extraText}{value}";
         }
 

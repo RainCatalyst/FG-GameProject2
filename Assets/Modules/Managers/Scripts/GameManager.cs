@@ -9,6 +9,14 @@ namespace SpaceGame
     public class GameManager : MonoSingleton<GameManager>
     {
         public bool IsGameplayPaused => _isGameplayPaused;
+        public int Score => _score;
+        public int Highscore => _highscore;
+
+        public void GoMenu()
+        {
+            LeanTween.cancelAll();
+            SceneManager.LoadScene("Intro");
+        }
         
         protected override void Awake()
         {
@@ -20,6 +28,8 @@ namespace SpaceGame
             base.Awake();
             Time.timeScale = 1;
             StartCoroutine(CoStartGame());
+
+            _highscore = PlayerPrefs.GetInt("highscore", 0);
         }
         
         private void OnEnable()
@@ -54,10 +64,17 @@ namespace SpaceGame
             ToggleGameplayPause(false);
         }
 
+        private void Update()
+        {
+            if (Input.GetMouseButtonDown(0))
+                RepairManager.Instance.BreakRandom();
+        }
+
         public void ToggleGameplayPause(bool paused) => _isGameplayPaused = paused;
 
         public void Restart()
         {
+            LeanTween.cancelAll();
             Time.timeScale = 1;
             SceneManager.LoadScene("Game");
         }
@@ -69,15 +86,23 @@ namespace SpaceGame
             Time.timeScale = 0f;
         }
 
-        public void AddScore(int value = 1)
+        public void AddScore(int value, Vector3 position)
         {
-            _score += value;
+            int score = value * EncounterManager.CurrentEncounter.ScoreMultiplier;
+            _score += score;
+            ParticleManager.Instance.SpawnScorePopup(score, position);
             _scoreEvent.RaiseEvent(_score);
+
+            if (_score > _highscore)
+            {
+                _highscore = _score;
+                PlayerPrefs.SetInt("highscore", _highscore);
+            }
         }
 
         private void OnTaskCompleted()
         {
-            AddScore(1);
+            //
         }
         
         private void OnTaskFailed()
@@ -97,7 +122,8 @@ namespace SpaceGame
             GameOver();
         }
 
-        private int _score = 0;
+        private int _score;
+        private int _highscore;
         private bool _isGameplayPaused;
 
         [SerializeField] private GameUI _gameUI;

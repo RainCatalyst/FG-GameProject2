@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,7 +15,7 @@ namespace SpaceGame
             {
                 // Hide icon when disabling
                 if (_icon != null)
-                    _icon.gameObject.SetActive(!value);
+                    _icon.SetActive(!value);
                 _isDisabled = value;
             }
         }
@@ -95,6 +96,12 @@ namespace SpaceGame
             }
         }
 
+        private void Awake()
+        {
+            if (_icon != null && IsDisabled)
+                _icon.SetActive(false);
+        }
+
         private void OnEnable() => Interactables.Add(this);
         private void OnDisable() => Interactables.Remove(this);
 
@@ -117,7 +124,7 @@ namespace SpaceGame
         [SerializeField] private InteractableBubble _bubble;
         [SerializeField] private bool _isDisabled;
         [SerializeField] private AudioClipSO _interactSoundClip;
-        [SerializeField] private GameObject _icon;
+        [SerializeField] protected InteractableIcon _icon;
 
         protected Interactor _currentInteractor;
         private int _availableInteractorsCount;

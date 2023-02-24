@@ -10,10 +10,23 @@ namespace SpaceGame
             return base.CanInteract(interactor) && interactor.CharacterType == CharacterType.Robot;
         }
 
+        protected override void OnInteractionStarted()
+        {
+            base.OnInteractionStarted();
+            _currentInteractor.SetAnimBool("Extinguish", true);
+        }
+
         protected override void OnInteractionFinished()
         {
-            base.OnInteractionFinished();
+            _currentInteractor.SetAnimBool("Extinguish", false);
             _destroyFire.DestroySelf();
+            base.OnInteractionFinished();
+        }
+
+        protected override void OnInteractionCanceled()
+        {
+            _currentInteractor.SetAnimBool("Extinguish", false);
+            base.OnInteractionCanceled();
         }
 
         private void Awake()

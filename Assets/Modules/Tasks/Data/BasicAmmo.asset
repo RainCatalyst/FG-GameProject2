@@ -17,5 +17,7 @@ MonoBehaviour:
   _itemId: ammo
   _resultIcon: {fileID: 21300000, guid: f09185d8619b3ee4e8e2f555f3fbe672, type: 3}
   _recipeIcon: {fileID: 21300000, guid: e3a573116993a0043a089f1f8e3a9682, type: 3}
+  _modifierIcon: {fileID: 0}
   _wallCount: 1
   _fireCount: 0
+  _scoreReward: 1

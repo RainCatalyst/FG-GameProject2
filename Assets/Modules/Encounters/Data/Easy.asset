@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 520ecfbe316e480e89b8dd158a2f5c04, type: 3}
   m_Name: Easy
   m_EditorClassIdentifier: 
+  _scoreMultiplier: 2
   _enemyHp: 2
   _normalTaskMultiplier: 1.25
   _specialTaskMultiplier: 1.25
@@ -22,4 +23,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4de8a32402e314a4981c0ccfb9671dfa, type: 2}
   - {fileID: 11400000, guid: 30087f95fc0fab44cb89319c2d97449c, type: 2}
   _allowSpecialAmmo: 1
-  _allowFires: 0
+  _allowFires: 1
