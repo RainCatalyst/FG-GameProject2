@@ -5834,6 +5834,12 @@ PrefabInstance:
       propertyPath: _effectOrigin
       value: 
       objectReference: {fileID: 998279023}
+    - target: {fileID: 7952452583125540325, guid: d0a12b9c6cca75749939a99f6143e303,
+        type: 3}
+      propertyPath: _interactSoundClip
+      value: 
+      objectReference: {fileID: 11400000, guid: a2e4a888c2152284dba60de5af484ebc,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -13276,6 +13282,12 @@ PrefabInstance:
       propertyPath: _effectOrigin
       value: 
       objectReference: {fileID: 1621570643}
+    - target: {fileID: 3917570511799661251, guid: 5c55dad1c97aee640a8fb83d1f45ecc5,
+        type: 3}
+      propertyPath: _interactSoundClip
+      value: 
+      objectReference: {fileID: 11400000, guid: a2e4a888c2152284dba60de5af484ebc,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
