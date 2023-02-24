@@ -21,6 +21,7 @@ namespace SpaceGame
         {
             _animator.Play("Craft");
             LeanTween.delayedCall(gameObject, 1f, () => _combineClip.Play());
+            LeanTween.delayedCall(gameObject, 1f, () => ParticleManager.Instance.Spawn(ParticleType.Smack, _effectOrigin.position));
             _resultItemHolder.SetItem(_resultItemId);
             _items.Clear();
             _buttons.Disable();
@@ -132,6 +133,8 @@ namespace SpaceGame
         private AudioClipSO _combineClip;
         [SerializeField]
         private AudioClipSO _dropClip;
+        [SerializeField]
+        private Transform _effectOrigin;
 
         private List<string> _items;
     }

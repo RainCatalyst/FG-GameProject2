@@ -7,7 +7,8 @@ namespace SpaceGame
     {
         None,
         Explosion,
-        TurretShot
+        Smack,
+        Bonk
     }
     
     public class ParticleManager : MonoSingleton<ParticleManager>
@@ -23,7 +24,8 @@ namespace SpaceGame
         {
             ParticleType.None => null,
             ParticleType.Explosion => _explosion,
-            ParticleType.TurretShot => _turretShot,
+            ParticleType.Smack => _smack,
+            ParticleType.Bonk => _bonk,
             _ => throw new ArgumentOutOfRangeException(nameof(type), $"VfxType not found: {type}"),
         };
         
@@ -31,6 +33,8 @@ namespace SpaceGame
         [SerializeField]
         private GameObject _explosion;
         [SerializeField]
-        private GameObject _turretShot;
+        private GameObject _smack;
+        [SerializeField]
+        private GameObject _bonk;
     }
 }
