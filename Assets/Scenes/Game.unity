@@ -13194,13 +13194,13 @@ PrefabInstance:
         type: 3}
       propertyPath: _encounters.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 539491953b74d12439cbf27891c6fc73,
+      objectReference: {fileID: 11400000, guid: 2804d336cb38d5740b77a9facc27a81e,
         type: 2}
     - target: {fileID: 3645417179729295922, guid: b1dd06eb2248dd2489ca8ad28c6fab40,
         type: 3}
       propertyPath: _encounters.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 2804d336cb38d5740b77a9facc27a81e,
+      objectReference: {fileID: 11400000, guid: 539491953b74d12439cbf27891c6fc73,
         type: 2}
     - target: {fileID: 3645417179729295923, guid: b1dd06eb2248dd2489ca8ad28c6fab40,
         type: 3}
