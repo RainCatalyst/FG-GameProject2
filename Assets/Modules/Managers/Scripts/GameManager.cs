@@ -11,6 +11,12 @@ namespace SpaceGame
         public bool IsGameplayPaused => _isGameplayPaused;
         public int Score => _score;
         public int Highscore => _highscore;
+
+        public void GoMenu()
+        {
+            LeanTween.cancelAll();
+            SceneManager.LoadScene("Intro");
+        }
         
         protected override void Awake()
         {

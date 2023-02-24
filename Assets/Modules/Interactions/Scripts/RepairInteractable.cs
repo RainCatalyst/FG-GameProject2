@@ -43,7 +43,7 @@ namespace SpaceGame
                     _missle.SetActive(false);
                 }
 
-            ParticleManager.Instance.Spawn(ParticleType.Explosion, _effectOrigin.position);
+                ParticleManager.Instance.Spawn(ParticleType.Explosion, _effectOrigin.position);
             });
             //_meshRenderer.material = _defaultMaterial;
             
