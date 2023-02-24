@@ -1417,7 +1417,7 @@ MonoBehaviour:
   _explosion: {fileID: 8897374237743573118, guid: 0a32798228b549d46bf5b56b5a839a22,
     type: 3}
   _smack: {fileID: 5207873754096613642, guid: 5323e3df6fdd1e44c96dda79bc58ce6b, type: 3}
-  _bonk: {fileID: 0}
+  _bonk: {fileID: 8076204334800808568, guid: efe82643c7b7d8f44a084742ec2ada28, type: 3}
 --- !u!1 &6945081567662866326
 GameObject:
   m_ObjectHideFlags: 0
