@@ -2255,7 +2255,7 @@ PrefabInstance:
     - target: {fileID: 5861741826518964960, guid: 1e6c1fbf05601d541a415d84ea7d5a45,
         type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5861741826518964960, guid: 1e6c1fbf05601d541a415d84ea7d5a45,
         type: 3}
@@ -2395,6 +2395,7 @@ MonoBehaviour:
   _bubble: {fileID: 8880709498304602265}
   _isDisabled: 0
   _interactSoundClip: {fileID: 11400000, guid: a2e4a888c2152284dba60de5af484ebc, type: 2}
+  _icon: {fileID: 0}
   _recipes:
   - {fileID: 11400000, guid: 124498d0a52be594d81475a92df873c8, type: 2}
   - {fileID: 11400000, guid: a0c0e5a50c2b63f46b5f3518611681f1, type: 2}

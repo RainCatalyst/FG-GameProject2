@@ -33,7 +33,7 @@ Transform:
   - {fileID: 548924982433441996}
   - {fileID: 563996805023100047}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &285140317742194297
 MonoBehaviour:
@@ -52,6 +52,7 @@ MonoBehaviour:
   _bubble: {fileID: 1627860889520415493}
   _isDisabled: 1
   _interactSoundClip: {fileID: 0}
+  _icon: {fileID: 2390409946574094263}
   _timeWindowBubble: {fileID: 3911191704094732957}
   _characterType: 0
 --- !u!65 &263698452817130540
@@ -451,6 +452,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a7958aa6434406092cfa1506783b41b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2390409946574094263 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1480033288860650780, guid: 770d9042c53664f40b7269efdf9c436c,
+    type: 3}
+  m_PrefabInstance: {fileID: 3865868869643088555}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcef70558ef8c6049884be40ce368aff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &8145560574975914453 stripped
