@@ -13,6 +13,10 @@ public class FireSpawnManager : MonoSingleton<FireSpawnManager>
 
     private void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            SpawnFire();
+        }
         if (GameManager.Instance.IsGameplayPaused)
             return;
         _timer += Time.deltaTime;
@@ -22,6 +26,8 @@ public class FireSpawnManager : MonoSingleton<FireSpawnManager>
             _randomTimer = Random.Range(_minDelay, _maxDelay);
             _timer = 0f;
         }
+
+
     }
     
     public void SpawnFire()
