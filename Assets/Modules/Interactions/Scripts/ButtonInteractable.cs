@@ -25,11 +25,13 @@ namespace SpaceGame
         {
             base.OnInteractionFinished();
             Interacted?.Invoke(this);
+            if (_effectOrigin != null)
+                ParticleManager.Instance.Spawn(ParticleType.Bonk, _effectOrigin.position);
             SetTimeWindowProgress(0);
-            print("Interacted!");
         }
-
+        
         private bool _isButtonDisabled;
+        [SerializeField] private Transform _effectOrigin;
         [SerializeField] private Image _timeWindowBubble;
         [SerializeField] private CharacterType _characterType;
     }
