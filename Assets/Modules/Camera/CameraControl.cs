@@ -18,6 +18,8 @@ public class CameraControl : MonoSingleton<CameraControl>
     private Vector3 m_DesiredPosition; // Average of both players position= desired position. CameraRig = desiredposition = follow  
     private CameraShake _cameraShake;
 
+    public Camera Camera => m_Camera;
+
     public void Shake() => _cameraShake.Shake();
 
 

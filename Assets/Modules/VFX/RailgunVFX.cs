@@ -15,7 +15,7 @@ namespace SpaceGame
             _beam.transform.localPosition = new Vector3(0, 0, -10);
             LeanTween.delayedCall(gameObject, 2f, () => _fireSound.Play());
             LeanTween.scaleZ(_beam, 1f, 0.3f).setDelay(2f).setEaseOutCubic();
-            LeanTween.moveLocalZ(_beam, 40f, 0.2f).setDelay(3.2f);
+            LeanTween.moveLocalZ(_beam, 60f, 0.2f).setDelay(3.2f);
             // LeanTween.delayedCall(gameObject, 2f, () => )
         }
 

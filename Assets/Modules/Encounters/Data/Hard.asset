@@ -20,5 +20,6 @@ MonoBehaviour:
   _availableTasks:
   - {fileID: 11400000, guid: 30087f95fc0fab44cb89319c2d97449c, type: 2}
   - {fileID: 11400000, guid: 4de8a32402e314a4981c0ccfb9671dfa, type: 2}
+  - {fileID: 11400000, guid: 6a8732bd4dd907f448d480bba418f9ae, type: 2}
   _allowSpecialAmmo: 1
   _allowFires: 1

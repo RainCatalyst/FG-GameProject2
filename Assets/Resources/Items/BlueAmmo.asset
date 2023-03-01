@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 546872562b803b646965c2667da95448, type: 3}
   m_Name: BlueAmmo
   m_EditorClassIdentifier: 
-  _id: 
-  _gameObject: {fileID: 0}
-  _isSpecialAmmo: 0
+  _id: ammo_c
+  _gameObject: {fileID: 3119713189303186487, guid: 23949471dcd3819448760764faa6b3f8,
+    type: 3}
+  _isSpecialAmmo: 1
