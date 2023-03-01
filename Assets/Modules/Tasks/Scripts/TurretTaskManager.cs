@@ -32,6 +32,12 @@ namespace SpaceGame
                 RepairManager.Instance.BreakRandom();
             for (int i = 0; i < _currentTask.Data.FireCount; i++)
                 FireSpawnManager.Instance.SpawnFire();
+            
+            if(_currentTask.Data.RailGunReduce)
+                RailgunManager.Instance.ReduceRailgunTimer();
+            if (_currentTask.Data.BatteryReduce)
+                RobotInteractable._instance.ReduceBattery();
+            
             _taskFailEvent.RaiseEvent();
             StartTaskCooldown(true);
             _particles.StopParticle();

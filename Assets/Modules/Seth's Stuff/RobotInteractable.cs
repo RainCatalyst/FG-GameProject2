@@ -21,6 +21,8 @@ namespace SpaceGame
 
         private void Awake()
         {
+            if (_instance == null)
+                _instance = this;
             _characterMovement = GetComponent<CharacterMovement>();
             _normalSpeed = _characterMovement.Speed;
             _batteryLevel = 100f;
@@ -45,6 +47,11 @@ namespace SpaceGame
             _characterMovement.Speed = _batteryLevel > 0 ? _normalSpeed : _normalSpeed * _slowModifier;
         }
 
+        public void ReduceBattery()
+        {
+            _batteryLevel = 0;
+        }
+
 
         [SerializeField] private float _batteryDrain;
         [SerializeField] private float _slowModifier;
@@ -53,5 +60,7 @@ namespace SpaceGame
         private CharacterMovement _characterMovement;
         public float _batteryLevel;
         private float _normalSpeed;
+
+        public static RobotInteractable _instance;
     }
 }
