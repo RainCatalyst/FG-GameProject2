@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace SpaceGame
 {
-    public class RailgunManager : MonoBehaviour
+    public class RailgunManager : MonoSingleton<RailgunManager>
     {
         public void Fire()
         {
@@ -50,7 +50,13 @@ namespace SpaceGame
             yield return new WaitForSeconds(3f);
             GameManager.Instance.ToggleGameplayPause(false);
         }
-
+        
+        public void ReduceRailgunTimer()
+        {
+            _readyToFire = false;
+            _timer /= 2;
+        }
+        
         public float _timer;
         public bool _readyToFire;
         [SerializeField]

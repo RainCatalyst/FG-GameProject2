@@ -14,6 +14,8 @@ namespace SpaceGame
         public int WallCount => _wallCount;
         public int FireCount => _fireCount;
         public int ScoreReward => _scoreReward;
+        public bool RailGunReduce => _railGunReduce;
+        public bool BatteryReduce => _batteryReduce;
         
         [SerializeField]
         private float _timeToDeliver;
@@ -33,5 +35,9 @@ namespace SpaceGame
         private int _fireCount;
         [SerializeField]
         private int _scoreReward = 1;
+        [SerializeField] 
+        private bool _railGunReduce;
+        [SerializeField] 
+        private bool _batteryReduce;
     }
 }
