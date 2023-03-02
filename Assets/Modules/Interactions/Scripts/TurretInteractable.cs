@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace SpaceGame
@@ -15,7 +16,7 @@ namespace SpaceGame
             {
                 _icon.SetColor(canDeliver ? _goodColor : _badColor);
             }
-
+            
             return base.CanInteract(interactor) && canDeliver;
         }
 
