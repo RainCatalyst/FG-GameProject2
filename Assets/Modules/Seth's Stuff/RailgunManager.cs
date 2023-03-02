@@ -41,6 +41,8 @@ namespace SpaceGame
             _railgunFireEvent.RaiseEvent();
             _readyToFire = false;
             _timer = 0;
+            AutoFinishTasks();
+            
             _fullShip.SetActive(true);
             CameraControl.Instance.Camera.orthographic = false;
             CameraControl.Instance.OverrideTarget = _cameraTarget;
@@ -51,7 +53,7 @@ namespace SpaceGame
             CameraControl.Instance.Camera.orthographic = true;
             CameraControl.Instance.OverrideTarget = null;
             _fullShip.SetActive(false);
-            yield return new WaitForSeconds(3f);
+            //yield return new WaitForSeconds(3f);
             GameManager.Instance.ToggleGameplayPause(false);
         }
         
@@ -59,6 +61,14 @@ namespace SpaceGame
         {
             _readyToFire = false;
             _timer /= 2;
+        }
+        
+        public void AutoFinishTasks()
+        {
+            foreach (var turret in FindObjectsOfType<TurretTaskManager>())
+            {
+                turret.OnRailgunCompleted();
+            }
         }
         
         public float _timer;

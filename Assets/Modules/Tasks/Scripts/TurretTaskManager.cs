@@ -16,6 +16,15 @@ namespace SpaceGame
             OnTaskCompleted();
             _particles.PlayParticle();
         }
+
+        public void OnRailgunCompleted()
+        {
+            if (_currentTask != null)
+            {
+                OnTaskCompleted();
+                _particles.StopParticle();
+            }
+        }
         
         private void OnTaskCompleted()
         {
