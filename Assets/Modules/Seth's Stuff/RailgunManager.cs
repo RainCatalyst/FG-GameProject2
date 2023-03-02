@@ -53,7 +53,6 @@ namespace SpaceGame
             CameraControl.Instance.Camera.orthographic = true;
             CameraControl.Instance.OverrideTarget = null;
             _fullShip.SetActive(false);
-            //yield return new WaitForSeconds(3f);
             GameManager.Instance.ToggleGameplayPause(false);
         }
         
