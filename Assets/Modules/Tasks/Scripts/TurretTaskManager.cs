@@ -110,15 +110,15 @@ namespace SpaceGame
                 // Update progress bar
                 _taskProgressBar.Progress = progress;
                 _taskProgressBar.Color = _taskWaitGradient.Evaluate(0f);
+                
+                _interactableOutline.OutlineColor = !_currentTask.IsFailed && GameManager.Instance.AnyPlayerHoldingItem(_currentTask.Data.ItemId)
+                    ? _goodColor
+                    : _badColor;
 
                 if (_currentTask.IsFailed)
                 {
                     OnTaskFailed();
                 }
-
-                _interactableOutline.OutlineColor = GameManager.Instance.AnyPlayerHoldingItem(_currentTask.Data.ItemId)
-                    ? _goodColor
-                    : _badColor;
             }
             else if (_taskCooldownTimer > 0f)
             {
