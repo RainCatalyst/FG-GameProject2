@@ -37,6 +37,7 @@ namespace SpaceGame
             _taskCompleteEvent.RaiseEvent();
             GameManager.Instance.AddScore(_currentTask.Data.ScoreReward, transform.position + Vector3.up * 1.5f);
             StartTaskCooldown(false);
+            _arrowCanvas.enabled = false;
         }
 
         private void OnTaskFailed()
@@ -83,7 +84,7 @@ namespace SpaceGame
                 _recipeHint.SetRecipe(taskData, _recipeIndex);
             }
 
-            _iconParent.SetActive(true);
+            //_iconParent.SetActive(true);
             _iconImage.sprite = taskData.ResultIcon;
             _taskIcon.sprite = taskData.ResultIcon;
             
@@ -97,6 +98,7 @@ namespace SpaceGame
         {
             GetNewTask();
             _interactableOutline.OutlineColor = _badColor;
+            _arrowCanvas.enabled = false;
         }
 
         private void Update()
@@ -114,6 +116,10 @@ namespace SpaceGame
                 _interactableOutline.OutlineColor = !_currentTask.IsFailed && GameManager.Instance.AnyPlayerHoldingItem(_currentTask.Data.ItemId)
                     ? _goodColor
                     : _badColor;
+                
+                _arrowCanvas.enabled = !_currentTask.IsFailed && GameManager.Instance.AnyPlayerHoldingItem(_currentTask.Data.ItemId)
+                    ? _arrowCanvas.enabled = true
+                    : _arrowCanvas.enabled = false;
 
                 if (_currentTask.IsFailed)
                 {
@@ -131,6 +137,10 @@ namespace SpaceGame
                     _particles.StopParticle();
                 }
             }
+
+            float speed = 3f;
+            float time = Mathf.PingPong(Time.time * speed, 1);
+            _interactableOutline.OutlineWidth = Mathf.Lerp(2, 3, time);
         }
 
         [SerializeField]
@@ -165,6 +175,8 @@ namespace SpaceGame
         private Color _badColor;
         [SerializeField]
         private Outline _interactableOutline;
+        [SerializeField]
+        private Canvas _arrowCanvas;
 
         private Task _currentTask;
         private float _taskCooldownTimer;

@@ -2089,9 +2089,39 @@ PrefabInstance:
       objectReference: {fileID: 4624876891715816655}
     - target: {fileID: 208261275963417498, guid: 9fde037f34973be4e82da0c51d2cb5a9,
         type: 3}
+      propertyPath: _badColor.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 208261275963417498, guid: 9fde037f34973be4e82da0c51d2cb5a9,
+        type: 3}
+      propertyPath: _badColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 208261275963417498, guid: 9fde037f34973be4e82da0c51d2cb5a9,
+        type: 3}
+      propertyPath: _badColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 208261275963417498, guid: 9fde037f34973be4e82da0c51d2cb5a9,
+        type: 3}
       propertyPath: _recipeHint
       value: 
       objectReference: {fileID: 4089430339022475569}
+    - target: {fileID: 208261275963417498, guid: 9fde037f34973be4e82da0c51d2cb5a9,
+        type: 3}
+      propertyPath: _goodColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 208261275963417498, guid: 9fde037f34973be4e82da0c51d2cb5a9,
+        type: 3}
+      propertyPath: _goodColor.g
+      value: 0.9397967
+      objectReference: {fileID: 0}
+    - target: {fileID: 208261275963417498, guid: 9fde037f34973be4e82da0c51d2cb5a9,
+        type: 3}
+      propertyPath: _goodColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 208261275963417498, guid: 9fde037f34973be4e82da0c51d2cb5a9,
         type: 3}
       propertyPath: _interactableOutline

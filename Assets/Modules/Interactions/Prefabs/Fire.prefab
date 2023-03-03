@@ -461,7 +461,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7653833183408998658}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 754654854c51f5c48b3de4704732c78b, type: 3}
   m_Name: 
@@ -504,8 +504,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.25, y: 1, z: 1.25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.6704345, y: 1, z: 1.8699083}
+  m_Center: {x: -0.024182558, y: 0, z: -0.021552116}
 --- !u!4 &7653833184466430800 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5861741825461680304, guid: 1e6c1fbf05601d541a415d84ea7d5a45,
@@ -563,7 +563,12 @@ PrefabInstance:
     - target: {fileID: 4487862050184162859, guid: c97a6d88dad15734e84c709f48679477,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6241785010903183512, guid: c97a6d88dad15734e84c709f48679477,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7301002342553502126, guid: c97a6d88dad15734e84c709f48679477,
         type: 3}
