@@ -664,7 +664,7 @@ PrefabInstance:
     - target: {fileID: 5861741826518964960, guid: 1e6c1fbf05601d541a415d84ea7d5a45,
         type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5861741826518964960, guid: 1e6c1fbf05601d541a415d84ea7d5a45,
         type: 3}
@@ -873,8 +873,6 @@ MonoBehaviour:
   _isDisabled: 0
   _interactSoundClip: {fileID: 11400000, guid: d589ff7403a26e343acd268230d9daa2, type: 2}
   _icon: {fileID: 5514021986774580267}
-  _goodColor: {r: 0.7028302, g: 1, b: 0.8015076, a: 1}
-  _badColor: {r: 1, g: 0.6774347, b: 0.6084906, a: 1}
 --- !u!114 &208261275963417498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -962,6 +960,9 @@ MonoBehaviour:
   _iconImage: {fileID: 3823032683226236137}
   _iconParent: {fileID: 1182053379371469264}
   _particles: {fileID: 0}
+  _goodColor: {r: 0.70583254, g: 1, b: 0.4292453, a: 1}
+  _badColor: {r: 1, g: 0.5192404, b: 0.24056602, a: 1}
+  _interactableOutline: {fileID: 0}
   _chance: 0.5
 --- !u!4 &7653833184466430800 stripped
 Transform:

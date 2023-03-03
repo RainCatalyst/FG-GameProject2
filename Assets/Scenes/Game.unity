@@ -568,40 +568,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 94884334233096100, guid: c3c4e9a63b26d1a4f999928b5780822f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3747606374920932362, guid: c3c4e9a63b26d1a4f999928b5780822f,
         type: 3}
       propertyPath: m_Name
       value: ShipArena
-      objectReference: {fileID: 0}
-    - target: {fileID: 4163945395502456336, guid: c3c4e9a63b26d1a4f999928b5780822f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4611114365484834279, guid: c3c4e9a63b26d1a4f999928b5780822f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4955939213542325146, guid: c3c4e9a63b26d1a4f999928b5780822f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5068700290054174243, guid: c3c4e9a63b26d1a4f999928b5780822f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6474885201672099739, guid: c3c4e9a63b26d1a4f999928b5780822f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6722702150961870760, guid: c3c4e9a63b26d1a4f999928b5780822f,
         type: 3}

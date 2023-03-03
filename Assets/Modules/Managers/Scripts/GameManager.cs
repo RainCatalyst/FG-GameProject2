@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,6 +12,8 @@ namespace SpaceGame
         public bool IsGameplayPaused => _isGameplayPaused;
         public int Score => _score;
         public int Highscore => _highscore;
+
+        public bool AnyPlayerHoldingItem(string id) => _players.Any(p => p.HeldItemId == id);
 
         public void GoMenu()
         {
@@ -25,6 +28,8 @@ namespace SpaceGame
             _allyHealth.Setup();
             _enemyHealth.Setup();
             _scoreEvent.RaiseEvent(_score);
+            _players = FindObjectsOfType<CharacterLogic>();
+            
             base.Awake();
             Time.timeScale = 1;
             StartCoroutine(CoStartGame());
@@ -66,8 +71,8 @@ namespace SpaceGame
 
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0))
-                RepairManager.Instance.BreakRandom();
+            // if (Input.GetMouseButtonDown(0))
+            //     RepairManager.Instance.BreakRandom();
         }
 
         public void ToggleGameplayPause(bool paused) => _isGameplayPaused = paused;
@@ -125,6 +130,7 @@ namespace SpaceGame
         private int _score;
         private int _highscore;
         private bool _isGameplayPaused;
+        private CharacterLogic[] _players;
 
         [SerializeField] private GameUI _gameUI;
         [SerializeField] private bool _skipControlsHint;

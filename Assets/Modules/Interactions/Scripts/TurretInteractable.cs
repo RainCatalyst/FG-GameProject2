@@ -7,16 +7,9 @@ namespace SpaceGame
     {
         public override bool CanInteract(Interactor interactor)
         {
-            bool canDeliver = _taskManager.CanDeliverTaskItem(interactor.ItemHolder.ItemId);
-            if (interactor.ItemHolder.ItemId == null)
-            {
-                _icon.SetColor(Color.white);
-            }
-            else
-            {
-                _icon.SetColor(canDeliver ? _goodColor : _badColor);
-            }
-            
+            bool canDeliver = _taskManager.CheckDeliverTaskItem(interactor.ItemHolder.ItemId);
+            // _icon.SetColor(canDeliver ? _goodColor : _badColor);
+
             return base.CanInteract(interactor) && canDeliver;
         }
 
@@ -33,9 +26,5 @@ namespace SpaceGame
         }
 
         private TurretTaskManager _taskManager;
-        [SerializeField]
-        private Color _goodColor;
-        [SerializeField]
-        private Color _badColor;
     }
 }

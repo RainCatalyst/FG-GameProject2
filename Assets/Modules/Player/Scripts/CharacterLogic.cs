@@ -6,6 +6,7 @@ namespace SpaceGame
     public class CharacterLogic : MonoBehaviour
     {
         public CharacterType CharacterType => _characterType;
+        public string HeldItemId => _itemHolder.ItemId;
 
         public void SetAnimBool(string name, bool value)
         {

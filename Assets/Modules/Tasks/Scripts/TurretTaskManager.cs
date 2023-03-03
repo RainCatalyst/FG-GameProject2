@@ -8,9 +8,15 @@ namespace SpaceGame
 {
     public class TurretTaskManager : MonoBehaviour
     {
-        // Returns true if current tasks itemid matches the input
-        public bool CanDeliverTaskItem(string itemId) => _currentTask != null && _currentTask.Data.ItemId == itemId; 
-        
+        public bool CheckDeliverTaskItem(string itemId)
+        {
+            bool canDeliver = _currentTask != null && _currentTask.Data.ItemId == itemId;
+            
+            // _interactableOutline.OutlineColor = canDeliver ? _goodColor : _badColor;
+            
+            return canDeliver;
+        }
+
         public void DeliverTaskItem()
         {
             OnTaskCompleted();
@@ -28,7 +34,6 @@ namespace SpaceGame
         
         private void OnTaskCompleted()
         {
-            // Update score etc
             _taskCompleteEvent.RaiseEvent();
             GameManager.Instance.AddScore(_currentTask.Data.ScoreReward, transform.position + Vector3.up * 1.5f);
             StartTaskCooldown(false);
@@ -36,7 +41,6 @@ namespace SpaceGame
 
         private void OnTaskFailed()
         {
-            // Quick hack for now
             for (int i = 0; i < _currentTask.Data.WallCount; i++)
                 RepairManager.Instance.BreakRandom();
             for (int i = 0; i < _currentTask.Data.FireCount; i++)
@@ -60,10 +64,10 @@ namespace SpaceGame
             _taskCooldownDuration = failed ? 1f : _currentTask.Data.Cooldown * multiplier;
             _taskIcon.sprite = _reloadIcon;
             _recipeHint.SetRecipe(null, _recipeIndex);
-            
             _iconParent.SetActive(false);
-            // _taskIconParent.SetActive(false);
-            // _taskProgressBar.ColorOverProgress = _taskCooldownGradient;
+            
+            _interactableOutline.enabled = false;
+
             _currentTask = null;
         }
         
@@ -82,14 +86,17 @@ namespace SpaceGame
             _iconParent.SetActive(true);
             _iconImage.sprite = taskData.ResultIcon;
             _taskIcon.sprite = taskData.ResultIcon;
-            // _taskIconParent.SetActive(true);
-            // _taskProgressBar.ColorOverProgress = _taskWaitGradient;
+            
+            _interactableOutline.enabled = true;
+            // _interactableOutline.OutlineColor = _badColor;
+            
             _currentTask = new Task(taskData);
         }
         
         private void Start()
         {
             GetNewTask();
+            _interactableOutline.OutlineColor = _badColor;
         }
 
         private void Update()
@@ -108,6 +115,10 @@ namespace SpaceGame
                 {
                     OnTaskFailed();
                 }
+
+                _interactableOutline.OutlineColor = GameManager.Instance.AnyPlayerHoldingItem(_currentTask.Data.ItemId)
+                    ? _goodColor
+                    : _badColor;
             }
             else if (_taskCooldownTimer > 0f)
             {
@@ -147,6 +158,13 @@ namespace SpaceGame
         [SerializeField] private Image _iconImage;
         [SerializeField] private GameObject _iconParent;
         [SerializeField] private LaserShoot _particles;
+        [Header("Outline")]
+        [SerializeField]
+        private Color _goodColor;
+        [SerializeField]
+        private Color _badColor;
+        [SerializeField]
+        private Outline _interactableOutline;
 
         private Task _currentTask;
         private float _taskCooldownTimer;
