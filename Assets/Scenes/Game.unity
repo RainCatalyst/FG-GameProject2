@@ -337,11 +337,6 @@ PrefabInstance:
       propertyPath: _railgunManager
       value: 
       objectReference: {fileID: 174781729}
-    - target: {fileID: 4551606325819072505, guid: 42ac96c659a421e49b6c3aa0f0954a58,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6054482764669416105, guid: 42ac96c659a421e49b6c3aa0f0954a58,
         type: 3}
       propertyPath: m_RootOrder

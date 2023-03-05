@@ -47,6 +47,12 @@ public class MainMenu : MonoBehaviour
         
     }
 
+    private void Start()
+    {
+        Time.timeScale = 1;
+        _ship.GetComponent<Animator>().Play("shipintroanim");
+    }
+
     [SerializeField] 
     private GameObject _ship;
     [SerializeField] 

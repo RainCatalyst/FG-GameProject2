@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace SpaceGame
 {
@@ -11,6 +12,11 @@ namespace SpaceGame
         public void OnRestart()
         {
             GameManager.Instance.Restart();
+        }
+
+        public void OnMainMenu()
+        {
+            SceneManager.LoadScene("Intro");
         }
         
         [SerializeField] private GameOverUI _gameOverMenu;
