@@ -8,7 +8,7 @@ public class AsteroidMove : MonoBehaviour
     void Start()
     {
         _speed = Random.Range(_speedMin, _speedMax);
-        Destroy(gameObject, 60f);
+        Destroy(gameObject, 45f);
     }
 
     // Update is called once per frame

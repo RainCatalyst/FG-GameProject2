@@ -16,7 +16,8 @@ public class MainMenu : MonoBehaviour
     public void Play()
     {
         LeanTween.cancelAll();
-        SceneManager.LoadScene("Game");
+        _ship.GetComponent<Animator>().SetTrigger("PlayPressed");
+        //Game starts from script on _ship "PlayPressedStartGame" by animation event on "shipintrofadetoblack"
     }
     
     public void CreditsClicked()
@@ -46,7 +47,8 @@ public class MainMenu : MonoBehaviour
         
     }
 
-
+    [SerializeField] 
+    private GameObject _ship;
     [SerializeField] 
     private GameObject _camera;
     [SerializeField] 
