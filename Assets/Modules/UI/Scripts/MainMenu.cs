@@ -22,29 +22,70 @@ public class MainMenu : MonoBehaviour
     
     public void CreditsClicked()
     {
-        _isClicked = true;
+        _creditsIsClicked = true;
+        _camSwitch = 3;
     }
     
     public void CreditsBack()
     {
-        _isClicked = false;
+        _creditsIsClicked = false;
+        _camSwitch = 1;
+    }
+    
+    public void GuideClicked()
+    {
+        _guideIsClicked = true;
+        _camSwitch = 2;
+    }
+    
+    public void GuideBack()
+    {
+        _guideIsClicked = false;
+        _camSwitch = 1;
+    }
+
+    private void OriginAnim()
+    {
+        _camera.transform.position = Vector3.Lerp(_camera.transform.position, _camOrigin.transform.position, _camSpeed / 2 * Time.deltaTime);
+        _camera.transform.rotation = Quaternion.Lerp(_camera.transform.rotation,_camOrigin.transform.rotation, _camRotateSpeed / 2 * Time.deltaTime);
+        _camera.transform.SetParent(null);
+    }
+    
+    private void GuideAnim()
+    {
+        _camera.transform.position = Vector3.Lerp(_camera.transform.position, _guideCamTarget.transform.position, _camSpeed * Time.deltaTime);
+        _camera.transform.rotation = Quaternion.Lerp(_camera.transform.rotation,_guideCamTarget.transform.rotation, _camRotateSpeed * Time.deltaTime);
+    }
+
+    private void CreditsAnim()
+    {
+        _camera.transform.position = Vector3.Lerp(_camera.transform.position, _creditCamTarget.transform.position, _camSpeed * Time.deltaTime);
+        _camera.transform.rotation = Quaternion.Lerp(_camera.transform.rotation,_creditCamTarget.transform.rotation, _camRotateSpeed * Time.deltaTime);
+        _camera.transform.SetParent(_creditCamTarget.transform);
+    }
+
+    private void CamSwitch()
+    {
+        switch (_camSwitch)
+        {
+            case 1:
+                OriginAnim();
+                break;
+            case 2:
+                GuideAnim();
+                break;
+            case 3:
+                CreditsAnim();
+                break;
+            default:
+                OriginAnim();
+                break;
+        }
     }
 
     private void Update()
     {
-        if (_isClicked)
-        {
-            _camera.transform.position = Vector3.Lerp(_camera.transform.position, _camTarget.transform.position, _camSpeed * Time.deltaTime);
-            _camera.transform.rotation = Quaternion.Lerp(_camera.transform.rotation,_camTarget.transform.rotation, _camRotateSpeed * Time.deltaTime);
-            _camera.transform.SetParent(_camTarget.transform);
-        }
-        else
-        {
-            _camera.transform.position = Vector3.Lerp(_camera.transform.position, _camOrigin.transform.position, _camSpeed / 2 * Time.deltaTime);
-            _camera.transform.rotation = Quaternion.Lerp(_camera.transform.rotation,_camOrigin.transform.rotation, _camRotateSpeed / 2 * Time.deltaTime);
-            _camera.transform.SetParent(null);
-        }
-        
+        CamSwitch();
     }
 
     private void Start()
@@ -58,7 +99,9 @@ public class MainMenu : MonoBehaviour
     [SerializeField] 
     private GameObject _camera;
     [SerializeField] 
-    private GameObject _camTarget;
+    private GameObject _creditCamTarget;
+    [SerializeField] 
+    private GameObject _guideCamTarget;
     [SerializeField] 
     private GameObject _camOrigin;
     [SerializeField] 
@@ -66,5 +109,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField] 
     private float _camRotateSpeed = 5f;
 
-    private bool _isClicked;
+    private bool _creditsIsClicked;
+    private bool _guideIsClicked;
+
+    private int _camSwitch;
 }
