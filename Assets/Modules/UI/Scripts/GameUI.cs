@@ -18,7 +18,7 @@ namespace SpaceGame
         {
             SceneManager.LoadScene("Intro");
         }
-        
+
         [SerializeField] private GameOverUI _gameOverMenu;
         [SerializeField] private ControlsHint _controlHint;
     }

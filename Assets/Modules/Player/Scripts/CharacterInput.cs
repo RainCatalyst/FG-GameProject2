@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace SpaceGame
@@ -36,7 +35,7 @@ namespace SpaceGame
         private string _verticalAxis;
         private string _verticalAxisJoy;
         private string _interactAxis;
-        
+
         private int _playerIndex;
     }
 }

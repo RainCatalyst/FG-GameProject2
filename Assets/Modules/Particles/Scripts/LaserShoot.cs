@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace SpaceGame
 {
-
     public class LaserShoot : MonoBehaviour
     {
         private void Awake()
@@ -14,6 +11,7 @@ namespace SpaceGame
             _glowParticle.Stop();
             _ovalParticle.Stop();
         }
+
         public void PlayParticle()
         {
             _lineRendered.enabled = true;
@@ -21,6 +19,7 @@ namespace SpaceGame
             _glowParticle.Play();
             _ovalParticle.Play();
         }
+
         public void StopParticle()
         {
             _lineRendered.enabled = false;
@@ -28,10 +27,10 @@ namespace SpaceGame
             _glowParticle.Stop();
             _ovalParticle.Stop();
         }
+
         [SerializeField] private LineRenderer _lineRendered;
         [SerializeField] private ParticleSystem _sparkParticle;
         [SerializeField] private ParticleSystem _glowParticle;
         [SerializeField] private ParticleSystem _ovalParticle;
     }
-
 }

@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using SpaceGame;
 using TMPro;
 using UnityEngine;
@@ -11,7 +8,6 @@ public class WeaponReadyText : MonoBehaviour
     {
         _text.enabled = _railgunManager._readyToFire;
     }
-
 
     [SerializeField] private RailgunManager _railgunManager;
     [SerializeField] private TMP_Text _text;

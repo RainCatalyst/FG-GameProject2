@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ControlsHint : MonoBehaviour
@@ -9,6 +6,7 @@ public class ControlsHint : MonoBehaviour
 
     public void FadeOut()
     {
-        LeanTween.alphaCanvas(GetComponent<CanvasGroup>(), 0, FadeOutTime).setOnComplete(() => gameObject.SetActive(false));
+        LeanTween.alphaCanvas(GetComponent<CanvasGroup>(), 0, FadeOutTime)
+            .setOnComplete(() => gameObject.SetActive(false));
     }
 }

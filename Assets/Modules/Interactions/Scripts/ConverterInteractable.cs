@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace SpaceGame
 {
+    /// <summary>
+    /// Converts one item to another
+    /// </summary>
     public class ConverterInteractable : Interactable
     {
         public override bool CanInteract(Interactor interactor)

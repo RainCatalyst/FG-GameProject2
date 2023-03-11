@@ -19,25 +19,25 @@ public class MainMenu : MonoBehaviour
         _ship.GetComponent<Animator>().SetTrigger("PlayPressed");
         //Game starts from script on _ship "PlayPressedStartGame" by animation event on "shipintrofadetoblack"
     }
-    
+
     public void CreditsClicked()
     {
         _creditsIsClicked = true;
         _camSwitch = 3;
     }
-    
+
     public void CreditsBack()
     {
         _creditsIsClicked = false;
         _camSwitch = 1;
     }
-    
+
     public void GuideClicked()
     {
         _guideIsClicked = true;
         _camSwitch = 2;
     }
-    
+
     public void GuideBack()
     {
         _guideIsClicked = false;
@@ -46,21 +46,27 @@ public class MainMenu : MonoBehaviour
 
     private void OriginAnim()
     {
-        _camera.transform.position = Vector3.Lerp(_camera.transform.position, _camOrigin.transform.position, _camSpeed / 2 * Time.deltaTime);
-        _camera.transform.rotation = Quaternion.Lerp(_camera.transform.rotation,_camOrigin.transform.rotation, _camRotateSpeed / 2 * Time.deltaTime);
+        _camera.transform.position = Vector3.Lerp(_camera.transform.position, _camOrigin.transform.position,
+            _camSpeed / 2 * Time.deltaTime);
+        _camera.transform.rotation = Quaternion.Lerp(_camera.transform.rotation, _camOrigin.transform.rotation,
+            _camRotateSpeed / 2 * Time.deltaTime);
         _camera.transform.SetParent(null);
     }
-    
+
     private void GuideAnim()
     {
-        _camera.transform.position = Vector3.Lerp(_camera.transform.position, _guideCamTarget.transform.position, _camSpeed * Time.deltaTime);
-        _camera.transform.rotation = Quaternion.Lerp(_camera.transform.rotation,_guideCamTarget.transform.rotation, _camRotateSpeed * Time.deltaTime);
+        _camera.transform.position = Vector3.Lerp(_camera.transform.position, _guideCamTarget.transform.position,
+            _camSpeed * Time.deltaTime);
+        _camera.transform.rotation = Quaternion.Lerp(_camera.transform.rotation, _guideCamTarget.transform.rotation,
+            _camRotateSpeed * Time.deltaTime);
     }
 
     private void CreditsAnim()
     {
-        _camera.transform.position = Vector3.Lerp(_camera.transform.position, _creditCamTarget.transform.position, _camSpeed * Time.deltaTime);
-        _camera.transform.rotation = Quaternion.Lerp(_camera.transform.rotation,_creditCamTarget.transform.rotation, _camRotateSpeed * Time.deltaTime);
+        _camera.transform.position = Vector3.Lerp(_camera.transform.position, _creditCamTarget.transform.position,
+            _camSpeed * Time.deltaTime);
+        _camera.transform.rotation = Quaternion.Lerp(_camera.transform.rotation, _creditCamTarget.transform.rotation,
+            _camRotateSpeed * Time.deltaTime);
         _camera.transform.SetParent(_creditCamTarget.transform);
     }
 
@@ -94,20 +100,13 @@ public class MainMenu : MonoBehaviour
         _ship.GetComponent<Animator>().Play("shipintroanim");
     }
 
-    [SerializeField] 
-    private GameObject _ship;
-    [SerializeField] 
-    private GameObject _camera;
-    [SerializeField] 
-    private GameObject _creditCamTarget;
-    [SerializeField] 
-    private GameObject _guideCamTarget;
-    [SerializeField] 
-    private GameObject _camOrigin;
-    [SerializeField] 
-    private float _camSpeed = 15f;
-    [SerializeField] 
-    private float _camRotateSpeed = 5f;
+    [SerializeField] private GameObject _ship;
+    [SerializeField] private GameObject _camera;
+    [SerializeField] private GameObject _creditCamTarget;
+    [SerializeField] private GameObject _guideCamTarget;
+    [SerializeField] private GameObject _camOrigin;
+    [SerializeField] private float _camSpeed = 15f;
+    [SerializeField] private float _camRotateSpeed = 5f;
 
     private bool _creditsIsClicked;
     private bool _guideIsClicked;

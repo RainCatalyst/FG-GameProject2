@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,8 +23,6 @@ namespace SpaceGame
         public void SetProgress(float progress)
         {
             _image.fillAmount = progress;
-            // _propertyBlock.SetFloat("_Fill", progress * 0.9f);
-            // _image.
         }
 
         [SerializeField]

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace SpaceGame
@@ -12,20 +11,20 @@ namespace SpaceGame
         {
             _animator.SetBool(name, value);
         }
-        
+
         private void Awake()
         {
             _movement = GetComponent<CharacterMovement>();
             _input = GetComponent<CharacterInput>();
             _interactor = GetComponent<Interactor>();
             _itemHolder = GetComponent<ItemHolder>();
-            
+
             _interactor.Setup(_itemHolder, this);
 
             _interactor.InteractionStarted += OnInteractionStarted;
             _interactor.InteractionFinished += OnInteractionFinished;
-            
-            _input.SetPlayerIndex((int) _characterType);
+
+            _input.SetPlayerIndex((int)_characterType);
         }
 
         private void Update()
@@ -51,7 +50,7 @@ namespace SpaceGame
             {
                 _interactor.CancelInteract();
             }
-            
+
             // Animation
             _animator.SetFloat("Speed", _movement.CurrentSpeed);
             _animator.SetBool("Holding", _itemHolder.ItemId != null);
@@ -61,7 +60,7 @@ namespace SpaceGame
         {
             _movement.SetMovementLock(true);
         }
-        
+
         private void OnInteractionFinished()
         {
             _movement.SetMovementLock(false);

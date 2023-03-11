@@ -1,42 +1,42 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ProgressBarOld : MonoBehaviour
+namespace SpaceGame
 {
-    public float Progress
+    public class ProgressBarOld : MonoBehaviour
     {
-        get => _progress;
-        set
+        public float Progress
         {
-            _progress = value;
-            if (_useGradient)
-                _progressFill.color = _colorOverProgress.Evaluate(value);
-            _slider.value = _progress;
+            get => _progress;
+            set
+            {
+                _progress = value;
+                if (_useGradient)
+                    _progressFill.color = _colorOverProgress.Evaluate(value);
+                _slider.value = _progress;
+            }
         }
-    }
 
-    public Gradient ColorOverProgress
-    {
-        get => _colorOverProgress;
-        set
+        public Gradient ColorOverProgress
         {
-            _colorOverProgress = value;
-            _progressFill.color = _colorOverProgress.Evaluate(_progress);
+            get => _colorOverProgress;
+            set
+            {
+                _colorOverProgress = value;
+                _progressFill.color = _colorOverProgress.Evaluate(_progress);
+            }
         }
-    }
 
-    private void Awake()
-    {
-        _slider = GetComponent<Slider>();
-    }
+        private void Awake()
+        {
+            _slider = GetComponent<Slider>();
+        }
 
-    [SerializeField]
-    private bool _useGradient;
-    [SerializeField]
-    private Gradient _colorOverProgress;
-    [SerializeField]
-    private Image _progressFill;
-    
-    private Slider _slider;
-    private float _progress;
+        [SerializeField] private bool _useGradient;
+        [SerializeField] private Gradient _colorOverProgress;
+        [SerializeField] private Image _progressFill;
+
+        private Slider _slider;
+        private float _progress;
+    }
 }

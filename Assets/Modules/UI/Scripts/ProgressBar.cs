@@ -18,9 +18,8 @@ public class ProgressBar : MonoBehaviour
         get => _progressFill.color;
         set => _progressFill.color = value;
     }
-    
-    [SerializeField]
-    private Image _progressFill;
-    
+
+    [SerializeField] private Image _progressFill;
+
     private float _progress;
 }

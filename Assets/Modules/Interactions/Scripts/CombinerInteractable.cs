@@ -4,49 +4,42 @@ using UnityEngine;
 
 namespace SpaceGame
 {
+    /// <summary>
+    /// Combines two items using the recipe system
+    /// </summary>
     public class CombinerInteractable : Interactable
     {
-        private void Start()
-        {
-            EncounterManager.Instance.EncounterChanged += OnEncounterChanged;
-        }
-
-        private void OnEncounterChanged()
-        {
-            // Disable crafting if we can't get special ammo
-            IsDisabled = !EncounterManager.CurrentEncounter.AllowSpecialAmmo;
-        }
-        
         public void Craft()
         {
             _animator.Play("Craft");
             LeanTween.delayedCall(gameObject, 1f, () => _combineClip.Play());
-            LeanTween.delayedCall(gameObject, 1f, () => ParticleManager.Instance.Spawn(ParticleType.Smack, _effectOrigin.position));
+            LeanTween.delayedCall(gameObject, 1f,
+                () => ParticleManager.Instance.Spawn(ParticleType.Smack, _effectOrigin.position));
             _resultItemHolder.SetItem(_resultItemId);
             _items.Clear();
             _buttons.Disable();
         }
-        
-        public override bool CanInteract(Interactor interactor) 
+
+        public override bool CanInteract(Interactor interactor)
         {
-            if (!base.CanInteract(interactor)) //if its NOT null or NOT matches the interactor we need....?
+            if (!base.CanInteract(interactor))
             {
                 return false;
             }
 
-            if (interactor.ItemHolder.ItemId == null && CanPickup()) //if were not holding anything and the current items in the combiner is 2
+            if (interactor.ItemHolder.ItemId == null && CanPickup())
             {
                 return true;
             }
-            
+
             if (CanAddItem(interactor.ItemHolder.ItemId) && !CanPickup())
             {
-                return true; 
+                return true;
             }
-            
+
             return false;
-        }        
-        
+        }
+
         protected override void OnInteractionFinished()
         {
             if (CanPickup())
@@ -70,21 +63,33 @@ namespace SpaceGame
                     _buttons.Enable();
                 }
             }
+
             base.OnInteractionFinished();
         }
-        
+
         private void Awake()
         {
             _items = new List<string>();
         }
+        
+        private void Start()
+        {
+            EncounterManager.Instance.EncounterChanged += OnEncounterChanged;
+        }
 
-        private bool CanAddItem(string id) 
+        private void OnEncounterChanged()
+        {
+            // Disable crafting if we can't get special ammo
+            IsDisabled = !EncounterManager.CurrentEncounter.AllowSpecialAmmo;
+        }
+
+        private bool CanAddItem(string id)
         {
             if (id == null)
             {
                 return false;
             }
-            
+
             var newItems = _items.Append(id).ToList();
             foreach (var recipe in _recipes)
             {
@@ -115,27 +120,20 @@ namespace SpaceGame
 
             return null;
         }
-        
+
         private bool CanPickup() => _resultItemHolder.ItemId != null;
 
-        private string _resultItemId;
-
-        [SerializeField]
-        private List<RecipeData> _recipes;
+        [SerializeField] private List<RecipeData> _recipes;
         [SerializeField] private ItemHolder _resultItemHolder;
         [SerializeField] private List<ItemHolder> _itemHolders;
         [SerializeField] private bool _combineInSequence;
-        [SerializeField]
-        private CoopButtonInteractable _buttons;
-        [SerializeField]
-        private Animator _animator;
-        [SerializeField]
-        private AudioClipSO _combineClip;
-        [SerializeField]
-        private AudioClipSO _dropClip;
-        [SerializeField]
-        private Transform _effectOrigin;
+        [SerializeField] private CoopButtonInteractable _buttons;
+        [SerializeField] private Animator _animator;
+        [SerializeField] private AudioClipSO _combineClip;
+        [SerializeField] private AudioClipSO _dropClip;
+        [SerializeField] private Transform _effectOrigin;
 
+        private string _resultItemId;
         private List<string> _items;
     }
 }

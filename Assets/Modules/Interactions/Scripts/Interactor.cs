@@ -6,7 +6,7 @@ namespace SpaceGame
     // This class will interact with interactables
     public class Interactor : MonoBehaviour
     {
-        public event Action InteractionStarted; 
+        public event Action InteractionStarted;
         public event Action InteractionFinished;
 
         public bool CanInteract => _closestInteractable != null;
@@ -99,7 +99,7 @@ namespace SpaceGame
             // Go through every interactable in the game and find the closest available one
             float minDistance = float.MaxValue;
             Interactable closest = null;
-            
+
             foreach (var interactable in Interactable.Interactables)
             {
                 float distance = Vector3.Distance(transform.position, interactable.transform.position);

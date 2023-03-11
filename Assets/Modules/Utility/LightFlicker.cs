@@ -6,7 +6,7 @@ public class LightFlicker : MonoBehaviour
     {
         _timer = Random.Range(_minTime, _maxTime);
     }
-    
+
     void Update()
     {
         FlickerLight();

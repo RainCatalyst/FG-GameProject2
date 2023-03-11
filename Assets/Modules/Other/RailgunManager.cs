@@ -1,7 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using SpaceGame;
 using UnityEngine;
 
 namespace SpaceGame
@@ -12,7 +9,7 @@ namespace SpaceGame
         {
             StartCoroutine(CoFire());
         }
-        
+
         private void Update()
         {
             if (GameManager.Instance.IsGameplayPaused)
@@ -37,12 +34,12 @@ namespace SpaceGame
             {
                 GameManager.Instance.AddScore(_scoreReward, player.transform.position + Vector3.up * 1f);
             }
-            
+
             _railgunFireEvent.RaiseEvent();
             _readyToFire = false;
             _timer = 0;
             AutoFinishTasks();
-            
+
             _fullShip.SetActive(true);
             CameraControl.Instance.Camera.orthographic = false;
             CameraControl.Instance.OverrideTarget = _cameraTarget;
@@ -55,13 +52,13 @@ namespace SpaceGame
             _fullShip.SetActive(false);
             GameManager.Instance.ToggleGameplayPause(false);
         }
-        
+
         public void ReduceRailgunTimer()
         {
             _readyToFire = false;
             _timer /= 2;
         }
-        
+
         public void AutoFinishTasks()
         {
             foreach (var turret in FindObjectsOfType<TurretTaskManager>())
@@ -69,24 +66,16 @@ namespace SpaceGame
                 turret.OnRailgunCompleted();
             }
         }
-        
+
         public float _timer;
         public bool _readyToFire;
-        [SerializeField]
-        private float _timeUntilFire;
-        [SerializeField]
-        private ProgressBar _launchBar;
-        [SerializeField]
-        private RailgunVFX _vfx;
-        [SerializeField]
-        private Transform _cameraTarget;
-        [SerializeField]
-        private VoidEventChannel _railgunFireEvent;
-        [SerializeField]
-        private VoidEventChannel _railgunChargedEvent;
-        [SerializeField]
-        private int _scoreReward;
-        [SerializeField]
-        private GameObject _fullShip;
+        [SerializeField] private float _timeUntilFire;
+        [SerializeField] private ProgressBar _launchBar;
+        [SerializeField] private RailgunVFX _vfx;
+        [SerializeField] private Transform _cameraTarget;
+        [SerializeField] private VoidEventChannel _railgunFireEvent;
+        [SerializeField] private VoidEventChannel _railgunChargedEvent;
+        [SerializeField] private int _scoreReward;
+        [SerializeField] private GameObject _fullShip;
     }
 }

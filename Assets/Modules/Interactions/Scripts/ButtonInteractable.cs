@@ -6,7 +6,8 @@ namespace SpaceGame
 {
     public class ButtonInteractable : Interactable
     {
-        public event Action<ButtonInteractable> Interacted; // Invoked when someone interacts with it
+        public event Action<ButtonInteractable> Interacted;
+        
         public bool IsButtonDisabled
         {
             get => _isButtonDisabled;
@@ -29,10 +30,10 @@ namespace SpaceGame
                 ParticleManager.Instance.Spawn(ParticleType.Bonk, _effectOrigin.position);
             SetTimeWindowProgress(0);
         }
-        
-        private bool _isButtonDisabled;
+
         [SerializeField] private Transform _effectOrigin;
         [SerializeField] private Image _timeWindowBubble;
         [SerializeField] private CharacterType _characterType;
+        private bool _isButtonDisabled;
     }
 }

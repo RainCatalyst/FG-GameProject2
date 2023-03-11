@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,14 +12,15 @@ namespace SpaceGame
             get => _isDisabled;
             set
             {
-                // Hide icon when disabling
+                // Hide icon on disable
                 if (_icon != null)
                     _icon.SetActive(!value);
                 _isDisabled = value;
             }
         }
-        
-        public virtual bool CanInteract(Interactor interactor) => !_isDisabled && (_currentInteractor == null || _currentInteractor == interactor);
+
+        public virtual bool CanInteract(Interactor interactor) =>
+            !_isDisabled && (_currentInteractor == null || _currentInteractor == interactor);
 
         public void Enable() => _isDisabled = false;
         public void Disable() => _isDisabled = true;
@@ -30,7 +30,7 @@ namespace SpaceGame
             _availableInteractorsCount++;
             UpdateBubble();
         }
-        
+
         public void RemoveInteractor()
         {
             _availableInteractorsCount--;
@@ -54,7 +54,7 @@ namespace SpaceGame
             // This happens when we start the interaction
             _interactionTimer = 0;
         }
-        
+
         protected virtual void OnInteractionFinished()
         {
             // This happens when we complete the interaction
@@ -66,15 +66,15 @@ namespace SpaceGame
 
         protected virtual void OnInteractionCanceled()
         {
-            // This happens when we cancel the interactionw
+            // Happens when we cancel the interaction
             _bubble.SetProgress(0);
         }
 
         protected virtual void OnInteractionUpdate()
         {
-            // This happens every frame while interacting
+            // Happens every frame while interacting
             _interactionTimer += Time.deltaTime;
-            
+
             if (_interactionTimer >= _duration)
             {
                 OnInteractionFinished();

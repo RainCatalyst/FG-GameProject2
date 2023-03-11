@@ -1,16 +1,16 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewItem", menuName = "Data/ItemData")]
-public class ItemData : ScriptableObject
+namespace SpaceGame
 {
-    public string Id => _id;
-    public GameObject GameObject => _gameObject;
-    public bool IsSpecialAmmo => _isSpecialAmmo;
-    
-    [SerializeField]
-    private string _id;
-    [SerializeField]
-    private GameObject _gameObject;
-    [SerializeField]
-    private bool _isSpecialAmmo;
+    [CreateAssetMenu(fileName = "NewItem", menuName = "Data/ItemData")]
+    public class ItemData : ScriptableObject
+    {
+        public string Id => _id;
+        public GameObject GameObject => _gameObject;
+        public bool IsSpecialAmmo => _isSpecialAmmo;
+
+        [SerializeField] private string _id;
+        [SerializeField] private GameObject _gameObject;
+        [SerializeField] private bool _isSpecialAmmo;
+    }
 }

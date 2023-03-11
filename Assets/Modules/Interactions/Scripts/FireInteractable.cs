@@ -1,9 +1,10 @@
-using UnityEngine;
-using System;
-
 namespace SpaceGame
 {
-    public class FireInteractable : Interactable //Describes an item thats been dropped
+    /// <summary>
+    /// Fires have this interactable, only the Robot can use it.
+    /// Plays a specific animation when interacting.
+    /// </summary>
+    public class FireInteractable : Interactable
     {
         public override bool CanInteract(Interactor interactor)
         {

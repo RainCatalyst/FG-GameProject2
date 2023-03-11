@@ -1,28 +1,26 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using SpaceGame;
 using UnityEngine;
 
-public class ItemRecycle : MonoBehaviour
+namespace SpaceGame
 {
-    private void OnTriggerEnter(Collider other)
+    public class ItemRecycle : MonoBehaviour
     {
-        if (other.attachedRigidbody.TryGetComponent<ItemInteractable>(out var item))
+        private void OnTriggerEnter(Collider other)
         {
-            if (item.ItemId == "wrench")
+            if (other.attachedRigidbody.TryGetComponent<ItemInteractable>(out var item))
             {
-                other.attachedRigidbody.transform.position = _wrenchRespawnPoint.position;
-                other.attachedRigidbody.velocity = Vector3.zero;
-                other.attachedRigidbody.angularVelocity = Vector3.zero;
-            }
-            else
-            {
-                Destroy(other.attachedRigidbody.gameObject);
+                if (item.ItemId == "wrench")
+                {
+                    other.attachedRigidbody.transform.position = _wrenchRespawnPoint.position;
+                    other.attachedRigidbody.velocity = Vector3.zero;
+                    other.attachedRigidbody.angularVelocity = Vector3.zero;
+                }
+                else
+                {
+                    Destroy(other.attachedRigidbody.gameObject);
+                }
             }
         }
-    }
 
-    [SerializeField]
-    private Transform _wrenchRespawnPoint;
+        [SerializeField] private Transform _wrenchRespawnPoint;
+    }
 }

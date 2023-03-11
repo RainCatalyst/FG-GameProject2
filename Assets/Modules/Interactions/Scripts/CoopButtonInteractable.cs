@@ -1,9 +1,14 @@
-using System;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace SpaceGame
 {
+    /// <summary>
+    /// Manages syncing up two button presses.
+    /// State 1 - nobody pressed any buttons (default)
+    /// State 2 - one button was pressed, waiting for other button
+    /// State 3 - other button was pressed as well, invoke Interacted
+    /// </summary>
     public class CoopButtonInteractable : MonoBehaviour
     {
         public UnityEvent Interacted;
@@ -13,7 +18,7 @@ namespace SpaceGame
             _buttonA.IsDisabled = false;
             _buttonB.IsDisabled = false;
         }
-        
+
         public void Disable()
         {
             _buttonA.IsDisabled = true;
@@ -82,17 +87,11 @@ namespace SpaceGame
             _buttonB.SetTimeWindowProgress(0);
         }
 
-        // State 1 - nobody pressed any buttons (default)
-        // State 2 - one button was pressed, waiting for other button
-        // State 3 - other button was pressed as well, invoke Interacted
-
-        private bool _isWaitingForButton;
+        [SerializeField] private float _pressWindow;
+        [SerializeField] private ButtonInteractable _buttonA;
+        [SerializeField] private ButtonInteractable _buttonB;
+        
         private float _timer;
-        [SerializeField]
-        private float _pressWindow;
-        [SerializeField]
-        private ButtonInteractable _buttonA;
-        [SerializeField]
-        private ButtonInteractable _buttonB;
+        private bool _isWaitingForButton;
     }
 }

@@ -1,43 +1,45 @@
-using System;
 using UnityEngine;
 
-//Pickup logic, this component displays an item that the player is holding
-public class ItemHolder : MonoBehaviour
+namespace SpaceGame
 {
-    public string ItemId => _id;
-    public ItemData Item => ItemDatabase.Get(_id);
-    public Transform ItemParent => _itemParent;
-
-    private void Awake()
+    /// <summary>
+    /// Responsible for displaying items
+    /// </summary>
+    public class ItemHolder : MonoBehaviour
     {
-        _defaultScale = _itemParent.localScale;
-    }
+        public string ItemId => _id;
+        public ItemData Item => ItemDatabase.Get(_id);
+        public Transform ItemParent => _itemParent;
 
-    public void SetItem(string id)
-    {
-        _id = id;
-
-        if (_activeItem != null)
+        private void Awake()
         {
-            Destroy(_activeItem);
+            _defaultScale = _itemParent.localScale;
         }
 
-        if (_id != null)
+        public void SetItem(string id)
         {
-            _activeItem = Instantiate(Item.GameObject, _itemParent);
-            if (!_enableColliders)
-                _activeItem.GetComponent<Collider>().enabled = false;
-            LeanTween.cancel(_itemParent.gameObject);
-            _itemParent.localScale = Vector3.zero;
-            LeanTween.scale(_itemParent.gameObject, _defaultScale, 0.21f).setEaseOutBack();
-        }
-    }
+            _id = id;
 
-    [SerializeField]
-    private Transform _itemParent;
-    [SerializeField]
-    private bool _enableColliders;
-    private GameObject _activeItem;
-    private Vector3 _defaultScale;
-    private string _id;
+            if (_activeItem != null)
+            {
+                Destroy(_activeItem);
+            }
+
+            if (_id != null)
+            {
+                _activeItem = Instantiate(Item.GameObject, _itemParent);
+                if (!_enableColliders)
+                    _activeItem.GetComponent<Collider>().enabled = false;
+                LeanTween.cancel(_itemParent.gameObject);
+                _itemParent.localScale = Vector3.zero;
+                LeanTween.scale(_itemParent.gameObject, _defaultScale, 0.21f).setEaseOutBack();
+            }
+        }
+
+        [SerializeField] private Transform _itemParent;
+        [SerializeField] private bool _enableColliders;
+        private GameObject _activeItem;
+        private Vector3 _defaultScale;
+        private string _id;
+    }
 }

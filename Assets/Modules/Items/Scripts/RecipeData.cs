@@ -1,51 +1,51 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewRecipe", menuName = "Data/RecipeData")]
-public class RecipeData : ScriptableObject
+namespace SpaceGame
 {
-    public IReadOnlyList<string> RequiredItems => _requiredItems;
-    public string Result => _result;
-
-    public bool CanCraft(List<string> items, bool sequence)
+    [CreateAssetMenu(fileName = "NewRecipe", menuName = "Data/RecipeData")]
+    public class RecipeData : ScriptableObject
     {
-        if (items.Count != _requiredItems.Count)
-            return false;
+        public IReadOnlyList<string> RequiredItems => _requiredItems;
+        public string Result => _result;
 
-        return OverlapsItems(items, sequence);
-    }
-
-    public bool OverlapsItems(List<string> items, bool sequence)
-    {
-        if (sequence)
+        public bool CanCraft(List<string> items, bool sequence)
         {
-            for (int i = 0; i < items.Count; i++)
-            {
-                if (_requiredItems[i] != items[i])
-                    return false;
-            }
+            if (items.Count != _requiredItems.Count)
+                return false;
+
+            return OverlapsItems(items, sequence);
         }
-        else
+
+        public bool OverlapsItems(List<string> items, bool sequence)
         {
-            var unusedItems = new List<string>(_requiredItems);
-            for (int i = 0; i < items.Count; i++)
+            if (sequence)
             {
-                int itemIdx = unusedItems.FindIndex(x => x == items[i]);
-                if (itemIdx == -1)
+                for (int i = 0; i < items.Count; i++)
                 {
-                    return false;
+                    if (_requiredItems[i] != items[i])
+                        return false;
                 }
-
-                unusedItems.RemoveAt(itemIdx);
             }
+            else
+            {
+                var unusedItems = new List<string>(_requiredItems);
+                for (int i = 0; i < items.Count; i++)
+                {
+                    int itemIdx = unusedItems.FindIndex(x => x == items[i]);
+                    if (itemIdx == -1)
+                    {
+                        return false;
+                    }
+
+                    unusedItems.RemoveAt(itemIdx);
+                }
+            }
+
+            return true;
         }
 
-        return true;
+        [SerializeField] private List<string> _requiredItems;
+        [SerializeField] private string _result;
     }
-
-    [SerializeField]
-    private List<string> _requiredItems;
-    [SerializeField]
-    private string _result;
 }

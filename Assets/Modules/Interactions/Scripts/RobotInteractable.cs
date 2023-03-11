@@ -4,6 +4,8 @@ namespace SpaceGame
 {
     public class RobotInteractable : Interactable
     {
+        public static RobotInteractable _instance;
+        
         public override bool CanInteract(Interactor interactor)
         {
             return base.CanInteract(interactor) && interactor.CharacterType == CharacterType.Human &&
@@ -52,15 +54,12 @@ namespace SpaceGame
             _batteryLevel = 0;
         }
 
-
+        public float _batteryLevel;
         [SerializeField] private float _batteryDrain;
         [SerializeField] private float _slowModifier;
         [SerializeField] private ProgressBar _batteryBar;
-        
-        private CharacterMovement _characterMovement;
-        public float _batteryLevel;
-        private float _normalSpeed;
 
-        public static RobotInteractable _instance;
+        private CharacterMovement _characterMovement;
+        private float _normalSpeed;
     }
 }

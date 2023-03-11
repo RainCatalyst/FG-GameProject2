@@ -3,10 +3,13 @@ using System;
 
 namespace SpaceGame
 {
-    public class ItemInteractable : Interactable //Describes an item thats been dropped
+    /// <summary>
+    /// Dropped items that can be picked up
+    /// </summary>
+    public class ItemInteractable : Interactable
     {
         public string ItemId => _itemHolder.ItemId;
-        
+
         public void SetItem(string id)
         {
             _itemId = id;
@@ -20,7 +23,7 @@ namespace SpaceGame
 
         public override bool CanInteract(Interactor interactor)
         {
-            return base.CanInteract(interactor) && interactor.ItemHolder.ItemId == null; //not holding anything
+            return base.CanInteract(interactor) && interactor.ItemHolder.ItemId == null;
         }
 
         protected override void OnInteractionFinished()
@@ -43,10 +46,8 @@ namespace SpaceGame
             }
         }
 
-        [SerializeField]
-        private string _itemId;
-        [SerializeField]
-        ItemHolder _itemHolder;
+        [SerializeField] private string _itemId;
+        [SerializeField] ItemHolder _itemHolder;
         private Rigidbody _rb;
     }
 }

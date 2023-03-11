@@ -17,7 +17,6 @@ public class RecipeHint : MonoBehaviour
             Recipes[idx].ResultImage.sprite = data.ResultIcon;
             Recipes[idx].Parent.SetActive(true);
         }
-        // TODO: Hide duplicate recipes maybe?
     }
 
     [Serializable]

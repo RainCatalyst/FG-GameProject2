@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,10 +28,7 @@ namespace SpaceGame
             _image.color = Color.Lerp(_image.color, Color.white, 8 * Time.deltaTime);
         }
 
-
-
-        [SerializeField]
-        private Image _image;
+        [SerializeField] private Image _image;
         private bool _active;
     }
 }

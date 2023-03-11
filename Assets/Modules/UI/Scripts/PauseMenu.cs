@@ -1,59 +1,56 @@
-using SpaceGame;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PauseMenu : MonoBehaviour
+namespace SpaceGame
 {
-    public static bool GameIsPaused = false;
-
-    [SerializeField] private GameObject pauseMenuUI;
-    [SerializeField] private Button _resumeButton;
-
-
-    private void Update()
+    public class PauseMenu : MonoBehaviour
     {
-        if (Input.GetButtonDown("Pause"))
+        public static bool GameIsPaused = false;
+
+        public void Resume()
         {
-            if (GameIsPaused)
+            pauseMenuUI.SetActive(false);
+            Time.timeScale = 1f;
+            GameIsPaused = false;
+        }
+
+        public void Pause()
+        {
+            pauseMenuUI.SetActive(true);
+            _resumeButton.Select();
+            Time.timeScale = 0f;
+            GameIsPaused = true;
+        }
+
+        public void ReturnToMenu()
+        {
+            GameManager.Instance.GoMenu();
+            Time.timeScale = 1f;
+            GameIsPaused = false;
+        }
+
+        public void Restart()
+        {
+            GameManager.Instance.Restart();
+            GameIsPaused = false;
+        }
+        
+        private void Update()
+        {
+            if (Input.GetButtonDown("Pause"))
             {
-                Resume();
-            }
-            else
-            {
-                Pause();
+                if (GameIsPaused)
+                {
+                    Resume();
+                }
+                else
+                {
+                    Pause();
+                }
             }
         }
-    }
-
-    public void Resume ()
-    {
-        pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-        GameIsPaused = false;
-    }
-
-    public void Pause ()
-    {
-        pauseMenuUI.SetActive(true);
-        _resumeButton.Select();
-        Time.timeScale = 0f;
-        GameIsPaused = true;
-    }
-
-    public void ReturnToMenu ()
-    {
-        GameManager.Instance.GoMenu();
-        Time.timeScale = 1f;
-        GameIsPaused = false;
-    }
-
-    public void Restart()
-    {
-        GameManager.Instance.Restart();
-        GameIsPaused = false;
+        
+        [SerializeField] private GameObject pauseMenuUI;
+        [SerializeField] private Button _resumeButton;
     }
 }
